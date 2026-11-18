@@ -6,12 +6,12 @@ Ces consignes s'appliquent à tout le dépôt et aux quatre rôles ci-dessous. L
 
 Friends Defense est un tower defense roguelite en français, destiné notamment au mobile. Le code actuel est autonome : `index.html` contient l'interface, les styles, la logique JavaScript, le rendu Canvas 2D et les images intégrées. La campagne comporte sept terrains de dix vagues et cinq héros. Vérifier ces faits dans la révision étudiée avant de s'en servir comme référence.
 
-La présente PR d'organisation ne doit changer que la documentation : aucune modification de `index.html`, des mécaniques, des statistiques, des graphismes ou du format des sauvegardes.
+Une mission d'audit ou de documentation ne modifie pas `index.html`, les mécaniques, les statistiques, les graphismes ou le format des sauvegardes. Une mission d'implémentation reste limitée à son objectif explicite.
 
 ## Règles communes
 
 1. Lire ce fichier et [la méthode de collaboration](docs/COLLABORATION.md) avant de travailler. Identifier la branche, le commit de référence, les modifications locales et les consignes plus spécifiques éventuelles.
-2. Préserver les modifications existantes. Travailler sur une branche dédiée ; ne pas pousser directement sur `main`, fusionner une PR ou publier une version sans demande explicite.
+2. Préserver les modifications existantes. Travailler sur une branche dédiée, sans push direct sur `main`. Les branches, commits, PR, fusions et déploiements des missions Friends Defense sont autorisés selon la procédure de livraison automatisée ci-dessous, sauf restriction explicite de la mission.
 3. Relier chaque changement au besoin demandé et à un critère d'acceptation observable. Avancer sur les choix courants ; demander une précision seulement si une décision importante reste indéterminée ou dépasse le périmètre autorisé.
 4. Distinguer les faits vérifiés, les hypothèses, les propositions et les résultats mesurés. Citer le commit, les fonctions ou les données concernés. Ne jamais présenter une simulation ou une émulation comme une partie humaine ou un essai sur téléphone réel.
 5. Garder les cinq héros et leurs identités. Ne pas les renommer, les remplacer, les fusionner ou changer leur rôle fondamental dans une tâche qui ne le demande pas.
@@ -20,6 +20,18 @@ La présente PR d'organisation ne doit changer que la documentation : aucune mod
 8. Ne pas modifier simultanément un fichier partagé depuis plusieurs agents. Déclarer les fichiers et zones de travail ; appliquer les règles d'intégration du guide de collaboration.
 9. Choisir une validation proportionnée au risque. Une modification documentaire demande une relecture et un contrôle du diff ; une modification de combat ou de sauvegarde demande des vérifications de comportement. Ne pas créer des tests qui ne font que recopier l'implémentation.
 10. Livrer un résultat vérifiable : fichiers changés, comportement attendu, contrôles exécutés et leurs résultats, limites et points restant à traiter. Ne pas déclarer un test réussi s'il n'a pas été exécuté.
+
+## Livraison automatisée autorisée
+
+Le 18 novembre 2026, l'utilisateur a demandé de gérer les branches, commits, PR, fusions et déploiements de Friends Defense sans lui demander de manipuler GitHub. Cette autorisation s'applique aux missions demandées ; elle ne dispense ni des contrôles ni du respect de leur périmètre.
+
+1. Récupérer le dernier `main`, examiner les modifications locales et synchroniser la branche dédiée sans écraser de travail. Réutiliser la PR existante du même correctif lorsqu'elle est ouverte.
+2. Exécuter les contrôles adaptés. Pour une modification du jeu : `node tests/rewards.test.cjs` et `python -B -m unittest discover -s tests -p 'test_*.py' -v`, puis les tests ciblés nécessaires à la tâche. Un refus de lancement n'est pas un résultat réussi.
+3. Vérifier les sauvegardes avec des fixtures et profils isolés : clés/version, étoiles, pouvoirs, records, complétion et rechargements. Ne pas effacer de données réelles, retirer rétroactivement des acquis ou changer l'origine du site pour livrer un correctif.
+4. Si un contrôle échoue ou si un risque de perte de sauvegarde est détecté, arrêter la publication et la fusion, conserver le travail et expliquer précisément le problème. Ne pas contourner les protections de branche ou présenter un contrôle incomplet comme validé.
+5. Lorsque tous les contrôles réussissent, pousser la branche, créer ou mettre à jour la PR avec les résultats et limites, puis la fusionner dans `main`. Vérifier le SHA exact de sa tête au moment de la fusion ; si la base ou le code a changé depuis les tests, réévaluer et relancer les contrôles concernés.
+6. Suivre le déploiement GitHub Pages existant, vérifier le commit déployé et le contenu servi, puis charger le jeu dans un profil de navigateur isolé. Préserver l'URL et les données du joueur ; ne pas confondre une réponse HTTP 200 avec un chargement fonctionnel réussi.
+7. Rapporter le résultat, les modifications, les tests et les problèmes éventuels. Une consigne spécifique telle que « ne pas fusionner » ou « ne pas publier le site » suspend les étapes correspondantes pour cette mission.
 
 ## Références du code actuel
 
@@ -131,4 +143,4 @@ Intégrer les propositions retenues dans le périmètre demandé, garantir le co
 - Vérifier au minimum des vues 320 × 568, 390 × 844 et 844 × 390 pixels CSS pour les changements d'interface. Couvrir Chromium et, lorsque l'environnement le permet, WebKit/Safari et un appareil tactile réel ; indiquer précisément ce qui a été émulé ou n'a pas pu être testé.
 - Observer erreurs console, chargement des images, audio après interaction, gestes tactiles, redimensionnement et fluidité en situation chargée. Comparer les performances à une référence mesurée sur le même environnement.
 - Reproduire un défaut avant de le corriger lorsque possible. Ajouter un test de régression utile pour les comportements fragiles, surtout combat et sauvegardes ; ne pas imposer une suite fonctionnelle à une PR uniquement documentaire.
-- Rédiger la PR avec problème, résultat, portée, validations réellement exécutées et limites. Ne pas fusionner dans `main` au terme de l'intégration sans instruction explicite de l'utilisateur.
+- Rédiger la PR avec problème, résultat, portée, validations réellement exécutées et limites. Effectuer la fusion et le suivi GitHub Pages selon la procédure de livraison automatisée, sous réserve des restrictions spécifiques de la mission.

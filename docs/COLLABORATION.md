@@ -4,7 +4,7 @@ Ce guide complète [AGENTS.md](../AGENTS.md). Il permet de faire avancer en para
 
 ## 1. Cadrer une tâche commune
 
-Le Développeur / QA assure par défaut la coordination technique. Il enregistre le commit de départ, le besoin de l'utilisateur, les contraintes et les critères de réussite. Cette coordination ne donne pas l'autorisation d'élargir la tâche ou de fusionner une PR.
+Le Développeur / QA assure par défaut la coordination technique. Il enregistre le commit de départ, le besoin de l'utilisateur, les contraintes et les critères de réussite. Cette coordination ne donne pas l'autorisation d'élargir la tâche. La livraison des missions suit l'autorisation et les conditions de la section « Livraison automatisée autorisée » d'[AGENTS.md](../AGENTS.md).
 
 Créer une fiche par tâche dans `docs/tasks/<identifiant>.md` lorsque le travail nécessite plusieurs livrables. Pour une petite correction, ces informations peuvent figurer directement dans la PR. Ne pas créer de dossiers vides ou de rapports sans utilité pour la tâche.
 
@@ -89,7 +89,7 @@ Les rôles règlent ensemble les choix ordinaires déjà autorisés. Une décisi
 5. Après un changement de règles ou de timing, refaire les simulations ou prévisualisations qui en dépendent. Signaler comme périmés les résultats obtenus sur une ancienne version.
 6. Chaque spécialiste relit les éléments relevant de son rôle selon le risque ; le Développeur / QA consigne la validation intégrée et les vérifications impossibles dans l'environnement disponible.
 
-Ne pas confondre intégration dans la branche de travail et fusion dans `main`. La seconde nécessite une instruction explicite de l'utilisateur.
+Ne pas confondre intégration dans la branche de travail et fusion dans `main`. La seconde suit la procédure automatisée autorisée : contrôles réussis, préservation des sauvegardes, PR à jour et vérification du SHA à fusionner. Une restriction explicite de la mission reste prioritaire.
 
 ## 6. Passer en revue et ouvrir la PR
 
@@ -103,8 +103,10 @@ La description de PR doit présenter :
 - L'effet éventuel sur les sauvegardes, la compatibilité mobile et les performances.
 - Les limites restantes et les éléments hors périmètre qui nécessitent une décision.
 
-Pousser uniquement la branche de travail et ouvrir la PR vers `main`, sans fusion automatique. Si l'accès échoue, distinguer le droit de lecture du dépôt, le droit de pousser une branche et celui de créer une PR. Rapporter l'erreur utile et la permission ou connexion manquante sans exposer de jeton. Conserver les commits locaux et fournir la branche ainsi que les fichiers prêts à examiner.
+Pousser uniquement la branche de travail et ouvrir ou actualiser sa PR vers `main`. Après succès de tous les contrôles, effectuer la fusion autorisée et suivre GitHub Pages jusqu'à la vérification du commit, du contenu publié et du chargement du jeu. Utiliser des profils de test isolés et conserver l'URL du jeu. Un test en échec ou un risque de perte de sauvegarde arrête la publication et doit être expliqué.
 
-## Application à la PR d'organisation
+Si l'accès échoue, distinguer le droit de lecture du dépôt, le droit de pousser une branche, de créer ou fusionner une PR et de consulter le déploiement. Rapporter l'erreur utile et la permission ou connexion manquante sans exposer de jeton. Conserver les commits locaux et les fichiers prêts à examiner ; ne pas demander une intervention GitHub déjà couverte par l'autorisation lorsque les outils permettent d'agir.
+
+## Historique — PR d'organisation
 
 Cette première PR ajoute uniquement `AGENTS.md` et ce guide. Les quatre rôles sont définis, mais aucune modification des mécaniques ou des graphismes n'est incluse. La validation porte sur la cohérence des consignes, les liens relatifs, le diff et l'identité de `index.html` avec le commit de référence ; elle ne constitue pas un test de jouabilité.
