@@ -159,6 +159,7 @@ class ProgressionBrowserTests(unittest.TestCase):
         seed = copy.deepcopy(FIXTURE)
         seed.update(stars=79, runEnded=True, rewardOpen=True, paused=True)
         seed["g"].update(wave=1, active=True, spawned=0, total=14, clock=999)
+        seed["buildCheckpoint"]["wave"] = 0
         # This historical receipt credited an active wave. Preserve the acquired balance.
         seed["metaLastEarned"] = {
             "earned": 6, "record": True, "n": 1, "before": 73,
@@ -186,8 +187,30 @@ class ProgressionBrowserTests(unittest.TestCase):
         self.assertEqual(save["bestWave"], 48)
         self.assertEqual(save["metaLastEarned"]["n"], 1)
         self.assertTrue(save["runEnded"])
+        self.assertTrue(save["paused"])
         self.reload_and_continue(page)
         self.assertEqual(self.saved(page)["stars"], 78)
+
+    def test_legacy_closed_finished_screens_reopen_without_awarding_or_resetting(self):
+        for receipt in (None, {"earned": 6, "n": 1, "before": 73,
+                              "after": 79, "record": True, "win": False}):
+            with self.subTest(receipt=receipt is not None):
+                seed = copy.deepcopy(FIXTURE)
+                seed.update(runEnded=True, rewardOpen=False, workshopOpen=False,
+                            paused=False, stars=79, metaLastEarned=receipt)
+                page = self.page({NORMAL: seed})
+                self.continue_game(page)
+                expected = "#runReward" if receipt else "#metaWorkshop"
+                self.assertTrue(page.locator(expected).is_visible())
+                save = self.saved(page)
+                self.assertTrue(save["paused"])
+                self.assertEqual(save["stars"], 79)
+                self.assertEqual(save["metaLevels"], FIXTURE["metaLevels"])
+                self.assertEqual(save["bestWave"], 48)
+                self.assertTrue(save["completed"])
+                self.reload_and_continue(page)
+                self.assertTrue(page.locator(expected).is_visible())
+                self.assertEqual(self.saved(page)["stars"], 79)
 
     def test_intermediate_map_victory_does_not_pay_stars_before_the_attempt_ends(self):
         seed = copy.deepcopy(FIXTURE)
@@ -204,6 +227,38 @@ class ProgressionBrowserTests(unittest.TestCase):
         self.assertEqual(self.saved(page)["metaLastEarned"]["n"], 10)
         self.assertEqual(self.saved(page)["stars"], 80)  # Existing record: +7 at level 1.
         self.assertEqual(page.locator(".rrStage.done").count(), 1)
+
+    def test_carried_hearts_survive_transition_reload_and_two_checkpoint_retries(self):
+        seed = copy.deepcopy(FIXTURE)
+        seed.update(runHearts=2, runEnded=False)
+        seed["g"].update(wave=10, active=False, ended=True, life=15, retries=2)
+        page = self.page({NORMAL: seed})
+        self.continue_game(page)
+        page.locator("#nextMap").click()
+        self.reload_and_continue(page)
+        carried = self.saved(page)
+        self.assertEqual(carried["level"], 1)
+        self.assertEqual(carried["g"]["retries"], 2)
+        self.assertEqual(carried["buildCheckpoint"]["retries"], 2)
+        checkpoint_money = carried["buildCheckpoint"]["money"]
+        for remaining in (1, 0):
+            loss = copy.deepcopy(carried)
+            loss["g"].update(wave=1, active=False, ended=True, life=0,
+                             total=14, spawned=14, money=checkpoint_money-35+10)
+            loss["g"]["towers"]["31"] = {
+                "type": 0, "lvl": 1, "invested": 35, "cd": 0, "fresh": False
+            }
+            failed_page = self.page({NORMAL: loss})
+            self.continue_game(failed_page)
+            self.assertTrue(failed_page.locator("#retryWave").is_visible())
+            failed_page.locator("#retryWave").click()
+            carried = self.saved(failed_page)
+            self.assertEqual(carried["g"]["retries"], remaining)
+            self.assertEqual(carried["buildCheckpoint"]["retries"], remaining)
+            self.assertEqual(carried["g"]["money"], checkpoint_money)
+            self.assertEqual(carried["g"]["towers"], {})
+            self.assertEqual(carried["stars"], 73)
+            self.assertEqual(carried["bestWave"], 48)
 
     def test_campaign_victory_rewards_once_and_marks_only_completed_maps(self):
         seed = copy.deepcopy(FIXTURE)
