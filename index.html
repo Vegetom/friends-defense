@@ -176,6 +176,8 @@
 @media(max-width:350px){#fd15 #runReward{gap:7px;padding:11px 10px}#fd15 .rrHead{min-height:67px}#fd15 .rrPortrait{width:56px;height:56px;flex-basis:56px}#fd15 .rrStage{padding-left:23px}#fd15 .rrNode{left:2px;width:16px;height:16px}#fd15 .rrPathBg,#fd15 .rrPathFill{left:10px}#fd15 .rrStageName{font-size:9px}#fd15 .rrJourney{padding:8px 6px}#fd15 .rrRewardSide{padding:8px 4px}#fd15 .rrTotalCount{min-width:88%}#fd15 .rrHero canvas{max-width:41px}#fd15 .rrActions{gap:5px}#fd15 #rrImprove{min-height:44px}#fd15 #rrReplay{min-height:34px}}
 @media(max-height:700px){#fd15 #runReward{gap:5px;padding:8px 11px;height:calc(100% - 8px)}#fd15 .rrHead{min-height:57px;padding:0 0 4px}#fd15 .rrPortrait{width:54px;height:54px;flex-basis:54px}#fd15 .rrHead h2{font-size:20px}#fd15 .rrMapStages{gap:2px}#fd15 .rrStage{min-height:22px;padding-top:2px;padding-bottom:2px}#fd15 .rrRewardSide{gap:5px}#fd15 .rrWallet{min-height:66px}#fd15 .rrTotalCount{padding:4px}#fd15 .rrFooterHint{font-size:10px}#fd15 .rrHero canvas{max-width:42px}#fd15 #rrImprove{min-height:42px}#fd15 #rrReplay{min-height:34px}}
 @media(prefers-reduced-motion:reduce){#fd15 .rrPathFill,#fd15 .rrGain{transition:none}#fd15 .rrStage.current .rrNode,#fd15 #runReward.complete .rrTotalCount{animation:none}}
+
+#fd15 #saveStatus{font-size:11px;line-height:1.35;padding:5px 8px;background:#102d43;color:#e3f2f8;border-radius:7px}#fd15 #saveStatus button{font-size:11px;margin:3px;min-height:44px}#fd15 #saveRecovery{position:absolute;z-index:60;left:10px;right:10px;top:50%;transform:translateY(-50%);max-height:90%;overflow:auto;padding:14px;border:1px solid #90dbf5;border-radius:13px;background:#102d43;box-shadow:0 0 0 100vmax #081523dd}#fd15 #saveRecovery p{font-size:12px;line-height:1.4}#fd15 #saveRecovery button,#fd15 #saveRecovery label{display:block;margin:8px 0;min-height:44px}#fd15 #saveRecovery button{width:100%}#fd15 #saveRecovery label{font-size:12px}
 </style></head><body><div id="fd15"><style>
 #fd15{position:relative;isolation:isolate;overflow:hidden;max-width:720px;margin:auto;height:100dvh;min-height:650px;max-height:980px;background:linear-gradient(#55a5d0 0%,#a8dce8 23%,#72a64e 24%,#254c38 100%);border-radius:12px;color:#f0f8ff;font:13px system-ui,sans-serif;touch-action:manipulation}#fd15 *{box-sizing:border-box}#fd15 [hidden]{display:none!important}#fd15 button{font:inherit;font-weight:700;color:#fff;background:#18384f;border:1px solid #75adc7;border-radius:9px;padding:8px;cursor:pointer;touch-action:manipulation}#fd15 button:disabled{opacity:.45}#fd15 .sel{border-color:#ffd25d;box-shadow:inset 0 0 0 1px #ffd25d}#fd15 .logo{position:absolute;left:10px;top:10px;font-weight:1000;font-style:italic;font-size:24px;color:#ffd260;letter-spacing:-1px;text-shadow:2px 3px #233043;line-height:1}#fd15 .ver{position:absolute;left:12px;top:41px;font-size:10px;letter-spacing:1px;text-shadow:0 1px 3px #13293a}#fd15 .hud{position:absolute;top:59px;left:10px;display:grid;gap:4px;z-index:4}#fd15 .hud span,#fd15 #route{background:#112f43ed;border:1px solid #94c8db88;border-radius:8px;padding:5px 9px;font-weight:800}#fd15 #route{position:absolute;top:157px;left:10px;font-size:10px;z-index:3}#fd15 .rail{position:absolute;right:9px;top:9px;display:grid;gap:5px;z-index:5}#fd15 .rail button{min-height:32px;padding:6px}#fd15 .gold{background:linear-gradient(#ffc65c,#dc8426);color:#251e10;border-color:#ffdf92}#fd15 .arena{position:absolute;inset:182px 0 147px;display:flex;justify-content:center;align-items:flex-start;pointer-events:none}#fd15 canvas{display:block}#fd15 #board{max-width:100%;max-height:100%;pointer-events:auto;touch-action:none;filter:drop-shadow(0 5px 9px #192b2666)}#fd15 .dock{position:absolute;bottom:8px;left:8px;right:8px;background:#102d43f5;border:1px solid #9ad5e7;border-radius:13px;padding:8px;z-index:5}#fd15 .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}#fd15 #shop{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;touch-action:pan-x}#fd15 .offer{flex:1 0 0;min-width:60px;padding:0 2px 4px;overflow:hidden;background:linear-gradient(#456780,#173249);font-size:10px;text-align:center}#fd15 .offer canvas{width:100%;height:auto;max-height:55px;object-fit:contain;background:#4b6379;border-bottom:2px solid var(--accent)}#fd15 .offer b,#fd15 .offer small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#fd15 .offer strong{color:#ffe07e;display:block}#fd15 .locked canvas{filter:grayscale(.85) brightness(.6)}#fd15 .poor strong{color:#b3a48d}#fd15 #info{position:absolute;bottom:140px;left:10px;right:10px;background:#112c40ed;border-radius:8px;padding:7px;z-index:6;text-align:center;font-size:12px;pointer-events:none}#fd15 #panel,#fd15 #bonus,#fd15 #result{position:absolute;left:10px;right:10px;z-index:8;background:#102d43f7;border:1px solid #90dbf5;border-radius:13px;padding:10px;box-shadow:0 4px 15px #08192788}#fd15 #panel{bottom:142px;max-height:50%;overflow:auto}#fd15 #close{float:right;padding:3px 9px;font-size:18px}#fd15 #detail h3{margin:0;font-size:15px}#fd15 #detail p{font-size:11px;line-height:1.35;margin:5px 0;color:#d0e2ef}#fd15 table{border-collapse:collapse;width:100%;font-size:11px}#fd15 td,#fd15 th{text-align:right;padding:4px;border-bottom:1px solid #56738566}#fd15 td:first-child,#fd15 th:first-child{text-align:left}#fd15 .gain{color:#a7ffaf}#fd15 .acts{display:flex;gap:5px;margin-top:7px}#fd15 .acts button{flex:1;font-size:11px}#fd15 #bonus,#fd15 #result{top:30%;box-shadow:0 0 0 100vmax #0b182c77}#fd15 #bonus button,#fd15 #result button{display:block;width:100%;margin-top:8px}#fd15 #result:empty{display:none}#fd15:fullscreen{height:100%;max-height:none;max-width:none;border-radius:0}#fd15 .land{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 
@@ -430,7 +432,9 @@
  <div class="metaReward" id="metaReward" hidden><div class="metaRewardMain"><small>ÉTOILES GAGNÉES</small><strong id="metaEarned">+0 ★</strong></div><div class="metaRewardSide"><small id="metaRewardPlace">Terrain 1</small><span id="metaBalanceMath">0 → 0 ★</span><small id="metaRecordFlag"></small></div></div>
  <div class="metaRoster" id="metaRoster"></div>
  <div id="metaToast" class="metaToast" hidden role="status" aria-live="polite"></div><div class="metaFooter"><button class="gold" id="metaPlay">▶ COMMENCER</button><div class="metaTools"><button id="metaHard" hidden>☠ Hardcore</button></div></div>
- </section><div id="result"></div><div class="dock"><div class="head"><b>COMBATTANTS</b><div class="headActions"><button id="devSkip" hidden aria-label="Passer le terrain dans le profil de test">Passer le terrain (test)</button><small id="unlock"></small></div></div><div id="shop"></div><div class="rail"><button id="full" aria-label="Plein écran" title="Plein écran"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></svg></button><button id="reset" aria-label="Recommencer" title="Recommencer"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.5 6.5M4 4v7h7"/></svg></button><button id="speed" aria-label="Vitesse de jeu">×1</button><button id="pause" aria-label="Pause"><svg class="pauseIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke-width="3"/></svg><svg class="playIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 4 12 8-12 8Z" fill="currentColor" stroke="none"/></svg></button><button class="gold" id="start">▶ Vague 1</button></div></div><div id="menuHome" aria-modal="true" role="dialog"><div class="menuHomeArt"><div class="menuHomeShade"></div><div class="menuButtons"><button id="menuNew" class="menuBtn" aria-label="Nouvelle partie"><span class="menuBtnLabel">Nouvelle partie</span></button><button id="menuContinue" class="menuBtn" aria-label="Continuer"><span class="menuBtnLabel">Continuer</span></button></div></div></div>
+ </section><div id="result"></div><div class="dock"><div class="head"><b>COMBATTANTS</b><div class="headActions"><button id="devSkip" hidden aria-label="Passer le terrain dans le profil de test">Passer le terrain (test)</button><small id="unlock"></small></div></div><div id="shop"></div><div class="rail"><button id="full" aria-label="Plein écran" title="Plein écran"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></svg></button><button id="reset" aria-label="Terminer la tentative" title="Terminer la tentative"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.5 6.5M4 4v7h7"/></svg></button><button id="speed" aria-label="Vitesse de jeu">×1</button><button id="pause" aria-label="Pause"><svg class="pauseIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke-width="3"/></svg><svg class="playIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 4 12 8-12 8Z" fill="currentColor" stroke="none"/></svg></button><button class="gold" id="start">▶ Vague 1</button></div></div><div id="menuHome" aria-modal="true" role="dialog"><div class="menuHomeArt"><div class="menuHomeShade"></div><div class="menuButtons"><button id="menuNew" class="menuBtn" aria-label="Nouveau profil"><span class="menuBtnLabel">Nouveau profil</span></button><button id="menuContinue" class="menuBtn" aria-label="Continuer"><span class="menuBtnLabel">Continuer</span></button></div></div></div>
+<div id="saveStatus" role="status" aria-live="polite"><span id="saveStatusMessage"></span><button id="manageSave" hidden>Gérer la sauvegarde</button><button id="exportProgress" hidden>Exporter la progression en mémoire</button></div>
+<section id="saveRecovery" role="dialog" aria-modal="true" aria-label="Sauvegarde conservée" hidden><h2>Sauvegarde conservée</h2><p id="saveRecoveryMessage"></p><p>Exporte le fichier brut avant de choisir un nouveau profil. Le téléchargement ne confirme pas que tu as conservé le fichier.</p><button id="exportSave">Exporter la sauvegarde conservée</button><label><input type="checkbox" id="backupConfirmed"> J’ai conservé une copie de cette sauvegarde</label><button id="recoverSave" disabled>Créer un nouveau profil après sauvegarde</button><button id="recoveryCancel">Annuler</button></section>
 <script>
 (()=>{
 const root=document.getElementById('fd15'),$=id=>root.querySelector('#'+id),cv=$('board'),ctx=cv.getContext('2d');
@@ -438,20 +442,157 @@ const DEV_MODE=new URLSearchParams(window.location.search).get('dev')==='1';
 const SAVE_KEY=DEV_MODE?'friends-defense-dev-save-v38':'friends-defense-save-v38';
 const SETTINGS_KEY=DEV_MODE?'friends-defense-dev-settings-v15':'friends-defense-settings-v15';
 $('devSkip').hidden=!DEV_MODE;
-if(DEV_MODE){document.title='MODE TEST · '+document.title;const label=document.createElement('strong');label.textContent='MODE TEST · progression séparée';root.querySelector('.menuButtons').prepend(label);$('menuNew').querySelector('.menuBtnLabel').textContent='Nouvelle partie TEST';$('menuContinue').querySelector('.menuBtnLabel').textContent='Continuer TEST';$('menuNew').setAttribute('aria-label','Nouvelle partie TEST');$('menuContinue').setAttribute('aria-label','Continuer TEST');}
+if(DEV_MODE){document.title='MODE TEST · '+document.title;const label=document.createElement('strong');label.textContent='MODE TEST · progression séparée';root.querySelector('.menuButtons').prepend(label);$('menuNew').querySelector('.menuBtnLabel').textContent='Nouveau profil TEST';$('menuContinue').querySelector('.menuBtnLabel').textContent='Continuer TEST';$('menuNew').setAttribute('aria-label','Nouveau profil TEST');$('menuContinue').setAttribute('aria-label','Continuer TEST');}
 let menuOpen=true,lastAutoSave=0;
 const cloneData=v=>v==null?v:JSON.parse(JSON.stringify(v));
-function buildSaveData(){if(typeof g==='undefined'||!g)return null;return {version:38,level,metaLevels:cloneData(metaLevels),stars,bestWave,completed,runHearts,runVariation,runEnded,metaLastEarned:cloneData(metaLastEarned),rewardOpen,hardcore,buildCheckpoint:cloneData(buildCheckpoint),g:cloneData(g),clock,notice,workshopOpen,paused};}
-function readSaveData(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return null;const data=JSON.parse(raw);if(!data||data.version!==38||!Array.isArray(data.metaLevels)||!data.g)return null;return data}catch(_){return null}}
+// Save validation is pure: no live state, storage or DOM is changed here.
+function validateSaveData(input){
+ try{
+  const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+  const finite=v=>typeof v==='number'&&Number.isFinite(v);
+  const integer=(v,min=0,max=Number.MAX_SAFE_INTEGER)=>Number.isSafeInteger(v)&&v>=min&&v<=max;
+  const demand=(ok,message)=>{if(!ok)throw new Error(message)};
+  let nodes=0;
+  function safe(v){demand(++nodes<50000,'Sauvegarde trop complexe');if(v===null||v===undefined)return;
+   if(typeof v==='number'){demand(finite(v),'Nombre invalide');return;}
+   if(typeof v==='string'||typeof v==='boolean')return;
+   demand(typeof v==='object','Valeur non prise en charge');
+   for(const k of Object.keys(v)){demand(!['__proto__','prototype','constructor'].includes(k),'Clé non sûre');safe(v[k]);}
+  }
+  safe(input);demand(object(input),'Objet de sauvegarde absent');
+  demand(input.version===38,'Version de sauvegarde non prise en charge');
+  const data=JSON.parse(JSON.stringify(input));
+  demand(integer(data.level,0,MAPS.length-1),'Terrain invalide');
+  demand(integer(data.stars),'Solde d’étoiles invalide');demand(integer(data.bestWave,0,70),'Record invalide');
+  demand(Array.isArray(data.metaLevels)&&data.metaLevels.length<=5&&data.metaLevels.every(v=>integer(v,0,3)),'Pouvoirs invalides');
+  data.metaLevels=Array.from({length:5},(_,i)=>data.metaLevels[i]??0);
+  for(const key of ['completed','runEnded','rewardOpen','hardcore','workshopOpen','paused']){
+   if(data[key]===undefined)data[key]=false;demand(typeof data[key]==='boolean','État '+key+' invalide');
+  }
+  if(data.speed===undefined)data.speed=1;demand([1,2,3].includes(data.speed),'Vitesse invalide');
+  if(data.runHearts===undefined)data.runHearts=0;demand(integer(data.runHearts,0,2),'Cœurs invalides');
+  if(data.runVariation===undefined)data.runVariation=0;demand(integer(data.runVariation),'Variation invalide');
+  if(data.clock===undefined)data.clock=0;demand(finite(data.clock),'Horloge invalide');
+  if(data.notice===undefined)data.notice='';demand(typeof data.notice==='string','Message invalide');
+  const rows=MAPS[data.level].rows,w=rows[0].length,cells=rows.join(''),entry=cells.indexOf('E'),exit=cells.indexOf('S');
+  function routeFor(towers){
+   const queue=[entry],prev=Array(cells.length).fill(-1);prev[entry]=entry;
+   for(let j=0;j<queue.length;j++){
+    const i=queue[j];if(i===exit){const route=[exit];while(route[route.length-1]!==entry)route.push(prev[route[route.length-1]]);return route.reverse();}
+    const x=i%w;for(const n of [x>0?i-1:-1,x<w-1?i+1:-1,i-w,i+w])if(n>=0&&n<cells.length&&cells[n]!=='#'&&cells[n]!=='~'&&prev[n]<0&&!towers[n]){prev[n]=i;queue.push(n);}
+   }
+   return null;
+  }
+  function board(state){
+   demand(object(state),'État de partie absent');demand(integer(state.money),'Budget invalide');
+   demand(integer(state.life,0,15)&&integer(state.wave,0,10),'Vies ou vague invalides');
+   demand(object(state.towers),'Tours absentes');
+   for(const [cell,t] of Object.entries(state.towers)){
+    demand(/^\d+$/.test(cell)&&String(Number(cell))===cell&&cells[Number(cell)]==='.'&&object(t),'Position de tour invalide');
+    demand(integer(t.type,0,D.length-1)&&integer(t.lvl,1,3)&&integer(t.invested),'Tour invalide');
+    if(t.cd===undefined)t.cd=0;demand(finite(t.cd),'Cadence de tour invalide');
+    if(t.fresh===undefined)t.fresh=false;demand(typeof t.fresh==='boolean','État de tour invalide');
+    for(const key of ['aim','recoil','charge','transformAt','landingAt'])if(t[key]!==undefined)demand(finite(t[key]),'Animation de tour invalide');
+    if(t.previousLevel!==undefined)demand(integer(t.previousLevel,1,3),'Forme de tour invalide');
+   }
+   state.route=routeFor(state.towers);demand(state.route!==null,'Passage bloqué');
+   for(const key of ['active','ended','bonus','bossDefeated','bossEscaped']){if(state[key]===undefined)state[key]=false;demand(typeof state[key]==='boolean','État '+key+' invalide');}
+   demand(!state.active||(integer(state.total,1)&&integer(state.spawned)&&state.spawned<=state.total),'Compteurs de vague active absents ou invalides');
+   for(const key of ['spawned','total','killed','escaped','totalKills','totalLeaks','bossKills','bossLeaks']){if(state[key]===undefined)state[key]=0;demand(integer(state[key]),'Compteur '+key+' invalide');}
+   if(state.retries===undefined)state.retries=0;demand(integer(state.retries,0,2),'Reprises invalides');
+   if(state.clock===undefined)state.clock=0;demand(finite(state.clock),'Horloge de vague invalide');
+   if(state.perks===undefined)state.perks=[];demand(Array.isArray(state.perks)&&state.perks.every(p=>typeof p==='string'&&B.some(b=>b.id===p)),'Bonus invalides');
+   if(state.mods===undefined)state.mods={sai:0,eco:0,power:0,haste:0,range:0};demand(object(state.mods),'Modificateurs invalides');
+   for(const key of ['enemies','fx','zones','delayed']){if(state[key]===undefined)state[key]=[];demand(Array.isArray(state[key]),'Liste '+key+' invalide');}
+   for(const e of state.enemies){
+    demand(object(e)&&['x','y','hp','max','vel','progress'].every(k=>finite(e[k]))&&e.max>0&&e.vel>0,'Ennemi invalide');
+    demand(integer(e.k,0,state.route.length-1)&&integer(e.reward),'Progression ennemie invalide');
+    for(const key of ['slow','slowPower','flash','burn','burnDps','mark','armor','shield','maxShield','regen']){if(e[key]===undefined)e[key]=0;demand(finite(e[key]),'État ennemi invalide');}
+    for(const key of ['boss','elite','fast','tank','air','airDone']){if(e[key]===undefined)e[key]=false;demand(typeof e[key]==='boolean','Type ennemi invalide');}
+   }
+   for(const f of state.fx)demand(object(f)&&integer(f.type,0,4)&&['x','y','ex','ey','age','dur'].every(k=>finite(f[k]))&&f.dur>0&&typeof f.c==='string'&&/^#(?:[a-f\d]{3}|[a-f\d]{4}|[a-f\d]{6}|[a-f\d]{8})$/i.test(f.c),'Effet invalide');
+   for(const z of state.zones)demand(object(z)&&['fire','ice'].includes(z.kind)&&['x','y','r','life','age','dps','power'].every(k=>finite(z[k]))&&z.r>=0,'Zone invalide');
+   for(const z of state.delayed)demand(object(z)&&['shock','meteor','apocalypse'].includes(z.kind)&&['x','y','wait','r','dmg'].every(k=>finite(z[k]))&&z.r>=0,'Impact différé invalide');
+   return state;
+  }
+  data.g=board(data.g);
+  if(data.buildCheckpoint!=null){data.buildCheckpoint=board(data.buildCheckpoint);const cp=data.buildCheckpoint;demand(!cp.active&&!cp.ended&&!cp.bonus&&cp.life>0&&cp.wave<=data.g.wave&&['enemies','fx','zones','delayed'].every(k=>cp[k].length===0),'Checkpoint de préparation invalide');}else data.buildCheckpoint=null;
+  if(data.metaLastEarned!=null){const r=data.metaLastEarned;demand(object(r)&&['earned','n','before','after'].every(k=>integer(r[k]))&&r.n<=70,'Reçu de récompense invalide');if(r.win===undefined)r.win=false;if(r.record===undefined)r.record=false;demand(typeof r.win==='boolean'&&typeof r.record==='boolean','Reçu invalide');}else data.metaLastEarned=null;
+  demand(!data.rewardOpen||data.metaLastEarned!==null,'Reçu de récompense absent');
+  // Only the unambiguous legacy entry-to-map checkpoint can recover carried hearts.
+  const cp=data.buildCheckpoint;
+  if(!data.runEnded&&data.level>0&&cp&&cp.wave===0&&cp.retries===0&&((data.g.wave===0&&!data.g.active&&!data.g.ended&&!data.g.bonus)||(data.g.wave===1&&(data.g.active||data.g.ended&&data.g.life===0)))&&data.g.retries>0&&data.runHearts===data.g.retries)cp.retries=data.g.retries;
+  return {ok:true,data};
+ }catch(error){return {ok:false,error:error.message||'Sauvegarde invalide'};}
+}
+function getRecoverableProfile(input){
+ if(!input||input.version!==38||!Number.isSafeInteger(input.stars)||input.stars<0||!Number.isSafeInteger(input.bestWave)||input.bestWave<0||input.bestWave>70)return null;
+ if(!Array.isArray(input.metaLevels)||input.metaLevels.length>5||!input.metaLevels.every(v=>Number.isInteger(v)&&v>=0&&v<=3))return null;
+ if(input.completed!==undefined&&typeof input.completed!=='boolean')return null;
+ return {stars:input.stars,bestWave:input.bestWave,completed:input.completed??false,metaLevels:Array.from({length:5},(_,i)=>input.metaLevels[i]??0)};
+}
+// End pure save validation.
+function buildSaveData(){if(typeof g==='undefined'||!g)return null;return {version:38,level,metaLevels:cloneData(metaLevels),stars,bestWave,completed,runHearts,runVariation,runEnded,metaLastEarned:cloneData(metaLastEarned),rewardOpen,hardcore,buildCheckpoint:cloneData(buildCheckpoint),g:cloneData(g),clock,notice,workshopOpen,paused,speed};}
+let saveProblem=null,lastSaveError='',saveRecordKind='absent',recoveryExported=false,recoveryPermitRaw=null;
+function readSaveRecord(){
+ try{
+  const raw=localStorage.getItem(SAVE_KEY);if(raw===null)return {kind:'absent',raw:null};
+  let input;try{input=JSON.parse(raw)}catch(_){return {kind:'invalid',raw};}
+  if(input&&input.version!==38)return {kind:'version',raw};
+  const result=validateSaveData(input);return result.ok?{kind:'valid',raw,data:result.data}:{kind:'invalid',raw,error:result.error,profile:getRecoverableProfile(input)};
+ }catch(_){return {kind:'unreadable',raw:null};}
+}
+function saveProblemText(kind,profile=null){if(profile)return 'Cette tentative ne peut pas être reprise. Tes étoiles, pouvoirs et record peuvent être conservés.';return kind==='version'?'Cette sauvegarde vient d’une autre version du jeu. Elle a été conservée.':kind==='unreadable'?'Impossible de lire la sauvegarde sur cet appareil. Aucune donnée n’a été remplacée.':'Cette sauvegarde ne peut pas être reprise. Elle a été conservée.';}
+function refreshSaveStatus(){
+ $('saveStatusMessage').textContent=lastSaveError+(saveProblem?(lastSaveError?' ':'')+saveProblemText(saveProblem.kind,saveProblem.profile):lastSaveError?'':menuOpen?(saveRecordKind==='valid'?'Une sauvegarde est disponible.':'Aucune sauvegarde sur cet appareil.'):'Progression enregistrée sur cet appareil.');
+ $('manageSave').hidden=!saveProblem;$('exportProgress').hidden=menuOpen||(!lastSaveError&&!saveProblem);
+}
+function readSaveData(){const record=readSaveRecord();saveRecordKind=record.kind;saveProblem=['valid','absent'].includes(record.kind)?null:record;refreshSaveStatus();return record.kind==='valid'?record.data:null;}
 function hasUsableSave(){return !!readSaveData()}
-function saveProgress(){if(menuOpen)return;const data=buildSaveData();if(!data)return;try{localStorage.setItem(SAVE_KEY,JSON.stringify(data))}catch(_){ }updateMenuButtons()}
-function clearProgress(){try{localStorage.removeItem(SAVE_KEY)}catch(_){}updateMenuButtons()}
+function saveProgress(){
+ if(menuOpen)return false;
+ const record=readSaveRecord();
+ if(!['valid','absent'].includes(record.kind)&&!(record.raw!==null&&record.raw===recoveryPermitRaw)){saveProblem=record;refreshSaveStatus();return false;}
+ let data;try{data=buildSaveData();}catch(_){lastSaveError='Progression non enregistrée : état de partie invalide. Garde cette page ouverte.';refreshSaveStatus();return false;}if(!data)return false;
+ const checked=validateSaveData(data);if(!checked.ok){lastSaveError='Progression non enregistrée : état de partie invalide. Garde cette page ouverte.';refreshSaveStatus();return false;}
+ try{localStorage.setItem(SAVE_KEY,JSON.stringify(data));saveRecordKind='valid';saveProblem=null;lastSaveError='';refreshSaveStatus();return true;}
+ catch(_){lastSaveError='Progression non enregistrée. Garde cette page ouverte.';refreshSaveStatus();return false;}
+}
+function clearProgress(){/* A profile is replaced only by the explicit new-profile or recovery flow. */}
 function updateMenuButtons(){const c=$('menuContinue');if(!c)return;const ok=hasUsableSave();c.disabled=!ok;c.setAttribute('aria-disabled',String(!ok));}
-function hideMenu(){menuOpen=false;$('menuHome').hidden=true;}
-function showMenu(){menuOpen=true;$('menuHome').hidden=false;paused=true;updateMenuButtons()}
+function exportSaveText(raw,name){
+ try{const url=URL.createObjectURL(new Blob([raw],{type:'text/plain;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download=name;document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);return true;}
+ catch(_){return false;}
+}
+function showSaveRecovery(){
+ const record=readSaveRecord();saveProblem=['valid','absent'].includes(record.kind)?null:record;
+ if(!saveProblem){refreshSaveStatus();return;}
+ recoveryExported=false;$('backupConfirmed').checked=false;$('recoverSave').disabled=true;
+ $('exportSave').disabled=record.raw===null;$('saveRecoveryMessage').textContent=saveProblemText(record.kind,record.profile);
+ $('recoverSave').textContent=record.profile?'Recommencer la tentative avec mes acquis':'Créer un nouveau profil après sauvegarde';
+ $('saveRecovery').hidden=false;$('exportSave').focus();refreshSaveStatus();
+}
+$('manageSave').onclick=showSaveRecovery;
+$('recoveryCancel').onclick=()=>{$('saveRecovery').hidden=true;$('menuNew').focus();};
+$('exportSave').onclick=()=>{if(saveProblem&&saveProblem.raw!==null){recoveryExported=exportSaveText(saveProblem.raw,'friends-defense-sauvegarde-conservee.txt');$('recoverSave').disabled=!recoveryExported||!$('backupConfirmed').checked;}};
+$('backupConfirmed').onchange=()=>{$('recoverSave').disabled=!recoveryExported||!$('backupConfirmed').checked||!saveProblem||saveProblem.raw===null;};
+$('exportProgress').onclick=()=>{try{const data=buildSaveData();if(data)exportSaveText(JSON.stringify(data),'friends-defense-progression-en-memoire.json');}catch(_){lastSaveError='Export impossible. Garde cette page ouverte.';refreshSaveStatus();}};
+$('recoverSave').onclick=()=>{
+ if(!saveProblem||saveProblem.raw===null||!recoveryExported||!$('backupConfirmed').checked)return;
+ const record=readSaveRecord();if(record.raw!==saveProblem.raw||record.kind==='unreadable'){showSaveRecovery();return;}
+ if(!confirm(record.profile?'Recommencer la tentative en conservant tes étoiles, pouvoirs et record ? La copie brute restera disponible séparément.':'Créer un nouveau profil ? La sauvegarde conservée ne sera plus utilisée. Sa copie restera disponible séparément.'))return;
+ const raw=record.raw;
+ try{localStorage.setItem(SAVE_KEY+'-backup',raw);if(localStorage.getItem(SAVE_KEY+'-backup')!==raw)throw new Error('Copie non vérifiée');}
+ catch(_){$('saveRecoveryMessage').textContent='Copie de sécurité impossible. Aucune donnée n’a été remplacée.';return;}
+ recoveryPermitRaw=raw;
+ try{$('saveRecovery').hidden=true;startFreshProfile(record.profile);}finally{recoveryPermitRaw=null;}
+};
+function hideMenu(){menuOpen=false;$('menuHome').hidden=true;root.querySelector('.dock').prepend($('saveStatus'));}
+function showMenu(){menuOpen=true;$('menuHome').hidden=false;root.querySelector('.menuButtons').prepend($('saveStatus'));paused=true;updateMenuButtons()}
 function newProfileState(){metaLevels=[0,0,0,0,0];stars=0;bestWave=0;completed=false;runHearts=0;runVariation=0;runEnded=false;rewardOpen=false;rewardAnim=null;rewardToken++;$('runReward').hidden=true;$('runRewardBackdrop').hidden=true;metaLastEarned=null;previewHero=-1;metaToastTimer=0;campaignPicks=[];mastery=-1;cleared=0;hardWins=0;scenarioHard=false;hardcore=false;buildCheckpoint=null;choices=[];root.classList.remove('hardcore');}
-function applyLoadedSave(data){if(!data)throw new Error('Sauvegarde absente');newProfileState();metaLevels=(data.metaLevels||[0,0,0,0,0]).slice(0,5).map(v=>Math.max(0,Math.min(3,Number(v)||0)));stars=Number(data.stars)||0;bestWave=Number(data.bestWave)||0;completed=!!data.completed;runHearts=Math.max(0,Number(data.runHearts)||0);runVariation=Math.max(0,Number(data.runVariation)||0);runEnded=!!data.runEnded;metaLastEarned=data.metaLastEarned||null;hardcore=!!data.hardcore;root.classList.toggle('hardcore',hardcore);configureMap(Math.max(0,Math.min(MAPS.length-1,Number(data.level)||0)));cv.width=W*S;cv.height=H*S;buildTerrain();g=cloneData(data.g)||initial();g.route=path(g.towers)||g.route||path({});g.zones=g.zones||[];g.delayed=g.delayed||[];g.fx=g.fx||[];g.enemies=g.enemies||[];g.perks=g.perks||[];buildCheckpoint=cloneData(data.buildCheckpoint)||snapshotBuild(g);selected=-1;focus=-1;speed=Number(data.speed)||1;clock=Number(data.clock)||0;notice=data.notice||'✈ Volants dès la vague 4 · portée aérienne jaune.';paused=!!data.paused&&!data.workshopOpen;workshopOpen=false;skinCache.clear();refreshShopSkins();$('result').replaceChildren();$('result').className='';$('result').removeAttribute('role');$('result').removeAttribute('aria-label');$('settings').hidden=true;sync();draw();hideMenu();if(data.rewardOpen&&metaLastEarned){openRunReward(metaLastEarned,true)}else if(data.workshopOpen){openWorkshop(null)}else{closeWorkshop();paused=!!data.paused&&g.active!==true;if(g.ended&&!$('result').innerHTML)showResult();sync();draw();}}
-function launchNewGame(){if(hasUsableSave()&&!confirm("Une sauvegarde existe déjà. Commencer une nouvelle partie l’écrasera. Continuer ?"))return;newProfileState();configureMap(0);cv.width=W*S;cv.height=H*S;buildTerrain();resetGame();openWorkshop();hideMenu();saveProgress();}
+function applyLoadedSave(data){const checked=validateSaveData(data);if(!checked.ok){showSaveRecovery();return false;}data=checked.data;newProfileState();metaLevels=(data.metaLevels||[0,0,0,0,0]).slice(0,5).map(v=>Math.max(0,Math.min(3,Number(v)||0)));stars=Number(data.stars)||0;bestWave=Number(data.bestWave)||0;completed=!!data.completed;runHearts=Math.max(0,Number(data.runHearts)||0);runVariation=Math.max(0,Number(data.runVariation)||0);runEnded=!!data.runEnded;metaLastEarned=data.metaLastEarned||null;hardcore=!!data.hardcore;root.classList.toggle('hardcore',hardcore);configureMap(Math.max(0,Math.min(MAPS.length-1,Number(data.level)||0)));cv.width=W*S;cv.height=H*S;buildTerrain();g=cloneData(data.g)||initial();g.route=path(g.towers)||g.route||path({});g.zones=g.zones||[];g.delayed=g.delayed||[];g.fx=g.fx||[];g.enemies=g.enemies||[];g.perks=g.perks||[];buildCheckpoint=cloneData(data.buildCheckpoint);if(!buildCheckpoint&&!g.active&&!g.ended&&!g.bonus)saveBuildCheckpoint(g);selected=-1;focus=-1;speed=Number(data.speed)||1;clock=Number(data.clock)||0;notice=data.notice||'✈ Volants dès la vague 4 · portée aérienne jaune.';paused=!!data.paused&&!data.workshopOpen;workshopOpen=false;skinCache.clear();refreshShopSkins();$('result').replaceChildren();$('result').className='';$('result').removeAttribute('role');$('result').removeAttribute('aria-label');$('settings').hidden=true;sync();draw();hideMenu();if(rewardOpen){paused=true;saveProgress();}else if(data.rewardOpen&&metaLastEarned){openRunReward(metaLastEarned,true)}else if(data.workshopOpen){openWorkshop(null)}else if(runEnded){if(metaLastEarned)openRunReward(metaLastEarned,true);else openWorkshop(null);}else{$('metaBackdrop').hidden=true;$('metaWorkshop').hidden=true;paused=data.paused||rewardOpen||workshopOpen;if(g.ended&&!$('result').innerHTML)showResult();sync();draw();}}
+function startFreshProfile(profile=null){newProfileState();if(profile){stars=profile.stars;bestWave=profile.bestWave;completed=profile.completed;metaLevels=cloneData(profile.metaLevels);}configureMap(0);cv.width=W*S;cv.height=H*S;buildTerrain();resetGame();openWorkshop();hideMenu();saveProgress();}
+function launchNewGame(){const record=readSaveRecord();if(!['valid','absent'].includes(record.kind)){showSaveRecovery();return;}if(record.kind==='valid'&&!confirm('Créer un nouveau profil ? Cette action efface les étoiles, les pouvoirs permanents, le record et la tentative en cours sur ce profil.'))return;startFreshProfile();}
 function continueGame(){const data=readSaveData();if(!data){updateMenuButtons();return;}applyLoadedSave(data);}
 
 const D=[
@@ -560,8 +701,8 @@ function snapshotBuild(state){const snap=JSON.parse(JSON.stringify(state));snap.
 function saveBuildCheckpoint(state){if(state.bonus||state.active||state.ended)return;buildCheckpoint=snapshotBuild(state)}
 function canRetryWave(){return !!buildCheckpoint&&g.ended&&g.life===0&&(buildCheckpoint.retries||0)>0}
 function retryWave(){if(!canRetryWave())return false;const available=buildCheckpoint.retries||0;
- // A heart earned inside the failed wave can pay for a retry, but its drop
- // is rolled back along with that failed wave; this prevents duplicate farming.
+ // Only hearts already present in the checkpoint can pay for this retry.
+ // Drops earned in the failed wave are rolled back with that wave.
  const paid=Math.max(0,available-1);
  g=snapshotBuild(buildCheckpoint);g.retries=paid;buildCheckpoint.retries=paid;runHearts=paid;
  clearFeedback();clearPreview();choices=[];selected=focus=-1;paused=false;
@@ -746,7 +887,7 @@ let graphicsRefreshQueued=false;
 function updateGraphicLoading(){if(graphicsRefreshQueued)return;graphicsRefreshQueued=true;requestAnimationFrame(()=>{graphicsRefreshQueued=false;skinCache.clear();refreshHeroMenus();if(g&&g.towers[focus])detail(g.towers[focus]);});}
 [atlas,...heroPortraits,...heroIcons,...heroEffects,...idleSheets.flat(),...attackSheets.flat()].forEach(im=>im.addEventListener('load',()=>{if(typeof g!=='undefined')updateGraphicLoading()},{once:true}));
 function init(){D.forEach((d,i)=>{let b=document.createElement('button');b.className='offer';b.title=d.desc;b.setAttribute('aria-label',d.n+' · '+d.c+' Z · '+d.role);b.style.setProperty('--accent',d.color);b.innerHTML='<canvas width="96" height="96"></canvas><b>'+d.n+'</b><strong>'+d.c+' Z</strong><small></small>';b.onclick=()=>{clearPreview();focus=-1;if(g.wave<unlockAt(i)||g.money<d.c){selected=-1;notice=d.n+' · '+(g.wave<unlockAt(i)?'Débloqué après la vague '+unlockAt(i):'Il manque '+(d.c-g.money)+' Z')}else{selected=selected===i?-1:i;notice=selected<0?'':'Maintiens une case pour prévisualiser, relâche pour poser.'}sync()};$('shop').appendChild(b);cards.push(b)});atlas.onload=updateGraphicLoading;refreshShopSkins()}
-function resetGame(){clearFeedback();clearPreview();g=initial();saveBuildCheckpoint(g);refreshShopSkins();selected=focus=-1;paused=false;speed=1;clock=0;choices=[];notice='✈ Volants dès la vague 4 · portée aérienne jaune.';$('result').replaceChildren();$('result').className='';$('result').removeAttribute('role');$('result').removeAttribute('aria-label');$('settings').hidden=true;sync();draw()}
+function resetGame(){clearFeedback();clearPreview();g=initial();g.retries=runHearts;saveBuildCheckpoint(g);refreshShopSkins();selected=focus=-1;paused=false;speed=1;clock=0;choices=[];notice='✈ Volants dès la vague 4 · portée aérienne jaune.';$('result').replaceChildren();$('result').className='';$('result').removeAttribute('role');$('result').removeAttribute('aria-label');$('settings').hidden=true;sync();draw()}
 function detail(t){
  let d=D[t.type],s=stats(g,t),n=t.lvl<3?stats(g,{...t,lvl:t.lvl+1}):null,fmt=x=>(Math.round(x*100)/100).toString().replace('.',','),rows=[['Dégâts',Math.round(s.damage),n&&Math.round(n.damage),''],['Cadence',fmt(s.rate),n&&fmt(n.rate),'s'],['Portée',fmt(s.range),n&&fmt(n.range),''],['DPS',Math.round(s.damage/s.rate),n&&Math.round(n.damage/n.rate),'']];
  if(s.area)rows.push(['Zone',fmt(s.area),n&&fmt(n.area),'']);if(s.slow){rows.push(['Gel',Math.round(s.slow*100),n&&Math.round(n.slow*100),'%']);rows.push(['Durée gel',fmt(s.dur),n&&fmt(n.dur),'s'])}if(t.type===0||t.type===1||has(g,'rempart')){const bm=(has(g,'rempart')?1.15:1)*(t.type===1&&hasCamp('craph')?1.2:1),boss={boss:true};rows.push(['DPS boss',Math.round(s.damage/s.rate*bm*matchup(t,boss)),n&&Math.round(n.damage/n.rate*bm*matchup({...t,lvl:t.lvl+1},boss)),''])};if(t.type===0||t.type===1)rows.push(['DPS rapide',Math.round(s.damage/s.rate*matchup(t,{fast:true})),n&&Math.round(n.damage/n.rate*matchup({...t,lvl:t.lvl+1},{fast:true})),'']);
@@ -1005,7 +1146,7 @@ function openWorkshop(earned=null){workshopOpen=true;paused=true;metaLastEarned=
  $('metaHard').textContent=hardcore?'☠ Hardcore ✓':'☠ Hardcore';paintMetaCards();saveProgress();}
 function closeWorkshop(){workshopOpen=false;$('metaBackdrop').hidden=true;$('metaWorkshop').hidden=true;paused=false;saveProgress();}
 function finishRun(win,forfeit=false){if(runEnded)return;runEnded=true;runHearts=0;let earned=rewardStars(win,forfeit);openRunReward(earned)}
-function startLevel(i){configureMap(i);cv.width=W*S;cv.height=H*S;buildTerrain();runEnded=false;resetGame();g.retries=runHearts;sync();saveProgress();}
+function startLevel(i){configureMap(i);cv.width=W*S;cv.height=H*S;buildTerrain();runEnded=false;resetGame();sync();saveProgress();}
 function startNewRun(){closeRunReward();closeWorkshop();runVariation=(runVariation+1)%3;runHearts=0;hardcore=completed&&$('metaHard').getAttribute('aria-pressed')==='true';root.classList.toggle('hardcore',hardcore);startLevel(0);saveProgress()}
 function nextLevel(){if(level>=6||!g.ended||g.life<=0)return;runHearts=Math.min(2,g.retries||0);startLevel(level+1);saveProgress()}
 function showResult(){if(!g.ended||runEnded||workshopOpen)return;if(g.life>0){if(level===6){finishRun(true);return}

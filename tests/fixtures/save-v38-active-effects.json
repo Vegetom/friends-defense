@@ -1,0 +1,227 @@
+{
+  "version": 38,
+  "level": 0,
+  "metaLevels": [
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "stars": 73,
+  "bestWave": 48,
+  "completed": true,
+  "runHearts": 0,
+  "runVariation": 0,
+  "runEnded": false,
+  "metaLastEarned": null,
+  "rewardOpen": false,
+  "hardcore": false,
+  "buildCheckpoint": {
+    "money": 5000,
+    "life": 15,
+    "wave": 4,
+    "towers": {},
+    "enemies": [],
+    "fx": [],
+    "route": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "perks": [],
+    "mods": {
+      "sai": 0,
+      "eco": 0,
+      "power": 0,
+      "haste": 0,
+      "range": 0
+    },
+    "active": false,
+    "ended": false,
+    "bonus": false,
+    "spawned": 0,
+    "total": 0,
+    "clock": 0,
+    "killed": 0,
+    "escaped": 0,
+    "totalKills": 320,
+    "totalLeaks": 0,
+    "retries": 0,
+    "zones": [],
+    "delayed": [],
+    "bossDefeated": false,
+    "bossEscaped": false,
+    "bossKills": 0,
+    "bossLeaks": 0
+  },
+  "g": {
+    "money": 4602,
+    "life": 15,
+    "wave": 5,
+    "towers": {
+      "30": {
+        "type": 0,
+        "lvl": 1,
+        "cd": 0.08333333333333337,
+        "fresh": false,
+        "invested": 35,
+        "charge": 0,
+        "recoil": 0,
+        "aim": 1.5707963267948966,
+        "shots": 3
+      },
+      "31": {
+        "type": 2,
+        "lvl": 1,
+        "cd": 0.7833333333333329,
+        "fresh": false,
+        "invested": 155,
+        "charge": 0,
+        "recoil": 0,
+        "aim": 2.3452059215096117,
+        "shots": 2
+      },
+      "41": {
+        "type": 1,
+        "lvl": 1,
+        "cd": 0.8166666666666683,
+        "fresh": false,
+        "invested": 65,
+        "charge": 0,
+        "recoil": 0,
+        "aim": 3.1193740882630743,
+        "shots": 1
+      },
+      "51": {
+        "type": 3,
+        "lvl": 1,
+        "cd": -1.4999999999999996,
+        "fresh": false,
+        "invested": 155,
+        "charge": 0,
+        "recoil": 0
+      }
+    },
+    "enemies": [],
+    "fx": [
+      {
+        "type": 2,
+        "lvl": 1,
+        "x": 82.30776428989896,
+        "y": 214.8631742814366,
+        "ex": 30,
+        "ey": 271.3333333333333,
+        "area": 0.85,
+        "age": 0.26666666666666666,
+        "dur": 0.48,
+        "c": "#ff9948"
+      }
+    ],
+    "route": [
+      40,
+      50,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      59,
+      49
+    ],
+    "perks": [],
+    "mods": {
+      "sai": 0,
+      "eco": 0,
+      "power": 0,
+      "haste": 0,
+      "range": 0
+    },
+    "active": true,
+    "ended": false,
+    "bonus": false,
+    "spawned": 3,
+    "total": 23,
+    "clock": 0.28,
+    "killed": 3,
+    "escaped": 0,
+    "totalKills": 323,
+    "totalLeaks": 0,
+    "retries": 0,
+    "zones": [
+      {
+        "kind": "fire",
+        "x": 30,
+        "y": 271.3333333333333,
+        "r": 0.85,
+        "life": 1.7333333333333343,
+        "age": 1.3833333333333333,
+        "dps": 37.6176,
+        "power": 0.28,
+        "air": false
+      }
+    ],
+    "delayed": [
+      {
+        "x": 30,
+        "y": 271.3333333333333,
+        "kind": "shock",
+        "wait": 0.013333333333333412,
+        "r": 0.7224999999999999,
+        "dmg": 106.58320000000002,
+        "air": false,
+        "volley": null
+      },
+      {
+        "x": -28,
+        "y": 305.3333333333333,
+        "kind": "meteor",
+        "wait": 0.26333333333333336,
+        "r": 0.72,
+        "dmg": 144.20080000000002,
+        "air": false,
+        "volley": "31:2"
+      },
+      {
+        "x": 30,
+        "y": 271.3333333333333,
+        "kind": "meteor",
+        "wait": 0.08333333333333337,
+        "r": 0.72,
+        "dmg": 144.20080000000002,
+        "air": false,
+        "volley": "31:2"
+      },
+      {
+        "x": 88,
+        "y": 305.3333333333333,
+        "kind": "meteor",
+        "wait": 0.26333333333333336,
+        "r": 0.72,
+        "dmg": 144.20080000000002,
+        "air": false,
+        "volley": "31:2"
+      }
+    ],
+    "bossDefeated": false,
+    "bossEscaped": false,
+    "bossKills": 0,
+    "bossLeaks": 0
+  },
+  "clock": 1.4999999999999996,
+  "notice": "",
+  "workshopOpen": false,
+  "paused": true
+}

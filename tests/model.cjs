@@ -27,25 +27,30 @@ function oneLineFunction(name) {
 function createModel() {
   const context = vm.createContext({});
   const core = uniqueSlice('const D=[', '\nconst GRAPHICS=');
-  const functions = ['globalWaveCleared', 'rewardStars', 'finishRun'].map(oneLineFunction).join('\n');
+  const functions = ['globalWaveCleared', 'rewardStars', 'finishRun', 'resetGame', 'startLevel'].map(oneLineFunction).join('\n');
   vm.runInContext(`${core}
     let g=initial(),metaLevels=[0,0,0,0,0],stars=0,bestWave=0,completed=false;
     let runHearts=0,runEnded=false,buildCheckpoint=null,clock=0;
+    let selected=-1,focus=-1,paused=false,speed=1,choices=[],notice='';const cv={};
     let saved=0,rewards=[];const settings={effects:false};
     function saveMeta(){saved++}
     function openRunReward(reward){rewards.push(reward)}
     function playSound(){} function tickFeedback(){} function damageFeedback(){}
     function waveFeedback(){} function deathFeedback(){} function heartDropFeedback(){}
+    function clearFeedback(){} function clearPreview(){} function refreshShopSkins(){}
+    function buildTerrain(){} function sync(){} function draw(){} function saveProgress(){}
+    function $(){return {replaceChildren(){},removeAttribute(){}}}
     ${functions}
     globalThis.api={
       set(input={}){
         configureMap(input.level??0);g=initial();Object.assign(g,input.g||{});
         stars=input.stars??0;bestWave=input.bestWave??0;completed=input.completed??false;
         metaLevels=input.metaLevels??[0,0,0,0,0];runHearts=input.runHearts??0;
-        runEnded=input.runEnded??false;saved=0;rewards=[];
+        runEnded=input.runEnded??false;buildCheckpoint=input.buildCheckpoint?JSON.parse(JSON.stringify(input.buildCheckpoint)):null;saved=0;rewards=[];
       },
-      state(){return JSON.parse(JSON.stringify({level,g,stars,bestWave,completed,metaLevels,runHearts,runEnded,saved,rewards}))},
-      globalWaveCleared,rewardStars,finishRun,
+      state(){return JSON.parse(JSON.stringify({level,g,stars,bestWave,completed,metaLevels,runHearts,runEnded,buildCheckpoint,saved,rewards}))},
+      globalWaveCleared,rewardStars,finishRun,startLevel,canRetryWave,retryWave,
+      setGame:input=>Object.assign(g,input),
       buy:(cell,type)=>buy(g,cell,type),begin:()=>begin(g),step:dt=>step(g,dt)
     };`, context, { filename: 'actual-game-model.js', timeout: 2000 });
   return {
@@ -54,4 +59,52 @@ function createModel() {
   };
 }
 
-module.exports = { createModel, script };
+function createValidationModel() {
+  const context = vm.createContext({});
+  const core = uniqueSlice('const D=[', '\nconst GRAPHICS=');
+  const validation = uniqueSlice('// Save validation is pure:', '// End pure save validation.');
+  vm.runInContext(`${core}\n${validation}\nglobalThis.validate=validateSaveData;globalThis.recover=getRecoverableProfile;`, context,
+    { filename: 'actual-save-validation.js', timeout: 2000 });
+  const validate = input => JSON.parse(JSON.stringify(context.validate(input)));
+  validate.recover = input => JSON.parse(JSON.stringify(context.recover(input)));
+  return validate;
+}
+
+function createStorageModel(snapshot, raw=JSON.stringify(snapshot)) {
+  const values=new Map([['friends-defense-save-v38',raw]]),writes=[];
+  let failure=null;
+  const elements={};
+  const context=vm.createContext({
+    seedJson:JSON.stringify(snapshot),
+    $:id=>elements[id]||(elements[id]={hidden:false,disabled:false,checked:false,textContent:''}),
+    localStorage:{
+      getItem(key){if(failure==='get')throw new Error('Synthetic read failure');return values.get(key)??null;},
+      setItem(key,value){writes.push(key);if(failure==='set')throw new Error('Synthetic quota failure');values.set(key,value);},
+    },
+  });
+  const core=uniqueSlice('const D=[','\nconst GRAPHICS=');
+  const validation=uniqueSlice('// Save validation is pure:','// End pure save validation.');
+  const storage=uniqueSlice('let saveProblem=','function hideMenu()');
+  vm.runInContext(`${core}\n${validation}
+    const seed=JSON.parse(seedJson),SAVE_KEY='friends-defense-save-v38';
+    let menuOpen=false,g=seed.g,metaLevels=seed.metaLevels,stars=seed.stars,bestWave=seed.bestWave;
+    let completed=seed.completed,runHearts=seed.runHearts,runVariation=seed.runVariation,runEnded=seed.runEnded;
+    let metaLastEarned=seed.metaLastEarned,rewardOpen=seed.rewardOpen,buildCheckpoint=seed.buildCheckpoint;
+    let clock=seed.clock,notice=seed.notice,workshopOpen=seed.workshopOpen,paused=seed.paused,speed=seed.speed??1;
+    hardcore=seed.hardcore;level=seed.level;
+    ${uniqueSlice('const cloneData=', '\n// Save validation is pure:')}
+    ${oneLineFunction('buildSaveData')}
+    ${storage}
+    globalThis.api={save:saveProgress,validation:()=>validateSaveData(buildSaveData()),damage:()=>{g.towers=null},speed:value=>{speed=value}};
+  `,context,{filename:'actual-save-storage.js',timeout:2000});
+  return {
+    ...context.api,
+    failure:value=>{failure=value;},
+    raw:()=>values.get('friends-defense-save-v38'),
+    writes:()=>[...writes],
+    message:()=>elements.saveStatusMessage.textContent,
+    exportVisible:()=>!elements.exportProgress.hidden,
+  };
+}
+
+module.exports = { createModel, createValidationModel, createStorageModel, script };
