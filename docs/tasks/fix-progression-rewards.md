@@ -4,9 +4,9 @@
 
 Corriger l'attribution d'étoiles et de records, conserver les gains légitimes après défaite, isoler le mode développeur et préserver les sauvegardes acquises. Aucun changement de graphismes, de statistiques, de prix, de difficulté ou de site public n'est autorisé dans cette mission.
 
-La préparation commence sur `0e14138bc42eefbfcb7dcef06be3f955d328292d`, dernier `main` disponible à son lancement. Les PR nº 1 et nº 2 étaient encore ouvertes ; l'utilisateur a confirmé qu'il les fusionnerait lui-même et que la PR du correctif serait publiée **après** leur intégration. Le coordinateur vérifiera cette base avant publication, sans fusionner de PR lui-même.
+La préparation commence sur `0e14138bc42eefbfcb7dcef06be3f955d328292d`, dernier `main` disponible à son lancement. La publication a d'abord été différée pendant que l'utilisateur prévoyait d'intégrer les PR nº 1 et nº 2. Le 18 novembre 2026, il a demandé de mettre à jour et publier le correctif. Après nouvelle récupération de `main`, ces deux PR sont toujours ouvertes et la base reste `0e14138bc42eefbfcb7dcef06be3f955d328292d` : la branche est déjà à jour avec ce `main`. Le correctif est donc proposé par une PR distincte vers cette base actuelle, avec cet état des PR précédentes signalé, sans les fusionner.
 
-Les consignes `AGENTS.md` et `docs/COLLABORATION.md` ont été lues depuis leur commit `e882b2278c9dfc99a06be89ef025743de988d81b` pendant cette préparation. La base finale et les résultats seront consignés ci-dessous.
+Les consignes `AGENTS.md` et `docs/COLLABORATION.md` ont été lues depuis leur commit `e882b2278c9dfc99a06be89ef025743de988d81b`, toujours disponible dans la PR nº 1. Elles sont appliquées sans ajouter à cette PR les documents des PR nº 1 et nº 2.
 
 ## Responsabilités et réservations
 
@@ -37,7 +37,9 @@ La revue du périmètre comparera le noyau de combat, les données d'équilibrag
 
 ## État et résultats
 
-Correctif implémenté et vérifié localement. Publication en attente de l'intégration par l'utilisateur des PR nº 1 et nº 2 ; aucun push du correctif, aucune fusion et aucun déploiement n'ont été effectués à ce stade.
+Correctif implémenté et vérifié, proposé sur la branche `fix/completed-wave-rewards` pour revue dans une PR distincte vers le `main` actuel. La publication du correctif n'inclut aucune fusion des PR nº 1 ou nº 2, aucune fusion du correctif et aucun déploiement du site public.
+
+La mise à jour du 18 novembre est documentaire : `index.html` et les tests sont identiques au commit validé `1e598b67a5b3a0d868035fd0093caf90a96525b7`. Les validations ci-dessous portent donc sur le code publié, sans changement fonctionnel après leur exécution.
 
 - [Contrat Game Designer et matrices des sept terrains](../design/fix-progression-rewards.md).
 - [Contrat et vérifications UX](../ux/fix-progression-rewards.md).
