@@ -400,6 +400,12 @@
 #fd15 .metaPortraitButton{display:flex;align-items:center;justify-content:center;width:60px;height:60px;min-width:0;padding:0;border:1px solid #5c879f;border-radius:10px;background:#294a61;position:relative;overflow:hidden}
 #fd15 .metaPortraitButton canvas{width:60px;height:60px}
 #fd15 .metaPortraitButton:after{content:'▶';position:absolute;bottom:1px;right:3px;font-size:8px;color:#fff1c6;background:#10283cc9;border-radius:4px;padding:2px 3px}
+#fd15 .metaDescription{margin:3px 0;font-size:11px;line-height:1.25;color:#e2edf3}
+#fd15 .metaRole{font-size:10px;color:#bad4e4}
+#fd15 .metaStages{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+#fd15 .metaStages li{font-size:11px;padding:4px 6px;background:#17374a;border-radius:6px}
+#fd15 .metaStages small{color:#ffdf8d}
+#fd15 .metaStages p{margin:3px 0 0;color:#e2edf3}
 #fd15 .metaPreviewWrap{grid-column:1/-1;display:grid;gap:3px;border-top:1px solid #648ba2;padding-top:7px}
 #fd15 .metaPreviewWrap canvas{width:100%;height:66px;border-radius:7px;border:1px solid #3d6580;background:#122e43}
 #fd15 .metaPreviewLabel{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:10px;color:#d7eefa}
@@ -1119,16 +1125,47 @@ let campaignPicks=[],mastery=-1,cleared=0,hardWins=0,scenarioHard=false;
 function saveMeta(){saveProgress()}
 function globalWaveCleared(){return level*10+Math.max(0,g.wave-(g.active||g.ended&&g.life===0?1:0))}
 function rewardStars(win,forfeit=false){let n=globalWaveCleared(),record=n>bestWave,before=stars;const campaignWin=!!win&&level===6&&n===70&&g.ended&&!g.active&&g.life>0;let earned=n===0?0:Math.max(5,4+2*level+Math.floor(n/8)+(record?2:0));if(campaignWin)earned+=10;bestWave=Math.max(bestWave,n);if(campaignWin)completed=true;stars+=earned;saveMeta();return{earned,record,n,before,after:stars,win:campaignWin}}
+const WORKSHOP_POWERS=[
+ {role:'Interception aérienne',pair:'Avec Raphaël, Tom profite du marquage pour passer le blindage.',effects:[
+  'Tire sur 2 ennemis à portée.',
+  'Priorise les volants, sauf si un ennemi au sol approche de la sortie.',
+  'Tire sur 3 ennemis. Sur un volant isolé, le 3e tir peut le toucher à 35 %.']},
+ {role:'Ouverture des défenses',pair:'Le marquage ouvre la voie aux tirs rapides de Tom.',effects:[
+  'Marque les cibles : moins de blindage, plus de dégâts alliés.',
+  'Rayon jusqu’à 4 cibles, +20 % de dégâts aux boucliers.',
+  'Tous les 3 tirs, explosion orbitale qui marque les survivants.']},
+ {role:'Dégâts de zone',pair:'La glace de Jordan retient les ennemis dans les flammes.',effects:[
+  'Le feu dure 2 s et interrompt la régénération.',
+  'Une onde secondaire prolonge le feu de 0,5 s.',
+  'Fait tomber 3 météores dans le sens du trajet.']},
+ {role:'Contrôle du trajet',pair:'Le gel laisse plus de temps au feu d’Ylvine pour agir.',effects:[
+  'Ralentit un 2e ennemi, en priorité s’il n’est pas déjà ralenti.',
+  'Pose 3 s de glace. Le ralentissement le plus fort s’applique.',
+  'Tous les 4 tirs, prolonge le gel des cibles du blizzard de 0,5 s, jusqu’à 2 s restantes.']},
+ {role:'Frappe lourde',pair:'Le gel de Jordan rassemble les cibles pour la Rage.',effects:[
+  'Explosion élargie. L’impact direct ignore 25 % du blindage.',
+  'Charge la Rage en 4 frappes. La réserve aux boss, élites et groupes de 3.',
+  'Tous les 5 tirs, 3 impacts. Un impact par ennemi et par salve.']}
+];
 function metaNext(i){return metaLevels[i]>=3?null:META[i].tiers[metaLevels[i]]}
 function paintMetaCards(){const roster=$('metaRoster'),oldScroll=roster.scrollTop;roster.replaceChildren();META.forEach((m,i)=>{
  const tier=metaNext(i),n=metaLevels[i],ok=!!tier&&stars>=tier.price;
  let row=document.createElement('div');row.className='metaHero'+(ok?' canBuy':'')+(!tier?' maxed':'');
- const stat=tier?'<div class="metaEffect"><b>'+tier.number+'</b><span>'+tier.unit+'</span></div>':'<div class="metaEffect"><b>MAX</b><span>toutes capacités</span></div>';
+ const power=WORKSHOP_POWERS[i];
+ const stat=tier?'<p class="metaDescription">'+power.effects[n]+'</p>':'<p class="metaDescription">'+power.role+' · 3 pouvoirs acquis</p>';
  const affordable=ok?'ACHETER':tier?stars+' / '+tier.price+' ★':'MAX';
- row.innerHTML='<button class="metaPortraitButton" aria-label="Voir le pouvoir de '+m.n+'" title="Voir le pouvoir"><canvas width="96" height="96"></canvas></button><div class="metaBody"><div class="metaName"><strong>'+m.n+'</strong><span class="metaDots">'+('●'.repeat(n)+'○'.repeat(3-n))+'</span></div><div class="metaPower">'+(tier?tier.name:'ULTIME DÉBLOQUÉ')+'</div>'+stat+'</div><button class="metaBuy'+(ok?' canBuy':'')+'" '+(!ok?'disabled':'')+' aria-label="'+(tier?'Acheter '+tier.name+' pour '+tier.price+' étoiles':'Toutes évolutions débloquées')+'"><strong>'+(tier?tier.price+' ★':'✓')+'</strong><small>'+affordable+'</small>'+(tier&&!ok?'<div class="metaCostProgress"><i style="width:'+Math.min(100,Math.round(100*stars/tier.price))+'%"></i></div>':'')+'</button>';
+ row.innerHTML='<button class="metaPortraitButton" aria-label="Voir le pouvoir de '+m.n+'" title="Voir les trois pouvoirs" aria-expanded="'+(previewHero===i)+'"><canvas width="96" height="96"></canvas></button><div class="metaBody"><div class="metaName"><strong>'+m.n+'</strong><span class="metaDots">'+('●'.repeat(n)+'○'.repeat(3-n))+'</span></div><div class="metaPower">'+(tier?'N'+(n+1)+' · '+tier.name:'N3 · ULTIME DÉBLOQUÉ')+'</div><small class="metaRole">'+power.role+' · Pouvoir permanent</small>'+stat+'</div><button class="metaBuy'+(ok?' canBuy':'')+'" '+(!ok?'disabled':'')+' aria-label="'+(tier?'Acheter '+tier.name+' pour '+tier.price+' étoiles':'Toutes évolutions débloquées')+'"><strong>'+(tier?tier.price+' ★':'✓')+'</strong><small>'+affordable+'</small>'+(tier&&!ok?'<div class="metaCostProgress"><i style="width:'+Math.min(100,Math.round(100*stars/tier.price))+'%"></i></div>':'')+'</button>';
  row.querySelector('.metaBuy').onclick=()=>{if(!ok)return;stars-=tier.price;metaLevels[i]=n+1;previewHero=-1;skinCache.clear();refreshShopSkins();saveMeta();playSound('upgrade');$('metaToast').hidden=false;$('metaToast').textContent='✦ '+m.n+' — '+tier.name+' DÉBLOQUÉ';metaToastTimer=performance.now()+2200;paintMetaCards();};
  row.querySelector('.metaPortraitButton').onclick=()=>{previewHero=previewHero===i?-1:i;paintMetaCards()};
- if(previewHero===i){const teaser=META[i].tiers[2];let preview=document.createElement('div');preview.className='metaPreviewWrap';preview.innerHTML='<div class="metaPreviewLabel"><span>▶ APERÇU · '+(tier?tier.name:'ULTIME')+'</span><b>III · '+teaser.name+'</b></div><canvas class="metaPreviewCanvas" width="320" height="72"></canvas>';row.appendChild(preview)}
+ if(previewHero===i){
+   const preview=document.createElement('div');preview.className='metaPreviewWrap';
+   const stages=m.tiers.map((p,j)=>{
+     const state=j<n?'Acquis':j>n?'Verrouillé':ok?'Disponible':'Étoiles requises';
+     return '<li><b>N'+(j+1)+' · '+p.name+'</b> <small>'+state+' · '+p.price+' ★</small><p>'+power.effects[j]+'</p></li>';
+   }).join('');
+   preview.innerHTML='<ol class="metaStages">'+stages+'</ol><p class="metaDescription">'+power.pair+'</p><canvas class="metaPreviewCanvas" width="320" height="72" aria-hidden="true"></canvas>';
+   row.appendChild(preview);
+ }
  roster.appendChild(row);portraitDraw(row.querySelector('.metaPortraitButton canvas').getContext('2d'),i,0,0,96);
  });$('metaStars').textContent=stars;roster.scrollTop=oldScroll;}
 function drawMetaPreview(){if(previewHero<0||!workshopOpen)return;const c=$('metaRoster').querySelector('.metaPreviewCanvas');if(!c)return;const x=c.getContext('2d'),t=performance.now()/1000,p=previewHero;let grad=x.createLinearGradient(0,0,320,72);grad.addColorStop(0,'#143448');grad.addColorStop(1,'#18364c');x.fillStyle=grad;x.fillRect(0,0,320,72);
