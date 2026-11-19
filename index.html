@@ -417,8 +417,10 @@ html:has(#fd15.workshop-open),body:has(#fd15.workshop-open){overflow:hidden;over
 #fd15.workshop-open #saveRecovery{position:fixed;inset-inline:12px;max-height:calc(100dvh - 24px)}
 #fd15 .metaStage canvas{display:block;position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:calc(100% - 68px);height:calc(100% - 10px);object-fit:contain;object-position:center bottom;image-rendering:pixelated}
 @media(orientation:portrait){
- #fd15 .metaGrid{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(150px,.8fr)}
+ #fd15 .metaGrid{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(220px,42%)}
  #fd15 .metaFooter{flex-wrap:wrap}
+ #fd15 #metaPowerName{font-size:20px}
+ #fd15 #metaPowerEffect{font-size:14px}
  #fd15 .metaRunStats{flex-basis:100%}
  #fd15 #metaPlay{flex:1}
  #fd15 .metaSaveSlot:has(#saveStatus button:not([hidden])){bottom:88px}
