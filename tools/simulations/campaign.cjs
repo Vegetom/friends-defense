@@ -7,7 +7,7 @@ function plan(api,{composition='mixed',policy='balanced',seed=1}={},actions){
  let buys=0;
  for(let i=0;i<120;i++){
   const state=api.view(),next=state.wave+1,counts=[0,0,0,0,0];for(const t of Object.values(state.towers))counts[t.type]++;
-  const airWeight=[7,9].includes(next)?1:[4,6,8,10].includes(next)?.5:.14;
+  const kind=api.airKind(next),airWeight=kind==='air'?1:kind==='mixed'?.5:.14;
   const opts=api.options(true);let best=null,score=-Infinity;
   const invested=[0,0,0,0,0];for(const t of Object.values(state.towers))invested[t.type]+=t.invested;
   const totalInvested=invested.reduce((a,b)=>a+b,0)||1;

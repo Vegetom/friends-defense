@@ -75,6 +75,7 @@ function createModel({ref=null,html=null}={}){
   data(){return {heroes:D,maps:MAPS,meta:META,bonuses:B}},
   view(){return {level,W,H,entry:ENTRY,exit:EXIT,wave:g.wave,money:g.money,life:g.life,active:g.active,ended:g.ended,bonus:g.bonus,retries:g.retries,runHearts,killed:g.killed,escaped:g.escaped,totalKills:g.totalKills,totalLeaks:g.totalLeaks,routeLength:g.route.length-1,towers:JSON.parse(JSON.stringify(g.towers)),perks:[...g.perks],n:globalWaveCleared(),clock}},
   options,
+  airKind:wave=>airKind(wave,g),
   buy(cell,type){return buy(g,cell,type)},upgrade(cell){return upgrade(g,cell)},remove(cell){return remove(g,cell)},
   bonuses(){return bonusOptions(g).map(b=>({id:b.id,type:b.type,kind:b.kind}))},
   choose(id){const b=bonusOptions(g).find(b=>b.id===id);return b?choose(g,b):false},
