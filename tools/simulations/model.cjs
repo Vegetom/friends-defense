@@ -16,7 +16,7 @@ function createModel({ref=null,html=null}={}){
  const context=vm.createContext({});
  vm.runInContext(`${core}
  let g=initial(),metaLevels=[0,0,0,0,0],stars=0,bestWave=0,completed=false,runHearts=0,runEnded=false,buildCheckpoint=null;
- let clock=0,selected=-1,focus=-1,paused=false,speed=1,choices=[],notice='',banner=null,shake=0;
+ let runVariation=0,clock=0,selected=-1,focus=-1,paused=false,speed=1,choices=[],notice='',banner=null,shake=0;
  const cv={},settings={effects:false};let finalReward=null;
  const node={replaceChildren(){},removeAttribute(){},className:'',hidden:false};const $=()=>node;
  function clearFeedback(){}function clearPreview(){}function refreshShopSkins(){}function sync(){}function draw(){}
@@ -28,7 +28,7 @@ function createModel({ref=null,html=null}={}){
   const p=pos(cell),r=st.range*S;let ground=0;
   for(const i of route){const q=pos(i);if(Math.hypot(q.x-p.x,q.y-p.y)<=r)ground++;}
   const a=pos(ENTRY),b=pos(EXIT),dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),u=((p.x-a.x)*dx+(p.y-a.y)*dy)/len;
-  const d=Math.abs((p.x-a.x)*dy-(p.y-a.y)*dx)/len,ar=r*AIR_RANGE;
+  const d=Math.abs((p.x-a.x)*dy-(p.y-a.y)*dx)/len,ar=r*(typeof airRange==='function'?airRange(g):AIR_RANGE);
   const half=d<ar?Math.sqrt(ar*ar-d*d):0;
   const air=half?Math.max(0,Math.min(len,u+half)-Math.max(0,u-half))/S:0;
   return {ground,air};
@@ -71,7 +71,7 @@ function createModel({ref=null,html=null}={}){
   return result;
  }
  globalThis.api={
-  start(profile,hard=false){metaLevels=[...profile];hardcore=hard;stars=0;bestWave=0;completed=hard;runHearts=0;runEnded=false;finalReward=null;startLevel(0)},
+  start(profile,hard=false,variation=0){runVariation=variation;metaLevels=[...profile];hardcore=hard;stars=0;bestWave=0;completed=hard;runHearts=0;runEnded=false;finalReward=null;startLevel(0)},
   data(){return {heroes:D,maps:MAPS,meta:META,bonuses:B}},
   view(){return {level,W,H,entry:ENTRY,exit:EXIT,wave:g.wave,money:g.money,life:g.life,active:g.active,ended:g.ended,bonus:g.bonus,retries:g.retries,runHearts,killed:g.killed,escaped:g.escaped,totalKills:g.totalKills,totalLeaks:g.totalLeaks,routeLength:g.route.length-1,towers:JSON.parse(JSON.stringify(g.towers)),perks:[...g.perks],n:globalWaveCleared(),clock}},
   options,
