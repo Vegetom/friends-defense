@@ -1,0 +1,1319 @@
+{
+  "runs": [
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "f5b77ed242530c225fbeb15df549f291deb7b22473bd4ae75ef0b0222fcf9889",
+        "coreSha256": "aa1e4c55e02a5b8343a204be463b12a6e610b6a6d68c263d2ad9ab89431cd7c9"
+      },
+      "profileName": "zero",
+      "profile": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 7,
+      "stop": {
+        "level": 1,
+        "wave": 8,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 6,
+        "record": true,
+        "n": 7,
+        "before": 0,
+        "after": 6,
+        "win": false
+      },
+      "stage": "heroes",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 1,
+        "jordan": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "f5b77ed242530c225fbeb15df549f291deb7b22473bd4ae75ef0b0222fcf9889",
+        "coreSha256": "aa1e4c55e02a5b8343a204be463b12a6e610b6a6d68c263d2ad9ab89431cd7c9"
+      },
+      "profileName": "few",
+      "profile": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 9,
+      "stop": {
+        "level": 1,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 1,
+      "reward": {
+        "earned": 7,
+        "record": true,
+        "n": 9,
+        "before": 0,
+        "after": 7,
+        "win": false
+      },
+      "stage": "heroes",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 1,
+        "jordan": 1,
+        "rempart": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "f5b77ed242530c225fbeb15df549f291deb7b22473bd4ae75ef0b0222fcf9889",
+        "coreSha256": "aa1e4c55e02a5b8343a204be463b12a6e610b6a6d68c263d2ad9ab89431cd7c9"
+      },
+      "profileName": "intermediate",
+      "profile": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 32,
+      "stop": {
+        "level": 4,
+        "wave": 3,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 16,
+        "record": true,
+        "n": 32,
+        "before": 0,
+        "after": 16,
+        "win": false
+      },
+      "stage": "heroes",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 3,
+        "jordan": 3,
+        "rempart": 3
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "f5b77ed242530c225fbeb15df549f291deb7b22473bd4ae75ef0b0222fcf9889",
+        "coreSha256": "aa1e4c55e02a5b8343a204be463b12a6e610b6a6d68c263d2ad9ab89431cd7c9"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "heroes",
+      "finishedWithLives": 13,
+      "bonusesChosen": {
+        "tom": 7,
+        "jordan": 7,
+        "rempart": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "50ed15f1f22c9ee9af3557919d9fb8f77633fc481e1ffaba8869ecfc406b0fed",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "few",
+      "profile": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 1,
+      "perkPolicy": "rotating",
+      "win": false,
+      "cleared": 9,
+      "stop": {
+        "level": 1,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 1,
+      "reward": {
+        "earned": 7,
+        "record": true,
+        "n": 9,
+        "before": 0,
+        "after": 7,
+        "win": false
+      },
+      "stage": "rotating",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "shieldBreach": 1,
+        "longWinter": 1,
+        "airBeacon": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "50ed15f1f22c9ee9af3557919d9fb8f77633fc481e1ffaba8869ecfc406b0fed",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "few",
+      "profile": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 1,
+      "perkPolicy": "rotating",
+      "win": false,
+      "cleared": 9,
+      "stop": {
+        "level": 1,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 1,
+      "reward": {
+        "earned": 7,
+        "record": true,
+        "n": 9,
+        "before": 0,
+        "after": 7,
+        "win": false
+      },
+      "stage": "rotating",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "shieldBreach": 1,
+        "longWinter": 1,
+        "airBeacon": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "50ed15f1f22c9ee9af3557919d9fb8f77633fc481e1ffaba8869ecfc406b0fed",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "intermediate",
+      "profile": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 1,
+      "perkPolicy": "rotating",
+      "win": false,
+      "cleared": 32,
+      "stop": {
+        "level": 4,
+        "wave": 3,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 3,
+      "reward": {
+        "earned": 16,
+        "record": true,
+        "n": 32,
+        "before": 0,
+        "after": 16,
+        "win": false
+      },
+      "stage": "rotating",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "shieldBreach": 3,
+        "longWinter": 3,
+        "airBeacon": 3
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "50ed15f1f22c9ee9af3557919d9fb8f77633fc481e1ffaba8869ecfc406b0fed",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "intermediate",
+      "profile": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 1,
+      "perkPolicy": "rotating",
+      "win": false,
+      "cleared": 31,
+      "stop": {
+        "level": 4,
+        "wave": 2,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 15,
+        "record": true,
+        "n": 31,
+        "before": 0,
+        "after": 15,
+        "win": false
+      },
+      "stage": "rotating",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "shieldBreach": 3,
+        "longWinter": 3,
+        "airBeacon": 3
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "50ed15f1f22c9ee9af3557919d9fb8f77633fc481e1ffaba8869ecfc406b0fed",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 1,
+      "perkPolicy": "rotating",
+      "win": false,
+      "cleared": 59,
+      "stop": {
+        "level": 6,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 23,
+        "record": true,
+        "n": 59,
+        "before": 0,
+        "after": 23,
+        "win": false
+      },
+      "stage": "rotating",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "shieldBreach": 6,
+        "longWinter": 6,
+        "airBeacon": 6
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "50ed15f1f22c9ee9af3557919d9fb8f77633fc481e1ffaba8869ecfc406b0fed",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 1,
+      "perkPolicy": "rotating",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "rotating",
+      "finishedWithLives": 15,
+      "bonusesChosen": {
+        "shieldBreach": 7,
+        "longWinter": 7,
+        "airBeacon": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "zero",
+      "profile": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 7,
+      "stop": {
+        "level": 1,
+        "wave": 8,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 6,
+        "record": true,
+        "n": 7,
+        "before": 0,
+        "after": 6,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 1,
+        "jordan": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "zero",
+      "profile": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "composition": "air",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 8,
+      "stop": {
+        "level": 1,
+        "wave": 9,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 7,
+        "record": true,
+        "n": 8,
+        "before": 0,
+        "after": 7,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 1,
+        "jordan": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "zero",
+      "profile": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "composition": "sniper",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 7,
+      "stop": {
+        "level": 1,
+        "wave": 8,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 6,
+        "record": true,
+        "n": 7,
+        "before": 0,
+        "after": 6,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "raph": 1,
+        "jordan": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "zero",
+      "profile": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 7,
+      "stop": {
+        "level": 1,
+        "wave": 8,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 6,
+        "record": true,
+        "n": 7,
+        "before": 0,
+        "after": 6,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "eco5": 1,
+        "ylvine": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "few",
+      "profile": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 9,
+      "stop": {
+        "level": 1,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 1,
+      "reward": {
+        "earned": 7,
+        "record": true,
+        "n": 9,
+        "before": 0,
+        "after": 7,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 1,
+        "jordan": 1,
+        "rempart": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "few",
+      "profile": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "composition": "air",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 9,
+      "stop": {
+        "level": 1,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 1,
+      "reward": {
+        "earned": 7,
+        "record": true,
+        "n": 9,
+        "before": 0,
+        "after": 7,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 1,
+        "jordan": 1,
+        "rempart": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "few",
+      "profile": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "composition": "sniper",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 19,
+      "stop": {
+        "level": 2,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 10,
+        "record": true,
+        "n": 19,
+        "before": 0,
+        "after": 10,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "raph": 2,
+        "jordan": 2,
+        "rempart": 2
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "few",
+      "profile": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 14,
+      "stop": {
+        "level": 2,
+        "wave": 5,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 9,
+        "record": true,
+        "n": 14,
+        "before": 0,
+        "after": 9,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "eco5": 2,
+        "ylvine": 1,
+        "rempart": 1
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "intermediate",
+      "profile": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 32,
+      "stop": {
+        "level": 4,
+        "wave": 3,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 16,
+        "record": true,
+        "n": 32,
+        "before": 0,
+        "after": 16,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 3,
+        "jordan": 3,
+        "rempart": 3
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "intermediate",
+      "profile": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "composition": "air",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 31,
+      "stop": {
+        "level": 4,
+        "wave": 2,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 15,
+        "record": true,
+        "n": 31,
+        "before": 0,
+        "after": 15,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 3,
+        "jordan": 3,
+        "rempart": 3
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "intermediate",
+      "profile": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "composition": "sniper",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 34,
+      "stop": {
+        "level": 4,
+        "wave": 5,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 16,
+        "record": true,
+        "n": 34,
+        "before": 0,
+        "after": 16,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "raph": 4,
+        "jordan": 3,
+        "rempart": 3
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "intermediate",
+      "profile": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 31,
+      "stop": {
+        "level": 4,
+        "wave": 2,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 3,
+      "reward": {
+        "earned": 15,
+        "record": true,
+        "n": 31,
+        "before": 0,
+        "after": 15,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "eco5": 3,
+        "ylvine": 3,
+        "rempart": 3
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "final",
+      "finishedWithLives": 13,
+      "bonusesChosen": {
+        "tom": 7,
+        "jordan": 7,
+        "rempart": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "air",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": false,
+      "cleared": 69,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 26,
+        "record": true,
+        "n": 69,
+        "before": 0,
+        "after": 26,
+        "win": false
+      },
+      "stage": "final",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "tom": 7,
+        "jordan": 7,
+        "rempart": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "sniper",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "final",
+      "finishedWithLives": 15,
+      "bonusesChosen": {
+        "raph": 7,
+        "jordan": 7,
+        "rempart": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 0,
+      "perkPolicy": "classic",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "final",
+      "finishedWithLives": 15,
+      "bonusesChosen": {
+        "eco5": 7,
+        "ylvine": 7,
+        "rempart": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "mixed",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 2,
+      "perkPolicy": "rotating",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "rotating2",
+      "finishedWithLives": 6,
+      "bonusesChosen": {
+        "longWinter": 7,
+        "airBeacon": 7,
+        "shieldBreach": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "air",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 2,
+      "perkPolicy": "rotating",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "rotating2",
+      "finishedWithLives": 9,
+      "bonusesChosen": {
+        "longWinter": 7,
+        "airBeacon": 7,
+        "shieldBreach": 7
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "sniper",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 2,
+      "perkPolicy": "rotating",
+      "win": false,
+      "cleared": 59,
+      "stop": {
+        "level": 6,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "retriesUsed": 2,
+      "reward": {
+        "earned": 23,
+        "record": true,
+        "n": 59,
+        "before": 0,
+        "after": 23,
+        "win": false
+      },
+      "stage": "rotating2",
+      "finishedWithLives": 0,
+      "bonusesChosen": {
+        "longWinter": 6,
+        "airBeacon": 6,
+        "shieldBreach": 6
+      }
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "25df7548dd8e9c4b69a477c46b70b2b9c8285cb11a438e2b13507d18ff6c80b5",
+        "coreSha256": "93ee4fa05fa6049d89050fd81cab28004b59ce7d79881ddddab28710b96d9b3f"
+      },
+      "profileName": "max",
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "zone",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "variation": 2,
+      "perkPolicy": "rotating",
+      "win": true,
+      "cleared": 70,
+      "stop": {
+        "level": 7,
+        "wave": 10,
+        "reason": "campaign-win"
+      },
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 36,
+        "record": true,
+        "n": 70,
+        "before": 0,
+        "after": 36,
+        "win": true
+      },
+      "stage": "rotating2",
+      "finishedWithLives": 15,
+      "bonusesChosen": {
+        "longWinter": 7,
+        "airBeacon": 7,
+        "shieldBreach": 7
+      }
+    }
+  ]
+}
