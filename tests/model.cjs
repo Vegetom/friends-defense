@@ -31,7 +31,7 @@ function createModel() {
   vm.runInContext(`${core}
     let g=initial(),metaLevels=[0,0,0,0,0],stars=0,bestWave=0,completed=false;
     let runHearts=0,runEnded=false,buildCheckpoint=null,clock=0;
-    let selected=-1,focus=-1,paused=false,speed=1,choices=[],notice='';const cv={};
+    let selected=-1,focus=-1,paused=false,speed=1,choices=[],notice='',shake=0;const cv={};
     let saved=0,rewards=[];const settings={effects:false};
     function saveMeta(){saved++}
     function openRunReward(reward){rewards.push(reward)}
@@ -46,12 +46,20 @@ function createModel() {
         configureMap(input.level??0);g=initial();Object.assign(g,input.g||{});
         stars=input.stars??0;bestWave=input.bestWave??0;completed=input.completed??false;
         metaLevels=input.metaLevels??[0,0,0,0,0];runHearts=input.runHearts??0;
+        hardcore=input.hardcore??false;clock=0;shake=0;
         runEnded=input.runEnded??false;buildCheckpoint=input.buildCheckpoint?JSON.parse(JSON.stringify(input.buildCheckpoint)):null;saved=0;rewards=[];
       },
       state(){return JSON.parse(JSON.stringify({level,g,stars,bestWave,completed,metaLevels,runHearts,runEnded,buildCheckpoint,saved,rewards}))},
       globalWaveCleared,rewardStars,finishRun,startLevel,canRetryWave,retryWave,
       setGame:input=>Object.assign(g,input),
-      buy:(cell,type)=>buy(g,cell,type),begin:()=>begin(g),step:dt=>step(g,dt)
+      catalogue:()=>({heroes:D,maps:MAPS,meta:META,bonuses:B}),
+      stats:cell=>stats(g,g.towers[cell]),
+      buy:(cell,type)=>buy(g,cell,type),upgrade:cell=>upgrade(g,cell),remove:cell=>remove(g,cell),
+      bonusOptions:()=>bonusOptions(g),choose:id=>choose(g,B.find(b=>b.id===id)),
+      begin:()=>begin(g),step:dt=>{clock+=dt;step(g,dt)},
+      spawn:()=>spawn(g),attack:(cell,dt)=>attack(g,cell,g.towers[cell],dt),hurt,
+      wavePay:wave=>wavePay(g,wave),path:()=>path(g.towers),
+      position:cell=>pos(cell),impactArmor:effectiveImpactArmor,
     };`, context, { filename: 'actual-game-model.js', timeout: 2000 });
   return {
     ...context.api,

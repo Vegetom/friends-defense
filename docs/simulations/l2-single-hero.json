@@ -1,0 +1,2466 @@
+{
+  "method": "Actual game core, legal purchases, actual checkpoints/retries/transitions; seeded tie-breaking only, no battle-state or Z injection.",
+  "runs": [
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "9664436dc84afc68bda543f5016b351770f1ee73ff158fb4a3f8694b8125a32e",
+        "coreSha256": "9d168086ab7e4943b1c5568d80220c537cf1a101011857d8fee4b5adad6f5df2"
+      },
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "tom-only",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "hardcore": false,
+      "win": false,
+      "cleared": 9,
+      "stop": {
+        "level": 1,
+        "wave": 10,
+        "reason": "life-zero"
+      },
+      "seconds": 208.23333333333338,
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 7,
+        "record": true,
+        "n": 9,
+        "before": 0,
+        "after": 7,
+        "win": false
+      },
+      "actions": [
+        {
+          "level": 1,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 48,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 0,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 1,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 2,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 2,
+          "action": "buy",
+          "cell": 3,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 2,
+          "action": "buy",
+          "cell": 4,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 3,
+          "action": "buy",
+          "cell": 5,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 3,
+          "action": "buy",
+          "cell": 6,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 3,
+          "action": "buy",
+          "cell": 7,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "afterWave": 3,
+          "action": "choose",
+          "id": "tom"
+        },
+        {
+          "level": 1,
+          "beforeWave": 4,
+          "action": "buy",
+          "cell": 8,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 4,
+          "action": "buy",
+          "cell": 9,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 4,
+          "action": "buy",
+          "cell": 10,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 11,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 12,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 13,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 6,
+          "action": "buy",
+          "cell": 14,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 6,
+          "action": "buy",
+          "cell": 15,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 6,
+          "action": "buy",
+          "cell": 70,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 6,
+          "action": "buy",
+          "cell": 71,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "afterWave": 6,
+          "action": "choose",
+          "id": "eco10"
+        },
+        {
+          "level": 1,
+          "beforeWave": 7,
+          "action": "upgrade",
+          "cell": 48,
+          "type": 0,
+          "cost": 50
+        },
+        {
+          "level": 1,
+          "beforeWave": 7,
+          "action": "upgrade",
+          "cell": 48,
+          "type": 0,
+          "cost": 70
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 72,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 73,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 74,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 75,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 76,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 77,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 78,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "buy",
+          "cell": 79,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 16,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 17,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 18,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 19,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 20,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 21,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 22,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 23,
+          "type": 0,
+          "cost": 35
+        },
+        {
+          "level": 1,
+          "afterWave": 9,
+          "action": "choose",
+          "id": "rempart"
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 0,
+          "type": 0,
+          "cost": 50
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 0,
+          "type": 0,
+          "cost": 70
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 1,
+          "type": 0,
+          "cost": 50
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 1,
+          "type": 0,
+          "cost": 70
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 2,
+          "type": 0,
+          "cost": 50
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 3,
+          "type": 0,
+          "cost": 50
+        }
+      ],
+      "waves": [
+        {
+          "level": 1,
+          "wave": 1,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 15,
+          "moneyBefore": 10,
+          "moneyAfter": 92,
+          "killed": 14,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 15.566666666666666
+        },
+        {
+          "level": 1,
+          "wave": 2,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 15,
+          "moneyBefore": 22,
+          "moneyAfter": 115,
+          "killed": 16,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 16.2
+        },
+        {
+          "level": 1,
+          "wave": 3,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 15,
+          "moneyBefore": 10,
+          "moneyAfter": 114,
+          "killed": 18,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 17.166666666666668
+        },
+        {
+          "level": 1,
+          "wave": 4,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 15,
+          "moneyBefore": 9,
+          "moneyAfter": 127,
+          "killed": 20,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 19.933333333333334
+        },
+        {
+          "level": 1,
+          "wave": 5,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 8,
+          "moneyBefore": 22,
+          "moneyAfter": 151,
+          "killed": 20,
+          "escaped": 3,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 26.166666666666668
+        },
+        {
+          "level": 1,
+          "wave": 6,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 8,
+          "lifeAfter": 3,
+          "moneyBefore": 11,
+          "moneyAfter": 151,
+          "killed": 19,
+          "escaped": 5,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 21.966666666666665
+        },
+        {
+          "level": 1,
+          "wave": 7,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 3,
+          "lifeAfter": 3,
+          "moneyBefore": 31,
+          "moneyAfter": 288,
+          "killed": 26,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 19.066666666666666
+        },
+        {
+          "level": 1,
+          "wave": 8,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 3,
+          "lifeAfter": 2,
+          "moneyBefore": 8,
+          "moneyAfter": 301,
+          "killed": 27,
+          "escaped": 1,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 21.3
+        },
+        {
+          "level": 1,
+          "wave": 9,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 2,
+          "lifeAfter": 1,
+          "moneyBefore": 21,
+          "moneyAfter": 357,
+          "killed": 29,
+          "escaped": 1,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 21.966666666666665
+        },
+        {
+          "level": 1,
+          "wave": 10,
+          "attempt": 0,
+          "finished": false,
+          "lifeBefore": 4,
+          "lifeAfter": 0,
+          "moneyBefore": 17,
+          "moneyAfter": 141,
+          "killed": 31,
+          "escaped": 2,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "seconds": 28.9
+        }
+      ],
+      "transitions": [],
+      "profileName": "max"
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "9664436dc84afc68bda543f5016b351770f1ee73ff158fb4a3f8694b8125a32e",
+        "coreSha256": "9d168086ab7e4943b1c5568d80220c537cf1a101011857d8fee4b5adad6f5df2"
+      },
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "sniper-only",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "hardcore": false,
+      "win": false,
+      "cleared": 14,
+      "stop": {
+        "level": 2,
+        "wave": 5,
+        "reason": "life-zero"
+      },
+      "seconds": 305.1333333333334,
+      "retriesUsed": 1,
+      "reward": {
+        "earned": 9,
+        "record": true,
+        "n": 14,
+        "before": 0,
+        "after": 9,
+        "win": false
+      },
+      "actions": [
+        {
+          "level": 1,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 47,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 0,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 2,
+          "action": "buy",
+          "cell": 1,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 3,
+          "action": "buy",
+          "cell": 2,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 3,
+          "action": "buy",
+          "cell": 3,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "afterWave": 3,
+          "action": "choose",
+          "id": "raph"
+        },
+        {
+          "level": 1,
+          "beforeWave": 4,
+          "action": "buy",
+          "cell": 4,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 5,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 77,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 6,
+          "action": "buy",
+          "cell": 78,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 6,
+          "action": "buy",
+          "cell": 75,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "afterWave": 6,
+          "action": "choose",
+          "id": "eco10"
+        },
+        {
+          "level": 1,
+          "beforeWave": 7,
+          "action": "upgrade",
+          "cell": 47,
+          "type": 1,
+          "cost": 90
+        },
+        {
+          "level": 1,
+          "beforeWave": 7,
+          "action": "reserve",
+          "type": 1,
+          "needed": 295,
+          "available": 84
+        },
+        {
+          "level": 1,
+          "beforeWave": 8,
+          "action": "upgrade",
+          "cell": 47,
+          "type": 1,
+          "cost": 295
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 6,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 7,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 8,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 9,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "beforeWave": 9,
+          "action": "buy",
+          "cell": 10,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 1,
+          "afterWave": 9,
+          "action": "choose",
+          "id": "rempart"
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 0,
+          "type": 1,
+          "cost": 90
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 1,
+          "type": 1,
+          "cost": 90
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 2,
+          "type": 1,
+          "cost": 90
+        },
+        {
+          "level": 1,
+          "beforeWave": 10,
+          "action": "upgrade",
+          "cell": 3,
+          "type": 1,
+          "cost": 90
+        },
+        {
+          "level": 2,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 43,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 1,
+          "action": "buy",
+          "cell": 1,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 2,
+          "action": "buy",
+          "cell": 2,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 2,
+          "action": "buy",
+          "cell": 3,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 3,
+          "action": "buy",
+          "cell": 4,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "afterWave": 3,
+          "action": "choose",
+          "id": "raph"
+        },
+        {
+          "level": 2,
+          "beforeWave": 4,
+          "action": "buy",
+          "cell": 5,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 4,
+          "action": "buy",
+          "cell": 6,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 7,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 8,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 7,
+          "type": 1,
+          "cost": 65
+        },
+        {
+          "level": 2,
+          "beforeWave": 5,
+          "action": "buy",
+          "cell": 8,
+          "type": 1,
+          "cost": 65
+        }
+      ],
+      "waves": [
+        {
+          "level": 1,
+          "wave": 1,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 15,
+          "moneyBefore": 20,
+          "moneyAfter": 102,
+          "killed": 14,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 13.033333333333333
+        },
+        {
+          "level": 1,
+          "wave": 2,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 15,
+          "moneyBefore": 37,
+          "moneyAfter": 130,
+          "killed": 16,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 13.033333333333333
+        },
+        {
+          "level": 1,
+          "wave": 3,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 15,
+          "moneyBefore": 0,
+          "moneyAfter": 104,
+          "killed": 18,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 14.7
+        },
+        {
+          "level": 1,
+          "wave": 4,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 11,
+          "moneyBefore": 39,
+          "moneyAfter": 135,
+          "killed": 16,
+          "escaped": 4,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 19.7
+        },
+        {
+          "level": 1,
+          "wave": 5,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 11,
+          "lifeAfter": 6,
+          "moneyBefore": 5,
+          "moneyAfter": 148,
+          "killed": 22,
+          "escaped": 1,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 26.166666666666668
+        },
+        {
+          "level": 1,
+          "wave": 6,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 6,
+          "lifeAfter": 2,
+          "moneyBefore": 18,
+          "moneyAfter": 174,
+          "killed": 20,
+          "escaped": 4,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 21.366666666666667
+        },
+        {
+          "level": 1,
+          "wave": 7,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 2,
+          "lifeAfter": 2,
+          "moneyBefore": 84,
+          "moneyAfter": 341,
+          "killed": 26,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 18.3
+        },
+        {
+          "level": 1,
+          "wave": 8,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 2,
+          "lifeAfter": 2,
+          "moneyBefore": 46,
+          "moneyAfter": 347,
+          "killed": 28,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 20.3
+        },
+        {
+          "level": 1,
+          "wave": 9,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 2,
+          "lifeAfter": 2,
+          "moneyBefore": 22,
+          "moneyAfter": 362,
+          "killed": 30,
+          "escaped": 0,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 19.3
+        },
+        {
+          "level": 1,
+          "wave": 10,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 5,
+          "lifeAfter": 5,
+          "moneyBefore": 2,
+          "moneyAfter": 372,
+          "killed": 33,
+          "escaped": 0,
+          "hearts": 1,
+          "route": 11,
+          "army": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 22.633333333333333
+        },
+        {
+          "level": 2,
+          "wave": 1,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 14,
+          "moneyBefore": 50,
+          "moneyAfter": 143,
+          "killed": 13,
+          "escaped": 1,
+          "hearts": 1,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 13.866666666666667
+        },
+        {
+          "level": 2,
+          "wave": 2,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 14,
+          "lifeAfter": 14,
+          "moneyBefore": 13,
+          "moneyAfter": 123,
+          "killed": 16,
+          "escaped": 0,
+          "hearts": 1,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 12.933333333333334
+        },
+        {
+          "level": 2,
+          "wave": 3,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 14,
+          "lifeAfter": 11,
+          "moneyBefore": 58,
+          "moneyAfter": 165,
+          "killed": 15,
+          "escaped": 3,
+          "hearts": 1,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 18.833333333333332
+        },
+        {
+          "level": 2,
+          "wave": 4,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 11,
+          "lifeAfter": 6,
+          "moneyBefore": 35,
+          "moneyAfter": 147,
+          "killed": 15,
+          "escaped": 5,
+          "hearts": 1,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 18.633333333333333
+        },
+        {
+          "level": 2,
+          "wave": 5,
+          "attempt": 0,
+          "finished": false,
+          "lifeBefore": 6,
+          "lifeAfter": 0,
+          "moneyBefore": 17,
+          "moneyAfter": 106,
+          "killed": 18,
+          "escaped": 5,
+          "hearts": 1,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 26.166666666666668
+        },
+        {
+          "level": 2,
+          "wave": 5,
+          "attempt": 1,
+          "finished": false,
+          "lifeBefore": 6,
+          "lifeAfter": 0,
+          "moneyBefore": 17,
+          "moneyAfter": 106,
+          "killed": 18,
+          "escaped": 5,
+          "hearts": 0,
+          "route": 11,
+          "army": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "seconds": 26.166666666666668
+        }
+      ],
+      "transitions": [
+        {
+          "from": 1,
+          "to": 2,
+          "hearts": 1,
+          "money": 180,
+          "life": 15
+        }
+      ],
+      "profileName": "max"
+    },
+    {
+      "source": {
+        "ref": "working-tree",
+        "sha256": "9664436dc84afc68bda543f5016b351770f1ee73ff158fb4a3f8694b8125a32e",
+        "coreSha256": "9d168086ab7e4943b1c5568d80220c537cf1a101011857d8fee4b5adad6f5df2"
+      },
+      "profile": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "composition": "zone-only",
+      "policy": "balanced",
+      "seed": 1,
+      "dt": 0.03333333333333333,
+      "hardcore": false,
+      "win": false,
+      "cleared": 1,
+      "stop": {
+        "level": 1,
+        "wave": 2,
+        "reason": "life-zero"
+      },
+      "seconds": 23.666666666666668,
+      "retriesUsed": 0,
+      "reward": {
+        "earned": 6,
+        "record": true,
+        "n": 1,
+        "before": 0,
+        "after": 6,
+        "win": false
+      },
+      "actions": [],
+      "waves": [
+        {
+          "level": 1,
+          "wave": 1,
+          "attempt": 0,
+          "finished": true,
+          "lifeBefore": 15,
+          "lifeAfter": 1,
+          "moneyBefore": 150,
+          "moneyAfter": 173,
+          "killed": 0,
+          "escaped": 14,
+          "hearts": 0,
+          "route": 9,
+          "army": [],
+          "seconds": 17.166666666666668
+        },
+        {
+          "level": 1,
+          "wave": 2,
+          "attempt": 0,
+          "finished": false,
+          "lifeBefore": 1,
+          "lifeAfter": 0,
+          "moneyBefore": 173,
+          "moneyAfter": 173,
+          "killed": 0,
+          "escaped": 1,
+          "hearts": 0,
+          "route": 9,
+          "army": [],
+          "seconds": 6.5
+        }
+      ],
+      "transitions": [],
+      "profileName": "max"
+    }
+  ]
+}

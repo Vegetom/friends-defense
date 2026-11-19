@@ -1,0 +1,64 @@
+{
+  "source": {
+    "ref": "working-tree",
+    "sha256": "9664436dc84afc68bda543f5016b351770f1ee73ff158fb4a3f8694b8125a32e",
+    "coreSha256": "9d168086ab7e4943b1c5568d80220c537cf1a101011857d8fee4b5adad6f5df2"
+  },
+  "scope": "Normal mode, terrain 4 wave 1, zero permanent tiers, ordinary startLevel budget, no carried Z or perks.",
+  "budget": 215,
+  "life": 15,
+  "enemies": 18,
+  "minimumImpactArmor": 90,
+  "bosses": 0,
+  "minimumBaseSpeed": 57,
+  "affordableArchetypes": [
+    {
+      "type": 0,
+      "level": 1,
+      "cost": 35,
+      "damage": 7
+    },
+    {
+      "type": 0,
+      "level": 2,
+      "cost": 85,
+      "damage": 12.95
+    },
+    {
+      "type": 0,
+      "level": 3,
+      "cost": 155,
+      "damage": 23.8
+    },
+    {
+      "type": 1,
+      "level": 1,
+      "cost": 65,
+      "damage": 40
+    },
+    {
+      "type": 1,
+      "level": 2,
+      "cost": 155,
+      "damage": 80
+    },
+    {
+      "type": 2,
+      "level": 1,
+      "cost": 155,
+      "damage": 85
+    },
+    {
+      "type": 3,
+      "level": 1,
+      "cost": 155,
+      "damage": 55
+    }
+  ],
+  "affordableArmyMultisets": 33,
+  "maximumRawImpact": 85,
+  "maximumResidualImpact": 0,
+  "counterexample": null,
+  "proven": true,
+  "reason": "Every affordable direct and secondary impact is blocked. Zero permanent tiers generate no fire/burn zones. No kill income; construction is locked during combat. Every finite legal route has positive movement even under the only affordable slow. More enemies than base lives eventually escape, including after any finite checkpoint retries. No conditional automatic defeat on meta levels is used."
+}
