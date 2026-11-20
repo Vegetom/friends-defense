@@ -27,7 +27,7 @@ function oneLineFunction(name) {
 function createModel() {
   const context = vm.createContext({});
   const core = uniqueSlice('const D=[', '\nconst GRAPHICS=');
-  const functions = ['globalWaveCleared', 'rewardStars', 'finishRun', 'resetGame', 'startLevel'].map(oneLineFunction).join('\n');
+  const functions = ['globalWaveCleared', 'rewardStars', 'finishRun', 'resetGame', 'startLevel', 'nextLevel'].map(oneLineFunction).join('\n');
   vm.runInContext(`${core}
     let g=initial(),metaLevels=[0,0,0,0,0],stars=0,bestWave=0,completed=false;
     let runHearts=0,runEnded=false,buildCheckpoint=null,clock=0;
@@ -50,12 +50,12 @@ function createModel() {
         runEnded=input.runEnded??false;buildCheckpoint=input.buildCheckpoint?JSON.parse(JSON.stringify(input.buildCheckpoint)):null;saved=0;rewards=[];
       },
       state(){return JSON.parse(JSON.stringify({level,g,stars,bestWave,completed,metaLevels,runHearts,runEnded,buildCheckpoint,saved,rewards}))},
-      globalWaveCleared,rewardStars,finishRun,startLevel,canRetryWave,retryWave,
+      globalWaveCleared,rewardStars,finishRun,startLevel,nextLevel,canRetryWave,retryWave,
       setGame:input=>Object.assign(g,input),
       catalogue:()=>({heroes:D,maps:MAPS,meta:META,bonuses:B}),
       stats:cell=>stats(g,g.towers[cell]),
       buy:(cell,type)=>buy(g,cell,type),upgrade:cell=>upgrade(g,cell),remove:cell=>remove(g,cell),
-      bonusOptions:()=>bonusOptions(g),choose:id=>choose(g,B.find(b=>b.id===id)),
+      bonusOptions:()=>bonusOptions(g),choose:id=>choose(g,bonusOptions(g).find(b=>b.id===id)),
       relocate:(from,to)=>relocate(g,from,to), threats:wave=>waveThreats(g,wave),
       begin:()=>begin(g),step:dt=>{clock+=dt;step(g,dt)},
       spawn:()=>spawn(g),attack:(cell,dt)=>attack(g,cell,g.towers[cell],dt),hurt,

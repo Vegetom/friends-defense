@@ -41,28 +41,29 @@ function plan(api,{composition='mixed',policy='balanced',seed=1}={},actions){
  }
  return buys;
 }
-function bonus(api,composition,seed,perkPolicy){
+function bonus(api,composition,seed,perkPolicy,doctrinePolicy){
  const list=api.bonuses(),preferred=composition==='tom-only'?['tom','eco10','rempart']:composition==='sniper-only'?['raph','eco10','rempart']:composition==='zone-only'?['eco5','ylvine','rempart']:composition==='sniper'?['raph','eco5','jordan','eco10','rempart','poy','discount']:composition==='zone'?['eco5','tom','ylvine','jordan','rempart','poy','discount']:composition==='air'?['tom','eco5','jordan','ylvine','rempart','poy','discount']:['tom','eco5','jordan','eco10','rempart','poy','discount'];
+ if(list.some(b=>b.id==='sansDoctrine'))return doctrinePolicy==='auto'?(composition==='zone'?'embuscade':'escadron'):doctrinePolicy;
  if(perkPolicy==='rotating'){
   const rotating=list.find(b=>['airBeacon','shieldBreach','longWinter'].includes(b.id));
   if(rotating)return rotating.id;
  }
  return list.sort((a,b)=>{const ai=preferred.indexOf(a.id),bi=preferred.indexOf(b.id);return (ai<0?99:ai)-(bi<0?99:bi)||hash(seed,a.id)-hash(seed,b.id)})[0]?.id;
 }
-function runCampaign({ref=null,html=null,profile=[0,0,0,0,0],composition='mixed',policy='balanced',seed=1,dt=1/30,trace=true,hardcore=false,variation=0,perkPolicy='classic'}={}){
+function runCampaign({ref=null,html=null,profile=[0,0,0,0,0],composition='mixed',policy='balanced',seed=1,dt=1/30,trace=true,hardcore=false,variation=0,perkPolicy='classic',doctrinePolicy='auto'}={}){
  const {api,source}=createModel({ref,html});api.start(profile,hardcore,variation);
  const actions=[],waves=[],transitions=[];let totalSeconds=0,retriesUsed=0,attempt=0;
  for(let guard=0;guard<250;guard++){
   let state=api.view();
   if(state.ended){
    if(state.life>0){
-    if(state.level===6){const reward=api.finish(true);return {source,profile,composition,policy,seed,dt,hardcore,variation,perkPolicy,win:true,cleared:70,stop:{level:7,wave:10,reason:'campaign-win'},seconds:totalSeconds,retriesUsed,reward,actions:trace?actions:undefined,waves,transitions}}
-    const old=state;if(!api.next())throw Error('Actual nextLevel refused a real win');const fresh=api.view();transitions.push({from:old.level+1,to:fresh.level+1,hearts:old.retries,money:fresh.money,life:fresh.life});attempt=0;continue;
+    if(state.level===6){const reward=api.finish(true);return {source,profile,composition,policy,seed,dt,hardcore,variation,perkPolicy,doctrinePolicy,win:true,cleared:70,stop:{level:7,wave:10,reason:'campaign-win'},seconds:totalSeconds,retriesUsed,reward,actions:trace?actions:undefined,waves,transitions}}
+    const old=state;if(!api.next())throw Error('Actual nextLevel refused a real win');const fresh=api.view();transitions.push({from:old.level+1,to:fresh.level+1,hearts:old.retries,doctrine:fresh.doctrine,money:fresh.money,life:fresh.life});attempt=0;continue;
    }
    if(api.canRetry()){if(!api.retry())throw Error('Actual retry refused');retriesUsed++;attempt++;continue}
-   const reward=api.finish(false);return {source,profile,composition,policy,seed,dt,hardcore,variation,perkPolicy,win:false,cleared:state.n,stop:{level:state.level+1,wave:state.wave,reason:'life-zero'},seconds:totalSeconds,retriesUsed,reward,actions:trace?actions:undefined,waves,transitions};
+   const reward=api.finish(false);return {source,profile,composition,policy,seed,dt,hardcore,variation,perkPolicy,doctrinePolicy,win:false,cleared:state.n,stop:{level:state.level+1,wave:state.wave,reason:'life-zero'},seconds:totalSeconds,retriesUsed,reward,actions:trace?actions:undefined,waves,transitions};
   }
-  if(state.bonus){const id=bonus(api,composition,seed,perkPolicy);if(!id||!api.choose(id))throw Error('Illegal perk selection');actions.push({level:state.level+1,afterWave:state.wave,action:'choose',id});state=api.view()}
+  if(state.bonus){const id=bonus(api,composition,seed,perkPolicy,doctrinePolicy);if(!id||!api.choose(id))throw Error('Illegal perk selection');actions.push({level:state.level+1,afterWave:state.wave,action:'choose',id});state=api.view()}
   plan(api,{composition,policy,seed:seed+attempt*101},actions);const before=api.view();
   if(!api.begin())throw Error('Actual begin refused');
   const stepped=api.advance(dt,Math.ceil(600/dt));if(stepped.active)throw Error('Simulation exceeded 600 game seconds in a wave');

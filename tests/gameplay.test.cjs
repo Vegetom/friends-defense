@@ -64,16 +64,20 @@ test('every legal zero-upgrade starting army at the Bastion has zero damaging im
   // is affordable. This overestimates that army's support, independently of range.
   const freezing=army.some(t=>t.type===3);
   for(const tower of army){
-   for(const kind of [{},{fast:true},{tank:true},{boss:true},{air:true}]){
-    model.set({level:3,metaLevels:[0,0,0,0,0]});
-    const p=model.position(1),targets=[0,1,2].map(()=>enemy({...p,...kind,slow:freezing?1:0}));
-    model.setGame({wave:1,active:true,enemies:targets,
-     towers:{1:{type:tower.type,lvl:tower.lvl,invested:tower.cost,cd:0,fresh:false}}});
-    model.attack(1,1/60);
-    const state=model.state();
-    assert.ok(state.g.towers[1].cd>0,'the real attack must have fired');
-    assert.ok(state.g.fx.length>0,'the real attack feedback must have been created');
-    assert.ok(state.g.enemies.every(e=>e.hp===1000),`damaging zero-meta army: ${JSON.stringify(army)}`);
+   for(const doctrine of [undefined,'escadron','embuscade']){
+    // Escadron can boost aerial strikes, but Bastion V1 has no air spawns.
+    const targetsToCheck=doctrine==='escadron'?[{},{fast:true},{tank:true}]:[{},{fast:true},{tank:true},{boss:true},{air:true}];
+    for(const kind of targetsToCheck){
+      model.set({level:3,metaLevels:[0,0,0,0,0]});
+      const p=model.position(1),targets=[0,1,2].map(()=>enemy({...p,...kind,slow:freezing?1:0}));
+      model.setGame({wave:1,active:true,doctrine,enemies:targets,
+       towers:{1:{type:tower.type,lvl:tower.lvl,invested:tower.cost,cd:0,fresh:false}}});
+      model.attack(1,1/60);
+      const state=model.state();
+      assert.ok(state.g.towers[1].cd>0,'the real attack must have fired');
+      assert.ok(state.g.fx.length>0,'the real attack feedback must have been created');
+      assert.ok(state.g.enemies.every(e=>e.hp===1000),`damaging zero-meta army: ${JSON.stringify(army)} (${doctrine})`);
+    }
    }
   }
  }
@@ -87,7 +91,11 @@ test('every legal zero-upgrade starting army at the Bastion has zero damaging im
  enumerate(0,215,[]);assert.ok(armies>10);
  // No army can obtain kill income. There are more entrants than the 15 lives,
  // so arbitrary placement or arbitrarily long paths cannot turn zero damage into a win.
- model.set({level:3});model.begin();assert.ok(model.state().g.total>15);
+ model.set({level:3});model.begin();
+ const count=model.state().g.total;
+ assert.ok(count>15);
+ for(let i=0;i<count;i++)model.spawn();
+ assert.ok(model.state().g.enemies.every(e=>!e.air));
 });
 
 test('secondary and delayed impacts pay plating separately while fire damage continues through it',()=>{
