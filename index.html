@@ -162,11 +162,7 @@
 #fd15 .rrBigStar{font-size:clamp(25px,6vw,36px);color:#ffcf59;text-shadow:0 0 10px #ffcb5ab3}
 #fd15 #runReward.complete .rrGain{opacity:0;max-height:0;transform:translateY(-12px) scale(.7);margin:0}
 #fd15 #runReward.complete .rrTotalCount{animation:rrWalletGlow 1s ease}
-#fd15 .rrDebrief{margin:0;padding:4px 8px;border-left:3px solid #86cce4;background:#10273d;color:#e5f4fa;line-height:1.25;font-size:12px;flex-shrink:0}
 #fd15 .rrFooterHint{font-size:11px;font-weight:800;text-align:center;color:#ffe3a1;line-height:1.3;flex-shrink:0}
-#fd15 .rrHeroes{display:flex;gap:5px;justify-content:space-evenly;flex-shrink:0}
-#fd15 .rrHero{flex:1;max-width:72px;min-width:0;display:grid;place-items:center;padding:3px;border:1px solid #668c9d;border-radius:10px;background:linear-gradient(160deg,#32566b,#18354d)}
-#fd15 .rrHero canvas{width:min(100%,54px);height:auto;aspect-ratio:1}
 #fd15 .rrActions{display:grid;gap:7px;flex-shrink:0}
 #fd15 #rrImprove{background:linear-gradient(180deg,#ffed9a,#f6b943)!important;color:#282b24!important;border:2px solid #ffe4a1!important;font-size:clamp(15px,4.1vw,20px);font-weight:1000;min-height:51px;box-shadow:0 4px 0 #8e5b21,0 10px 20px #ffb63a33}
 #fd15 #rrReplay{background:linear-gradient(#2b526b,#17354c)!important;border:1px solid #75a7c2!important;color:#e4f5ff!important;min-height:39px;font-size:13px;font-weight:850}
@@ -174,8 +170,8 @@
 @keyframes rrStarFlight{0%{opacity:0;transform:translate(0,0) scale(.6) rotate(-24deg)}18%{opacity:1;transform:translate(-5px,-8px) scale(1.2) rotate(6deg)}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2) rotate(130deg)}}
 @keyframes rrWalletGlow{0%,100%{filter:brightness(1)}45%{filter:brightness(1.5) drop-shadow(0 0 10px #ffdf7b)}}
 @keyframes rrNodeGlow{0%{filter:brightness(.95)}100%{filter:brightness(1.3)}}
-@media(max-width:350px){#fd15 #runReward{gap:7px;padding:11px 10px}#fd15 .rrHead{min-height:67px}#fd15 .rrPortrait{width:56px;height:56px;flex-basis:56px}#fd15 .rrStage{padding-left:23px}#fd15 .rrNode{left:2px;width:16px;height:16px}#fd15 .rrPathBg,#fd15 .rrPathFill{left:10px}#fd15 .rrStageName{font-size:9px}#fd15 .rrJourney{padding:8px 6px}#fd15 .rrRewardSide{padding:8px 4px}#fd15 .rrTotalCount{min-width:88%}#fd15 .rrHero canvas{max-width:41px}#fd15 .rrActions{gap:5px}#fd15 #rrImprove{min-height:44px}#fd15 #rrReplay{min-height:34px}}
-@media(max-height:700px){#fd15 #runReward{gap:5px;padding:8px 11px;height:calc(100% - 8px)}#fd15 .rrHead{min-height:57px;padding:0 0 4px}#fd15 .rrPortrait{width:54px;height:54px;flex-basis:54px}#fd15 .rrHead h2{font-size:20px}#fd15 .rrMapStages{gap:2px}#fd15 .rrStage{min-height:22px;padding-top:2px;padding-bottom:2px}#fd15 .rrRewardSide{gap:5px}#fd15 .rrWallet{min-height:66px}#fd15 .rrTotalCount{padding:4px}#fd15 .rrFooterHint{font-size:10px}#fd15 .rrHero canvas{max-width:42px}#fd15 #rrImprove{min-height:42px}#fd15 #rrReplay{min-height:34px}}
+@media(max-width:350px){#fd15 #runReward{gap:7px;padding:11px 10px}#fd15 .rrHead{min-height:67px}#fd15 .rrPortrait{width:56px;height:56px;flex-basis:56px}#fd15 .rrStage{padding-left:23px}#fd15 .rrNode{left:2px;width:16px;height:16px}#fd15 .rrPathBg,#fd15 .rrPathFill{left:10px}#fd15 .rrStageName{font-size:9px}#fd15 .rrJourney{padding:8px 6px}#fd15 .rrRewardSide{padding:8px 4px}#fd15 .rrTotalCount{min-width:88%}#fd15 .rrActions{gap:5px}#fd15 #rrImprove{min-height:44px}#fd15 #rrReplay{min-height:34px}}
+@media(max-height:700px){#fd15 #runReward{gap:5px;padding:8px 11px;height:calc(100% - 8px)}#fd15 .rrHead{min-height:57px;padding:0 0 4px}#fd15 .rrPortrait{width:54px;height:54px;flex-basis:54px}#fd15 .rrHead h2{font-size:20px}#fd15 .rrMapStages{gap:2px}#fd15 .rrStage{min-height:22px;padding-top:2px;padding-bottom:2px}#fd15 .rrRewardSide{gap:5px}#fd15 .rrWallet{min-height:66px}#fd15 .rrTotalCount{padding:4px}#fd15 .rrFooterHint{font-size:10px}#fd15 #rrImprove{min-height:42px}#fd15 #rrReplay{min-height:34px}}
 @media(orientation:landscape) and (max-height:460px){
  html:has(#runReward:not([hidden])),body:has(#runReward:not([hidden])){overflow:hidden}
  #fd15:has(#runReward:not([hidden])){min-height:0}
@@ -183,7 +179,7 @@
  #fd15 #runReward{position:fixed;inset:5px 8px;transform:none;height:auto;max-width:690px;gap:4px}
  #fd15 .rrHead{min-height:46px}
  #fd15 .rrPortrait{width:43px;height:43px;flex-basis:43px}
- #fd15 .rrHeading,#fd15 .rrHeroes{display:none}
+ #fd15 .rrHeading{display:none}
  #fd15 .rrJourney{padding:4px 6px;gap:2px}
  #fd15 .rrStage{min-height:15px;padding-block:0}
  #fd15 .rrNode{width:13px;height:13px;font-size:9px}
@@ -360,6 +356,47 @@
 #fd15 #result.rogueResult{z-index:24;max-height:80%;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:9px}
 #fd15 #result.rogueResult h2{font-size:21px;margin:0}
 #fd15 #result.rogueResult .resultHint{font-size:12px}
+#fd15 .combatReport{flex-shrink:0;min-width:0;text-align:center}
+#fd15 .combatReport[hidden]{display:none}
+#fd15 .combatReport h3{margin:0 0 5px;font-size:12px;color:#ffe1a0}
+#fd15 .combatNote{margin:3px 0;color:#bfd5e1;font-size:11px}
+#fd15 .combatCards{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+#fd15 .combatCard{position:relative;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;border:1px solid #53788f;border-radius:9px;padding:3px 2px;background:linear-gradient(160deg,#24475a,#142b41);line-height:1.15}
+#fd15 .combatCard.topDamage{border-color:#ffdf82;background:linear-gradient(160deg,#514333,#1d3447);box-shadow:0 0 12px #ffcf6645}
+#fd15 .combatCard.topDamage::before{content:'✦';position:absolute;top:3px;right:4px;color:#ffe78e;font-size:12px}
+#fd15 .combatCard.inactive{color:#b1c7d5;background:#182d3d}
+#fd15 .combatCard.inactive canvas{opacity:.58;filter:grayscale(1)}
+#fd15 .combatCard canvas{width:min(100%,70px);height:auto;aspect-ratio:1;image-rendering:pixelated}
+#fd15 .combatCardName{font-size:11px}
+#fd15 .combatValue{color:#fff1c5;font-size:clamp(13px,2.4vw,19px);font-variant-numeric:tabular-nums;white-space:nowrap}
+#fd15 .combatStatus,#fd15 .combatSupport{font-size:10px;color:#bbd9e9}
+#fd15 .combatShare{display:flex;align-items:center;gap:3px;width:94%;color:#c8dce9;font-size:9px;white-space:nowrap}
+#fd15 .combatTrack{flex:1;height:4px;border-radius:4px;background:#324c59;overflow:hidden}
+#fd15 .combatTrack i{display:block;height:100%;transform-origin:left;background:var(--hero-color)}
+#fd15 .combatSr{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#fd15 #result.rogueResult:has(.combatReport){max-width:600px}
+#fd15 #result .combatActions{display:grid;gap:6px;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))}
+#fd15 #result .combatActions button{margin:0}
+#fd15 #rrReplay{min-height:44px}
+@media(max-width:370px){
+ #fd15 .combatCards{gap:3px}
+ #fd15 .combatStatus,#fd15 .combatSupport{font-size:9px}
+ #fd15 .combatValue{font-size:12px}
+}
+@media(orientation:landscape) and (max-height:460px){
+ html:has(#result.rogueResult),body:has(#result.rogueResult){overflow:hidden}
+ #fd15 #result.rogueResult:has(.combatReport){position:fixed;left:8px;right:8px;top:50dvh;max-height:calc(100dvh - 16px);padding:9px;gap:5px}
+ #fd15 #result:has(.combatReport) .resultStats{margin:0;padding:4px 0}
+ #fd15 #result:has(.combatReport) .rogueStageHero,#fd15 #result:has(.combatReport) .resultMap{margin:0;padding:0}
+ #fd15 #result:has(.combatReport) .resultHint{margin:2px 0;font-size:11px}
+ #fd15 .combatCard canvas{width:min(100%,52px)}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .combatCard canvas{width:min(100%,39px)}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrStage{min-height:0}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrJourneyHead{display:none}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrWallet{min-height:0}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrRewardSide{padding-block:4px}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) #rrTotal{font-size:31px}
+}
 #fd15 .rogueHearts{font-size:14px;color:#ffb8d4;font-weight:900}
 #fd15 .rogueStageHero{padding:15px 8px;text-align:center;font-size:17px;font-weight:900;color:#ffe09b}
 /* Important: never leave an empty end-of-level modal over the next map. */
@@ -462,9 +499,8 @@ html:has(#fd15.workshop-open),body:has(#fd15.workshop-open){overflow:hidden;over
  <div class="rrHeading">Ta progression</div>
  <div class="rrMid"><div class="rrJourney"><div class="rrJourneyHead">7 TERRAINS</div><div id="rrMapStages" class="rrMapStages"><div class="rrPathBg"></div><div id="rrPathFill" class="rrPathFill"></div></div></div>
  <div class="rrRewardSide"><div id="rrGain" class="rrGain"><small>GAIN DE LA RUN</small><strong id="rrEarned">+0 ★</strong></div><div class="rrWallet"><div class="rrTotalLabel">TOTAL</div><div class="rrTotalCount"><span id="rrTotal">0</span><span class="rrBigStar">★</span></div></div></div></div>
- <p id="rrDebrief" class="rrDebrief" hidden></p>
  <div class="rrFooterHint">Tes étoiles renforcent tes héros pour la prochaine tentative</div>
- <div id="rrHeroes" class="rrHeroes" aria-hidden="true"></div>
+ <div id="rrCombatReport" class="combatReport" hidden></div>
  <div class="rrActions"><button id="rrImprove">★ &nbsp; AMÉLIORER MES HÉROS &nbsp; ▶</button><button id="rrReplay">↻ &nbsp; Nouvelle tentative</button></div>
 </section>
 <section id="metaWorkshop" hidden aria-labelledby="metaTitle" role="dialog" aria-modal="true">
@@ -564,6 +600,12 @@ function validateSaveData(input){
    for(const key of ['active','ended','bonus','bossDefeated','bossEscaped']){if(state[key]===undefined)state[key]=false;demand(typeof state[key]==='boolean','État '+key+' invalide');}
    demand(!state.active||(integer(state.total,1)&&integer(state.spawned)&&state.spawned<=state.total),'Compteurs de vague active absents ou invalides');
    for(const key of ['spawned','total','killed','escaped','totalKills','totalLeaks','bossKills','bossLeaks']){if(state[key]===undefined)state[key]=0;demand(integer(state[key]),'Compteur '+key+' invalide');}
+   // A damaged optional recap must never block a playable save.
+   const report=state.combatReport;
+   if(report!==undefined&&(!object(report)||
+      !Array.isArray(report.damage)||report.damage.length!==D.length||!report.damage.every(v=>finite(v)&&v>=0&&v<=Number.MAX_SAFE_INTEGER)||
+      !Array.isArray(report.forms)||report.forms.length!==D.length||!report.forms.every(v=>integer(v,0,3))||
+      !integer(report.slowed)||typeof report.partial!=='boolean'))delete state.combatReport;
    if(state.waveLeaks!==undefined){
     const counts=state.waveLeaks;
     demand(object(counts)&&['air','ground','boss'].every(k=>integer(counts[k]))&&counts.air+counts.ground+counts.boss===state.escaped,'Fuites de vague invalides');
@@ -582,6 +624,7 @@ function validateSaveData(input){
    for(const e of state.enemies){
     demand(object(e)&&['x','y','hp','max','vel','progress'].every(k=>finite(e[k]))&&e.max>0&&e.vel>0,'Ennemi invalide');
     demand(integer(e.k,0,state.route.length-1)&&integer(e.reward),'Progression ennemie invalide');
+    if(e.jordanCounted!==undefined&&typeof e.jordanCounted!=='boolean')delete e.jordanCounted;
     if(e.impactArmor!==undefined)demand(finite(e.impactArmor)&&e.impactArmor>=0,'Blindage d’impact invalide');
     for(const key of ['slow','slowPower','flash','burn','burnDps','mark','armor','shield','maxShield','regen']){if(e[key]===undefined)e[key]=0;demand(finite(e[key]),'État ennemi invalide');}
     for(const key of ['boss','elite','fast','tank','air','airDone']){if(e[key]===undefined)e[key]=false;demand(typeof e[key]==='boolean','Type ennemi invalide');}
@@ -848,7 +891,20 @@ const BOSS_ROSTER=[['Raditz','Nappa'],['Vegeta','Vegeta d’élite'],['Freezer',
 function bossName(w){return BOSS_ROSTER[level][w>=10?1:0]}
 
 function path(block){let q=[ENTRY],prev=Array(W*H).fill(-1);prev[ENTRY]=ENTRY;for(let j=0;j<q.length;j++){let a=q[j];if(a===EXIT){let p=[a];while(p[p.length-1]!==ENTRY)p.push(prev[p[p.length-1]]);return p.reverse()}let x=a%W,y=Math.floor(a/W);for(let n of [x>0?a-1:-1,x<W-1?a+1:-1,y>0?a-W:-1,y<H-1?a+W:-1])if(passable(n)&&prev[n]<0&&!block[n]){prev[n]=a;q.push(n)}}return null}
-function initial(){return {money:150+[0,30,50,65,110,150,190][level],life:15,wave:0,towers:{},enemies:[],fx:[],route:path({}),perks:[],mods:{sai:0,eco:0,power:0,haste:0,range:0},active:false,ended:false,bonus:false,spawned:0,total:0,clock:0,killed:0,escaped:0,totalKills:0,totalLeaks:0,retries:0,zones:[],delayed:[],bossDefeated:false,bossEscaped:false,bossKills:0,bossLeaks:0}}
+function initial(){return {combatReport:newCombatReport(),money:150+[0,30,50,65,110,150,190][level],life:15,wave:0,towers:{},enemies:[],fx:[],route:path({}),perks:[],mods:{sai:0,eco:0,power:0,haste:0,range:0},active:false,ended:false,bonus:false,spawned:0,total:0,clock:0,killed:0,escaped:0,totalKills:0,totalLeaks:0,retries:0,zones:[],delayed:[],bossDefeated:false,bossEscaped:false,bossKills:0,bossLeaks:0}}
+function newCombatReport(partial=false){
+ return {damage:D.map(()=>0),forms:D.map(()=>0),slowed:0,partial};
+}
+function prepareCombatReport(g,legacyPartial){
+ const report=g.combatReport??=newCombatReport(legacyPartial);
+ for(const t of Object.values(g.towers))report.forms[t.type]=Math.max(report.forms[t.type],t.lvl);
+}
+function countJordanSlow(g,e){
+ if(g.combatReport&&e.slow>0&&e.slowPower>0&&!e.jordanCounted){
+  e.jordanCounted=true;
+  g.combatReport.slowed++;
+ }
+}
 // Capture only the post-wave build state. Purchases and upgrades made after this moment
 // are intentionally NOT included: a second chance allows the player to change them.
 function snapshotBuild(state){const snap=JSON.parse(JSON.stringify(state));snap.zones=[];snap.delayed=[];snap.active=false;snap.ended=false;snap.bonus=false;snap.enemies=[];snap.fx=[];snap.route=path(snap.towers);snap.retries=Math.max(0,snap.retries||0);return snap}
@@ -896,7 +952,7 @@ function relocate(g,from,to){
  g.relocated=true;
  return true;
 }
-function begin(g){if(g.active||g.ended||g.bonus)return false;for(let t of Object.values(g.towers)){t.fresh=false;t.charge=0;t.recoil=0}g.wave++;if(level===1||level===2)g.activeAirKind=airKind(g.wave);g.active=true;g.spawned=0;g.killed=0;g.escaped=0;g.waveLeaks={air:0,ground:0,boss:0};g.bossDefeated=false;g.bossEscaped=false;g.bossKills=0;g.bossLeaks=0;g.total=waveSize(g.wave);g.clock=.1;return true}
+function begin(g){if(g.active||g.ended||g.bonus)return false;prepareCombatReport(g,g.wave>0);for(let t of Object.values(g.towers)){t.fresh=false;t.charge=0;t.recoil=0}g.wave++;if(level===1||level===2)g.activeAirKind=airKind(g.wave);g.active=true;g.spawned=0;g.killed=0;g.escaped=0;g.waveLeaks={air:0,ground:0,boss:0};g.bossDefeated=false;g.bossEscaped=false;g.bossKills=0;g.bossLeaks=0;g.total=waveSize(g.wave);g.clock=.1;return true}
 // Air units follow the fixed straight line, independently of the ground maze.
 const AIR_WAVES={4:'mixed',6:'mixed',7:'air',8:'mixed',9:'air',10:'mixed'};
 const AIR_SPEED=70,AIR_RANGE=.68;
@@ -983,6 +1039,11 @@ function hurt(e,d,continuous=false,platingFactor=1,shieldBonus=0){if(e.hp<=0||d<
  if(blocked){e.shield-=blocked+extra;d-=blocked}
  const actual=Math.min(e.hp,d*(1-(e.armor||0)));e.hp-=actual;
  if(actual+blocked>0){e.flash=.12;damageFeedback(e,actual+blocked+extra)}
+ return actual;
+}
+function dealHeroDamage(g,type,e,damage,continuous=false,plating=1,shieldBonus=0){
+ const actual=hurt(e,damage,continuous,plating,shieldBonus);
+ if(actual>0&&g.combatReport)g.combatReport.damage[type]+=actual;
 }
 function matchup(t,e){return t.type===0?(e.fast?1.3:e.tank||e.boss?.75:1):t.type===1?(e.fast?.75:t.lvl===3&&(e.tank||e.boss)?1.5:1):1}
 function remainingTime(g,e){return (e.air?(1-e.progress)*airLength():(g.route.length-1-e.progress)*S)/e.vel}
@@ -1006,7 +1067,7 @@ function flightHeading(g,e){
 }
 // Secondary targets take diminishing AoE damage. A single meteor volley cannot
 // strike the same enemy three times when the visible impact circles overlap.
-function splash(g,x,y,r,dmg,air,skip=null,options=null){
+function splash(g,type,x,y,r,dmg,air,skip=null,options=null){
  const nearby=g.enemies.filter(a=>a!==skip&&a.hp>0&&!!a.air===!!air&&Math.hypot(a.x-x,a.y-y)<=r*S)
    .sort((a,b)=>Math.hypot(a.x-x,a.y-y)-Math.hypot(b.x-x,b.y-y));
  let j=0;
@@ -1016,7 +1077,7 @@ function splash(g,x,y,r,dmg,air,skip=null,options=null){
      options?.falloff==='meteor'?[1,.88,.65][Math.min(j,2)]:1;
    const volleyFade=options?.volley!=null?[1,.38,.18][Math.min(a.meteorVolleyHits++,2)]:1;
    if(!options?.seen?.has(a)){
-     hurt(a,dmg*fade*volleyFade);
+     dealHeroDamage(g,type,a,dmg*fade*volleyFade);
      options?.seen?.add(a);
      if(options?.mark&&a.hp>0)a.mark=Math.max(a.mark||0,options.mark);
    }
@@ -1038,7 +1099,7 @@ function attack(g,i,t,dt){
  const squadron=inSquadron(g,+i,t.type);
  const finalAssault=g.wave===10&&has(g,'assaultPlan'),finalEscort=g.wave===10&&has(g,'escortPlan');
  let matchupDamage=a=>st.damage*matchup(t,a)*(a.boss?(finalAssault?1+ASSAULT_BONUS/100:has(g,'rempart')?1.15:1):finalEscort?1.15:1)*(a.slow>0&&t.type!==3?1.18:1)*(a.mark>0?(t.type===1?1.28:1.20):1)*(t.type===0&&ml>=2&&a.air?1.32:1)*(squadron&&a.air?1.22:1);
- let hit=(a,f=1,plating=1,shieldBonus=0)=>hurt(a,matchupDamage(a)*f,false,plating,shieldBonus);
+ let hit=(a,f=1,plating=1,shieldBonus=0)=>dealHeroDamage(g,t.type,a,matchupDamage(a)*f,false,plating,shieldBonus);
  let shotColor=D[t.type].color,effectArea=st.area;
  // TOM: truly separate visible projectiles / distinct targets, no ricochet.
  if(t.type===0){let count=ml>=3?3:ml>=1?2:1;let use=targets.slice(0,count);
@@ -1060,13 +1121,13 @@ function attack(g,i,t,dt){
  g.fx.push({type:1,lvl:t.lvl,x:p.x,y:p.y-5,ex:beamEnd.x,ey:beamEnd.y-5,area:0,age:0,
   dur:ml>=2?.40:.31,c:orbital?'#fff3ae':ml>=2?'#73edff':'#83cfff',beam:ml>=2,marked:ml>=1,orbital:false});
  if(orbital){
-  splash(g,e.x,e.y,.72,st.damage*.62*(squadron&&e.air?1.22:1),e.air,e,{mark:1.5});
+  splash(g,t.type,e.x,e.y,.72,st.damage*.62*(squadron&&e.air?1.22:1),e.air,e,{mark:1.5});
   g.fx.push({type:1,lvl:3,x:p.x,y:p.y-8,ex:e.x,ey:e.y-6,area:.72,age:0,dur:.72,c:'#fff7bd',orbital:true});
  }
  }else if(t.type===2){
  effectArea=st.area+(g.doctrine==='embuscade'&&!e.air&&e.slow>0?.30:0);
  hit(e,1);
- splash(g,e.x,e.y,effectArea,st.damage*.65,e.air,e,{falloff:'ylvine'});if(ml>=1){
+ splash(g,t.type,e.x,e.y,effectArea,st.damage*.65,e.air,e,{falloff:'ylvine'});if(ml>=1){
    const fire=addZone(g,'fire',e.x,e.y,st.area,2,st.damage*.12,.28,e.air);
    if(ml>=2){
      fire.key??=i+':'+t.shots;
@@ -1077,7 +1138,7 @@ function attack(g,i,t,dt){
    const volley=i+':'+t.shots, heading=flightHeading(g,e);
    for(let j=-1;j<=1;j++)schedule(g,e.x+j*58*heading.x,e.y+j*58*heading.y,'meteor',.35+Math.abs(j)*.18,.72,st.damage*.46,e.air,volley);
  }
- }else if(t.type===3){hit(e,1);const slow=(a,power,dur)=>{if(a.hp<=0)return;let q=power*(a.boss?.5:1);if(a.slow<=0||q>=a.slowPower){a.slowPower=q;a.slow=Math.max(a.slow,dur)}};
+ }else if(t.type===3){hit(e,1);const slow=(a,power,dur)=>{if(a.hp<=0)return;let q=power*(a.boss?.5:1);if(a.slow<=0||q>=a.slowPower){a.slowPower=q;a.slow=Math.max(a.slow,dur);countJordanSlow(g,a)}};
  const directDuration=st.dur+(has(g,'longWinter')?.4:0);
  slow(e,st.slow,directDuration);
  if(ml>=1){let extra=targets.filter(a=>a!==e&&!!a.air===!!e.air&&Math.hypot(a.x-e.x,a.y-e.y)<1.3*S).sort((a,b)=>Number(a.slow>0)-Number(b.slow>0)).slice(0,1);for(let a of extra)slow(a,st.slow*.85,st.dur*.75+(has(g,'longWinter')?.4:0))}
@@ -1091,7 +1152,7 @@ function attack(g,i,t,dt){
  const grouped=()=>g.enemies.filter(a=>a.hp>0&&!!a.air===!!e.air&&Math.hypot(a.x-e.x,a.y-e.y)<=(st.area+.4)*S).length>=3;
  const rage=ml>=2&&t.shots>=nextRage&&(e.boss||e.elite||grouped());
  if(ml>=2)t.nextRage=rage?t.shots+4:nextRage;
- hit(e,rage?1.8:1,ml>=1?.75:1);splash(g,e.x,e.y,st.area+(rage?.4:0),st.damage*(rage?1.2:.75),e.air,e);
+ hit(e,rage?1.8:1,ml>=1?.75:1);splash(g,t.type,e.x,e.y,st.area+(rage?.4:0),st.damage*(rage?1.2:.75),e.air,e);
  if(ml>=3&&t.shots%5===0){
    const volley=i+':'+t.shots;
    for(let j=-1;j<=1;j++)schedule(g,e.x+j*56,e.y+(j%2)*42,'apocalypse',.5,1.3,st.damage*.75,e.air,volley);
@@ -1113,7 +1174,7 @@ function choose(g,b){
  }
  delete g.planOffer;g.bonus=false;saveBuildCheckpoint(g);return true;
 }
-function step(g,dt){tickFeedback(dt);for(let f of g.fx)f.age+=dt;g.fx=g.fx.filter(f=>f.age<f.dur);if(!g.active){g.zones.length=0;g.delayed.length=0;return}g.clock-=dt;while(g.spawned<g.total&&g.clock<=0){spawn(g);g.clock+=(hardcore&&g.wave===10&&g.spawned===g.total-1?1.8:Math.max(.28,.65-g.wave*.018-Math.max(0,level-1)*.018))}for(let e of g.enemies){e.slow=Math.max(0,e.slow-dt);e.mark=Math.max(0,(e.mark||0)-dt);e.flash=Math.max(0,e.flash-dt);if(e.burn>0){let elapsed=Math.min(dt,e.burn);e.burn-=elapsed;hurt(e,e.burnDps*elapsed,true);if(e.burn<=0)e.burnDps=0;}if(e.hp<=0)continue;
+function step(g,dt){tickFeedback(dt);for(let f of g.fx)f.age+=dt;g.fx=g.fx.filter(f=>f.age<f.dur);if(!g.active){g.zones.length=0;g.delayed.length=0;return}if(!g.combatReport)prepareCombatReport(g,g.wave>1||g.spawned>0);g.clock-=dt;while(g.spawned<g.total&&g.clock<=0){spawn(g);g.clock+=(hardcore&&g.wave===10&&g.spawned===g.total-1?1.8:Math.max(.28,.65-g.wave*.018-Math.max(0,level-1)*.018))}for(let e of g.enemies){e.slow=Math.max(0,e.slow-dt);e.mark=Math.max(0,(e.mark||0)-dt);e.flash=Math.max(0,e.flash-dt);if(e.burn>0){let elapsed=Math.min(dt,e.burn);e.burn-=elapsed;hurt(e,e.burnDps*elapsed,true);if(e.burn<=0)e.burnDps=0;}if(e.hp<=0)continue;
  if(level>=3&&e.maxShield&&e.shield<e.maxShield&&e.flash<=0){e.shield=Math.min(e.maxShield,e.shield+e.maxShield*(level>=5?.06:.045)*(has(g,'shieldBreach')?.5:1)*dt)}
  const enraged=level>=4&&e.hp<e.max*.42&&!e.boss?1.22:1;
  const bossRage=level>=5&&e.boss&&e.hp<e.max*.55?1.13:1;
@@ -1123,9 +1184,9 @@ function step(g,dt){tickFeedback(dt);for(let f of g.fx)f.age+=dt;g.fx=g.fx.filte
  for(let e of g.enemies){if(e.hp<=0||!!e.air!==!!zone.air||Math.hypot(e.x-zone.x,e.y-zone.y)>zone.r*S)continue;
  if(zone.kind==='fire')fireHits.set(e,Math.max(fireHits.get(e)||0,zone.dps));
  else if(zone.kind==='ice')iceHits.set(e,Math.max(iceHits.get(e)||0,zone.power*(e.boss?.5:1)));}}
- for(const [e,power] of iceHits)if(e.slow<=0||power>=e.slowPower){e.slowPower=power;e.slow=Math.max(e.slow,.18);}
+ for(const [e,power] of iceHits)if(e.slow<=0||power>=e.slowPower){e.slowPower=power;e.slow=Math.max(e.slow,.18);countJordanSlow(g,e);}
  for(const e of g.enemies)if(e.hp>0&&e.regen&&e.hp<e.max&&!fireHits.has(e))e.hp=Math.min(e.max,e.hp+e.max*e.regen*dt);
- for(const [e,dps] of fireHits)if(e.hp>0)hurt(e,dps*dt,true);
+ for(const [e,dps] of fireHits)if(e.hp>0)dealHeroDamage(g,2,e,dps*dt,true);
  g.zones=g.zones.filter(z=>z.life>0);
  for(let impact of g.delayed)impact.wait-=dt;let due=g.delayed.filter(z=>z.wait<=0);g.delayed=g.delayed.filter(z=>z.wait>0);const salvos=new Map();
  for(const z of due){
@@ -1139,7 +1200,8 @@ function step(g,dt){tickFeedback(dt);for(let f of g.fx)f.age+=dt;g.fx=g.fx.filte
      const fire=g.zones.find(zone=>zone.kind==='fire'&&zone.key===z.fireKey);
      if(fire)fire.life=Math.min(2.5,fire.life+.5);
    }
-   splash(g,z.x,z.y,z.r,z.dmg,z.air,null,options);g.fx.push({type:z.kind==='apocalypse'?4:2,lvl:3,x:z.x,y:z.y-60,ex:z.x,ey:z.y,area:z.r,age:0,dur:.5,c:z.kind==='apocalypse'?'#efff91':'#ffb55e'})}
+   const type=z.kind==='apocalypse'?4:2;
+   splash(g,type,z.x,z.y,z.r,z.dmg,z.air,null,options);g.fx.push({type,lvl:3,x:z.x,y:z.y-60,ex:z.x,ey:z.y,area:z.r,age:0,dur:.5,c:z.kind==='apocalypse'?'#efff91':'#ffb55e'})}
  for(let [i,t] of Object.entries(g.towers))attack(g,i,t,dt);g.enemies=g.enemies.filter(e=>{if(e.hp<=0){g.money+=Math.round(e.reward*(1+level*.065)*ECON_STAGE[level]);g.killed++;g.totalKills++;deathFeedback(e);if(e.boss){g.retries=Math.min(2,g.retries+1);runHearts=g.retries;g.bossKills++;g.bossDefeated=g.bossKills===bossCount(g.wave);heartDropFeedback(e)}return false}if(e.air?e.airDone:e.k===g.route.length-1){g.escaped++;g.totalLeaks++;if(g.waveLeaks)g.waveLeaks[e.boss?'boss':e.air?'air':'ground']++;playSound("leak");if(e.boss){g.bossLeaks++;g.bossEscaped=true}g.life=e.boss&&g.wave===10?0:Math.max(0,g.life-(e.boss?5:1));return false}return true});if(g.life<=0){g.active=false;g.ended=true;g.zones=[];g.delayed=[];playSound("defeat")}else if(g.spawned===g.total&&!g.enemies.length){g.money+=wavePay(g,g.wave);g.active=false;g.zones=[];g.delayed=[];waveFeedback(g.wave);if(g.wave===10)g.ended=true;else if([3,6,9].includes(g.wave)||doctrineUnlocked(g)){g.bonus=true;if(level<=2&&[3,6,9].includes(g.wave))g.planOffer=true;}else saveBuildCheckpoint(g)}}
 function progressPrimes(g,cleared,previousBest){
  const firstBoss=cleared>=5&&(g.doctrine!==undefined||
@@ -1191,7 +1253,7 @@ function renderHeroBoard(c,type,lvl,centerX,footY,w,attacking,phase,offset){
 function refreshShopSkins(){cards.forEach((b,i)=>{const c=b.querySelector('canvas').getContext('2d');c.clearRect(0,0,96,96);iconDraw(c,i,0,0,96)})}
 function refreshHeroMenus(){refreshShopSkins();if(workshopOpen){paintWorkshopPortraits();paintWorkshopSprite(true);}}
 let graphicsRefreshQueued=false;
-function updateGraphicLoading(){if(graphicsRefreshQueued)return;graphicsRefreshQueued=true;requestAnimationFrame(()=>{graphicsRefreshQueued=false;skinCache.clear();refreshHeroMenus();if(g&&g.towers[focus])detail(g.towers[focus]);});}
+function updateGraphicLoading(){if(graphicsRefreshQueued)return;graphicsRefreshQueued=true;requestAnimationFrame(()=>{graphicsRefreshQueued=false;skinCache.clear();refreshHeroMenus();root.querySelectorAll('.combatCard canvas').forEach(paintCombatReportSprite);if(g&&g.towers[focus])detail(g.towers[focus]);});}
 [atlas,...heroPortraits,...heroIcons,...heroEffects,...idleSheets.flat(),...attackSheets.flat()].forEach(im=>im.addEventListener('load',()=>{if(typeof g!=='undefined')updateGraphicLoading()},{once:true}));
 function init(){D.forEach((d,i)=>{let b=document.createElement('button');b.className='offer';b.title=d.desc;b.setAttribute('aria-label',d.n+' · '+d.c+' Z · '+d.role);b.style.setProperty('--accent',d.color);b.innerHTML='<canvas width="96" height="96"></canvas><b>'+d.n+'</b><strong>'+d.c+' Z</strong><small></small>';b.onclick=()=>{clearPreview();relocationFrom=focus=-1;if(g.wave<unlockAt(i)||g.money<d.c){selected=-1;notice=d.n+' · '+(g.wave<unlockAt(i)?'Débloqué après la vague '+unlockAt(i):'Il manque '+(d.c-g.money)+' Z')}else{selected=selected===i?-1:i;notice=selected<0?'':'Maintiens une case pour prévisualiser, relâche pour poser.'}sync()};$('shop').appendChild(b);cards.push(b)});atlas.onload=updateGraphicLoading;refreshShopSkins()}
 function resetGame(doctrine){clearFeedback();clearPreview();relocationFrom=-1;g=initial();if(doctrine!==undefined)g.doctrine=doctrine;g.bonusRotation=typeof runVariation==='number'?runVariation%3:0;g.retries=runHearts;saveBuildCheckpoint(g);refreshShopSkins();selected=focus=-1;paused=false;speed=1;clock=0;choices=[];notice=IMPACT_ARMOR[level]?'Blindage '+IMPACT_ARMOR[level]+'/impact — '+(level===3?'pouvoirs permanents adaptés requis.':'combine marquage, gel et feu.'):(stageTraitText()+(level===1?' Volants dès la vague 2.':' Volants dès la vague 4.'));$('result').replaceChildren();$('result').className='';$('result').removeAttribute('role');$('result').removeAttribute('aria-label');$('settings').hidden=true;sync();draw()}
@@ -1594,9 +1656,69 @@ function rewardStarTone(i,final=false){
  tone(start,start*(final?1.85:1.56),final?.22:.10,final?.075:.037,'sine');
  if(final)tone(1320,1760,.24,.035,'triangle',.07);
 }
-function paintRewardHeroes(){const slot=$('rrHeroes');slot.replaceChildren();
- for(let i=0;i<5;i++){const b=document.createElement('div');b.className='rrHero';b.innerHTML='<canvas width="96" height="96"></canvas>';slot.appendChild(b);portraitDraw(b.querySelector('canvas').getContext('2d'),i,0,0,96)}
- portraitDraw($('rrFace').getContext('2d'),0,0,0,96);
+const combatNumber=new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0});
+const combatCompact=new Intl.NumberFormat('fr-FR',{notation:'compact',maximumFractionDigits:1});
+function paintCombatReportSprite(canvas){
+ const type=Number(canvas.dataset.hero),form=Number(canvas.dataset.form);
+ const c=canvas.getContext('2d'),img=idleSheets[type][form-1];
+ c.clearRect(0,0,128,128);
+ c.imageSmoothingEnabled=false;
+ if(graphicIsReady(img))c.drawImage(img,0,0,160,160,0,0,128,128);
+ else paint(c,type,0,0,128,form,'base');
+}
+function renderCombatReport(slot,report,instant=false){
+ slot.onclick=null;slot.replaceChildren();
+ const heading=document.createElement('h3');
+ heading.textContent='Dégâts par héros';
+ slot.appendChild(heading);
+ if(!report||report.partial){
+  const note=document.createElement('div');note.className='combatNote';
+  note.textContent=report?'Dégâts enregistrés depuis la reprise':'Dégâts indisponibles pour ce terrain.';
+  slot.appendChild(note);
+ }
+ if(!report)return;
+ const cards=document.createElement('ul');cards.className='combatCards';
+ slot.appendChild(cards);
+ const total=report.damage.reduce((sum,n)=>sum+n,0),max=Math.max(...report.damage);
+ const meters=D.map((hero,i)=>{
+  const damage=report.damage[i],form=report.forms[i],share=total?damage/total:0;
+  const top=damage>0&&damage===max;
+  const status=report.partial?'Non observé':'Non déployé';
+  const card=document.createElement('li');
+  card.className='combatCard'+(top?' topDamage':'')+(form?'':' inactive');
+  card.style.setProperty('--hero-color',hero.color);
+  card.innerHTML='<canvas width="128" height="128" aria-hidden="true" data-hero="'+i+'" data-form="'+(form||1)+'"></canvas>'+
+   '<b class="combatCardName">'+hero.n+'</b>'+
+   (form?'<strong class="combatValue" aria-hidden="true"></strong><span class="combatSr">'+combatNumber.format(damage)+' dégâts · '+Math.round(share*100)+' %'+(top?' · Plus de dégâts':'')+'</span>':'<span class="combatStatus">'+status+'</span>')+
+   (form?'<div class="combatShare" aria-hidden="true"><div class="combatTrack"><i></i></div><span>'+Math.round(share*100)+' %</span></div>':'')+
+   (i===3&&form?'<span class="combatSupport" aria-hidden="true">'+combatNumber.format(report.slowed)+' ralenti'+(report.slowed===1?'':'s')+'</span>'+
+    '<span class="combatSr">'+combatNumber.format(report.slowed)+' ennemis ralentis</span>':'');
+  if(form)card.title=combatNumber.format(damage)+' dégâts · '+Math.round(share*100)+' % du total';
+  cards.appendChild(card);
+  paintCombatReportSprite(card.querySelector('canvas'));
+  return {damage,share,value:card.querySelector('.combatValue'),fill:card.querySelector('.combatTrack i')};
+ });
+ function paintTotals(progress){
+  for(const {damage,share,value,fill} of meters){
+   if(value)value.textContent=(damage>=1000000?combatCompact:combatNumber).format(damage*progress);
+   if(fill)fill.style.transform='scaleX('+(share*progress)+')';
+  }
+ }
+ if(instant||!total||window.matchMedia('(prefers-reduced-motion: reduce)').matches){paintTotals(1);return;}
+ paintTotals(0);
+ let frame;
+ const finish=()=>{cancelAnimationFrame(frame);paintTotals(1);};
+ // Assign the current handler so reopening the screen always replaces the previous animation.
+ slot.onclick=()=>{finish();slot.onclick=null;};
+ const start=performance.now();
+ function animate(time){
+  if(cards.parentNode!==slot||slot.closest('[hidden]'))return;
+  const progress=Math.max(0,Math.min(1,(time-start)/780));
+  if(progress>=1){finish();slot.onclick=null;return;}
+  paintTotals(1-Math.pow(1-progress,3));
+  frame=requestAnimationFrame(animate);
+ }
+ frame=requestAnimationFrame(animate);
 }
 function renderRewardJourney(earned){const parent=$('rrMapStages');parent.querySelectorAll('.rrStage').forEach(e=>e.remove());
  for(let index=6;index>=0;index--){let row=document.createElement('div'),done=earned.n>=(index+1)*10,current=index===level;
@@ -1636,20 +1758,6 @@ function rewardSummary(earned){
  if(extras?.terrain)parts.push((extras.terrain===1?'nouveau terrain':'nouveaux terrains')+' +'+extras.terrain+' ★');
  root.querySelector('.rrFooterHint').textContent=earned.n===0?'Aucune vague terminée : +0 étoile.':
   parts.length?'Primes · '+parts.join(' · '):'Seules les vagues terminées rapportent des étoiles.';
- const panel=$('rrDebrief'),data=earned.debrief;
- panel.hidden=!data;
- if(!data)return;
- panel.textContent=debriefText(data);
-}
-function debriefText(data){
- const leaks=[];
- if(data.air)leaks.push(data.air+' volant'+(data.air>1?'s':''));
- if(data.ground)leaks.push(data.ground+' au sol');
- if(data.boss)leaks.push(data.boss+' boss');
- const advice=data.boss?'Concentre les tirs de Raphaël sur le trajet du boss.':
-  data.air>=data.ground?'Place Tom ou Raphaël près du couloir aérien.':
-  'Force un détour au sol pour garder les ennemis à portée plus longtemps.';
- return 'Fuites en vague '+data.wave+' : '+leaks.join(' · ')+'. '+advice;
 }
 function openRunReward(earned,instant=false){
  if(!earned)return;
@@ -1661,7 +1769,11 @@ function openRunReward(earned,instant=false){
  $('rrSubtitle').innerHTML='Terrain <strong>'+(level+1)+'</strong> · <strong>'+Math.max(0,Math.min(10,earned.n-level*10))+'/10</strong> vagues terminées';
  rewardSummary(earned);
  $('rrEarned').textContent='+'+earned.earned+' ★';$('rrTotal').textContent=earned.before;
- renderRewardJourney(earned);paintRewardHeroes();
+ renderRewardJourney(earned);
+ portraitDraw($('rrFace').getContext('2d'),0,0,0,96);
+ const recap=$('rrCombatReport');
+ recap.hidden=!g.ended;
+ if(!recap.hidden)renderCombatReport(recap,g.combatReport,instant);
  const fraction=Math.max(0,Math.min(1,(Number(earned.n)||0)/70));
  rewardToken++;const token=rewardToken;
  const duration=Math.max(900,Math.min(2400,earned.earned*115));
@@ -1675,7 +1787,7 @@ function closeRunReward(){if(!rewardOpen)return;rewardOpen=false;rewardAnim=null
  $('runReward').querySelectorAll('.rrParticle').forEach(e=>e.remove());
  saveProgress();
 }
-$('rrSkip').onclick=()=>{if(rewardAnim){$('rrPathFill').style.height=(rewardAnim.fraction*100)+'%';finishRewardMotion(false)}};
+$('rrSkip').onclick=()=>{$('rrCombatReport').onclick?.();if(rewardAnim){$('rrPathFill').style.height=(rewardAnim.fraction*100)+'%';finishRewardMotion(false)}};
 $('rrImprove').onclick=()=>{finishRewardMotion(false);closeRunReward();openWorkshop(null);
  $('metaPlay').textContent='▶ Nouvelle tentative';saveProgress();};
 $('rrReplay').onclick=()=>{finishRewardMotion(false);closeRunReward();startNewRun()};
@@ -1706,14 +1818,11 @@ function startLevel(i,doctrine){configureMap(i);cv.width=W*S;cv.height=H*S;build
 function startNewRun(){closeRunReward();closeWorkshop();runVariation=(runVariation+1)%3;runHearts=0;hardcore=completed&&$('metaHard').getAttribute('aria-pressed')==='true';root.classList.toggle('hardcore',hardcore);startLevel(0);saveProgress()}
 function nextLevel(){if(level>=6||!g.ended||g.life<=0)return;runHearts=Math.min(2,g.retries||0);startLevel(level+1,g.doctrine);saveProgress()}
 function showResult(){if(!g.ended||runEnded||workshopOpen)return;if(g.life>0){if(level===6){finishRun(true);return}
-  const el=$('result');el.className='win rogueResult';el.setAttribute('role','dialog');el.innerHTML='<div class="resultKicker">TERRAIN '+(level+1)+'/7</div><div class="rogueStageHero">✦ '+MAPS[level].name+' terminé !</div><div class="resultStats"><div class="resultStat"><strong>10/10</strong><span>vagues</span></div><div class="resultStat"><strong>'+g.life+'</strong><span>vies</span></div><div class="resultStat"><strong>'+g.retries+' 💗</strong><span>reprises</span></div></div>'+(level===2?'<p class="resultHint" id="nextStageWarning">'+impactGateText()+' Si nécessaire, termine la tentative pour évoluer à l’atelier.</p>':'')+'<button class="gold" id="nextMap">▶ NIVEAU '+(level+2)+'</button>';
+  const el=$('result');el.className='win rogueResult';el.setAttribute('role','dialog');el.innerHTML='<div class="resultKicker">TERRAIN '+(level+1)+'/7</div><div class="rogueStageHero">✦ '+MAPS[level].name+' terminé !</div><div class="resultStats"><div class="resultStat"><strong>10/10</strong><span>vagues</span></div><div class="resultStat"><strong>'+g.life+'</strong><span>vies</span></div><div class="resultStat"><strong>'+g.retries+' 💗</strong><span>reprises</span></div></div>'+(level===2?'<p class="resultHint" id="nextStageWarning">'+impactGateText()+' Si nécessaire, termine la tentative pour évoluer à l’atelier.</p>':'')+'<div class="combatReport"></div><button class="gold" id="nextMap">▶ NIVEAU '+(level+2)+'</button>';
+  renderCombatReport(el.querySelector('.combatReport'),g.combatReport);
   $('nextMap').onclick=nextLevel;return;}
- if(canRetryWave()){const el=$('result');el.className='loss rogueResult';el.setAttribute('role','dialog');el.innerHTML='<h2>DÉFAITE</h2><p class="resultMap">N'+(level+1)+' · Vague '+g.wave+'</p><div class="rogueHearts">💗 '+g.retries+' reprise'+(g.retries>1?'s':'')+'</div><button class="gold" id="retryWave">↶ REFAIRE LA VAGUE · 1 💗</button><button id="endAttempt">★ TERMINER LA TENTATIVE</button>';
- const debrief=defeatDebrief(g);
- if(debrief){
-  const hint=document.createElement('p');hint.className='resultHint';hint.textContent=debriefText(debrief);
-  el.insertBefore(hint,$('retryWave'));
- }
+ if(canRetryWave()){const el=$('result');el.className='loss rogueResult';el.setAttribute('role','dialog');el.innerHTML='<h2>DÉFAITE</h2><p class="resultMap">N'+(level+1)+' · Vague '+g.wave+'</p><div class="rogueHearts">💗 '+g.retries+' reprise'+(g.retries>1?'s':'')+'</div><div class="combatReport"></div><div class="combatActions"><button class="gold" id="retryWave">↶ REFAIRE LA VAGUE · 1 💗</button><button id="endAttempt">★ TERMINER LA TENTATIVE</button></div>';
+ renderCombatReport(el.querySelector('.combatReport'),g.combatReport);
  $('retryWave').onclick=retryWave;$('endAttempt').onclick=()=>finishRun(false);return;}
  finishRun(false);
 }

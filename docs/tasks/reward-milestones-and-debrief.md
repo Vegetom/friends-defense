@@ -8,7 +8,9 @@ Référence `9c28d06`. Le barème de base, le bonus de record et le bonus de vic
 
 Une vague non terminée reste exclue du compteur et ne donne aucune prime. Tester une première vague terminée sans nouveau record donne toujours 5 étoiles. Aucun reçu v38 déjà payé n'est recalculé. Les champs de détail du reçu sont facultatifs.
 
-Le moteur classe les ennemis qui atteignent la sortie dans la vague en cours. Le bilan indique les volants, le sol et les boss, puis affiche un conseil selon la menace. Il reste lisible après rechargement dans le reçu, et s'affiche aussi avant l'utilisation d'un cœur. La reprise remet à zéro le bilan de la vague perdue avec son état normal de préparation. Une ancienne vague chargée sans compteurs ne reçoit pas de bilan détaillé inventé.
+Les reçus historiques peuvent contenir les fuites de la dernière vague. Le bilan de terrain affiche désormais les PV retirés par type de tour et la part du total. Il s’affiche à la victoire, à la défaite et avant une reprise par cœur. Les cinq cartes reprennent les sprites de combat et la forme la plus élevée déployée par héros. Jordan affiche le nombre d’ennemis distincts ralentis.
+
+Le cumul de terrain est sauvegardé dans un champ v38 facultatif. Une reprise restaure le cumul du checkpoint et le terrain suivant commence à zéro. Les sauvegardes antérieures comptent les dégâts observés à partir de la reprise du jeu et le bilan signale le caractère partiel lorsque des vagues ont précédé le suivi.
 
 ## Simulation
 
