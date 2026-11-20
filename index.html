@@ -1569,6 +1569,9 @@ function rewardSummary(earned){
  const panel=$('rrDebrief'),data=earned.debrief;
  panel.hidden=!data;
  if(!data)return;
+ panel.textContent=debriefText(data);
+}
+function debriefText(data){
  const leaks=[];
  if(data.air)leaks.push(data.air+' volant'+(data.air>1?'s':''));
  if(data.ground)leaks.push(data.ground+' au sol');
@@ -1576,7 +1579,7 @@ function rewardSummary(earned){
  const advice=data.boss?'Concentre les tirs de Raphaël sur le trajet du boss.':
   data.air>=data.ground?'Place Tom ou Raphaël près du couloir aérien.':
   'Force un détour au sol pour garder les ennemis à portée plus longtemps.';
- panel.textContent='Fuites en vague '+data.wave+' : '+leaks.join(' · ')+'. '+advice;
+ return 'Fuites en vague '+data.wave+' : '+leaks.join(' · ')+'. '+advice;
 }
 function openRunReward(earned,instant=false){
  if(!earned)return;
@@ -1636,6 +1639,11 @@ function showResult(){if(!g.ended||runEnded||workshopOpen)return;if(g.life>0){if
   const el=$('result');el.className='win rogueResult';el.setAttribute('role','dialog');el.innerHTML='<div class="resultKicker">TERRAIN '+(level+1)+'/7</div><div class="rogueStageHero">✦ '+MAPS[level].name+' terminé !</div><div class="resultStats"><div class="resultStat"><strong>10/10</strong><span>vagues</span></div><div class="resultStat"><strong>'+g.life+'</strong><span>vies</span></div><div class="resultStat"><strong>'+g.retries+' 💗</strong><span>reprises</span></div></div>'+(level===2?'<p class="resultHint" id="nextStageWarning">'+impactGateText()+' Si nécessaire, termine la tentative pour évoluer à l’atelier.</p>':'')+'<button class="gold" id="nextMap">▶ NIVEAU '+(level+2)+'</button>';
   $('nextMap').onclick=nextLevel;return;}
  if(canRetryWave()){const el=$('result');el.className='loss rogueResult';el.setAttribute('role','dialog');el.innerHTML='<h2>DÉFAITE</h2><p class="resultMap">N'+(level+1)+' · Vague '+g.wave+'</p><div class="rogueHearts">💗 '+g.retries+' reprise'+(g.retries>1?'s':'')+'</div><button class="gold" id="retryWave">↶ REFAIRE LA VAGUE · 1 💗</button><button id="endAttempt">★ TERMINER LA TENTATIVE</button>';
+ const debrief=defeatDebrief(g);
+ if(debrief){
+  const hint=document.createElement('p');hint.className='resultHint';hint.textContent=debriefText(debrief);
+  el.insertBefore(hint,$('retryWave'));
+ }
  $('retryWave').onclick=retryWave;$('endAttempt').onclick=()=>finishRun(false);return;}
  finishRun(false);
 }
