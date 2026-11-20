@@ -397,6 +397,21 @@
  #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrRewardSide{padding-block:4px}
  #fd15 #runReward:has(#rrCombatReport:not([hidden])) #rrTotal{font-size:31px}
 }
+@media(orientation:landscape) and (max-height:360px){
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrMid{min-height:42px}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrJourney{justify-content:center}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrMapStages{flex:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));align-items:center;direction:rtl;padding:0}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrStage{justify-content:center;min-height:20px;padding:0;direction:ltr}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrNode{position:static;transform:none;border-width:1px;width:15px;height:15px}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) :is(.rrStageName,.rrStageWave,.rrPathBg,.rrPathFill){display:none}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrRewardSide{flex-direction:row;gap:3px;padding:2px 4px}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) :is(.rrRewardSide,.rrWallet)::before,#fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrRewardSide::after{display:none}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) :is(.rrGain,.rrWallet){flex:1;gap:1px}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) :is(.rrGain small,.rrTotalLabel){font-size:8px}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrTotalCount{min-width:0;padding:0 4px;border:0;background:none;box-shadow:none}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) :is(.rrGain strong,#rrTotal,.rrBigStar){font-size:20px}
+ #fd15 #runReward:has(#rrCombatReport:not([hidden])) .rrGain small{letter-spacing:0}
+}
 #fd15 .rogueHearts{font-size:14px;color:#ffb8d4;font-weight:900}
 #fd15 .rogueStageHero{padding:15px 8px;text-align:center;font-size:17px;font-weight:900;color:#ffe09b}
 /* Important: never leave an empty end-of-level modal over the next map. */
@@ -1722,7 +1737,7 @@ function renderCombatReport(slot,report,instant=false){
 }
 function renderRewardJourney(earned){const parent=$('rrMapStages');parent.querySelectorAll('.rrStage').forEach(e=>e.remove());
  for(let index=6;index>=0;index--){let row=document.createElement('div'),done=earned.n>=(index+1)*10,current=index===level;
- row.className='rrStage'+(done?' done':'')+(current?' current':'');const label=MAPS[index].name;
+ row.title=MAPS[index].name;row.className='rrStage'+(done?' done':'')+(current?' current':'');const label=MAPS[index].name;
  row.innerHTML='<span class="rrNode">'+(done?'✓':current?'✦':'·')+'</span><span class="rrStageName">'+(index+1)+'. '+label+'</span>'+(current?'<span class="rrStageWave">'+(Math.max(0,Math.min(10,earned.n-level*10))+'/10')+'</span>':'');parent.appendChild(row)}
  $('rrPathFill').style.height='0%';
 }

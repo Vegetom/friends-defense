@@ -57,6 +57,13 @@ class RewardDebriefBrowserTests(unittest.TestCase):
                 self.assertIn("premier boss +2",page.locator(".rrFooterHint").inner_text())
                 self.assertEqual(self.saved(page)["stars"],82)
                 self.assert_visible_bounds(page,width,height,["#rrCombatReport","#rrImprove","#rrReplay"])
+                if height==320:
+                    self.assertTrue(page.evaluate("""() => ['.rrNode','.rrTotalCount'].every(selector =>
+                       [...document.querySelectorAll(selector)].every(el => {
+                          const rect=el.getBoundingClientRect(), parent=el.closest('.rrJourney,.rrRewardSide').getBoundingClientRect();
+                          return rect.top>=parent.top && rect.bottom<=parent.bottom;
+                       }))"""))
+
                 page.wait_for_function("""() => [...document.querySelectorAll('#rrCombatReport canvas')]
                   .every(c => c.getContext('2d').getImageData(0,0,128,128).data.some((v,i)=>i%4===3&&v>0))""")
                 recap.tap()
