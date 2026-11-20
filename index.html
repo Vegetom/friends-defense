@@ -651,7 +651,7 @@ const D=[
 const MAPS=[
 {name:'La plaine',desc:'Terrain libre · construis ton labyrinthe.',rows:['..........','..........','..........','..........','E........S','..........','..........','..........']},
 {name:'La mare',desc:'Défends les rives et couvre le couloir des volants dès la vague 2.',rows:['#........#','..........','..........','....~~....','E...~~...S','..........','..........','#........#']},
-{name:'Les deux forteresses',desc:'Deux zones reliées par un passage à deux voies.',rows:['....######','E...##....','....##....','..........','..........','....##....','######...S','######....']},
+{name:'Les deux forteresses',desc:'Deux zones reliées par un passage étroit. Intercepte les convois blindés aux vagues 3, 6 et 9.',rows:['....######','E...##....','....##....','..........','..........','....##....','######...S','######....']},
 {name:'Le bastion',desc:'Peu de place : privilégie les transformations.',rows:['E....#','.....#','......','......','#.....','#....S']},
 {name:'Le Défilé',desc:'12 × 10 · deux contournements autour de falaises.',rows:['###.......##','##..........','#...........','E...###....S','....###.....','............','............','#..........#','##.........#','###.......##']},
 {name:'L’Archipel',desc:'13 × 10 · deux bassins coupent la carte en diagonale.',rows:['###.......###','##.........##','#...~~......#','....~~.......','E...~~.......','.......~~...S','.......~~....','#...........#','##.........##','###.......###']},
@@ -748,7 +748,7 @@ const ENEMY_STAGES=[
  {name:'Légion du Néant',tag:'☠',skin:'#c4d8c9',body:'#293d43',trim:'#aaf8da'}
 ];
 function stageTraitText(index=level){
- const traits=['Éclaireurs : parcours terrestre, puis volants.','Légion blindée : les tanks réduisent les dégâts reçus.','Mutants : régénération des ennemis terrestres hors boss.','Spectres : boucliers rechargeables et blindage d’impact.','Cendrés : accélération quand les PV baissent.','Gardiens runiques : boss accélérés à faibles PV.','Légion du Néant : armure, régénération et boucliers renforcés.'];
+ const traits=['Éclaireurs : parcours terrestre, puis volants.','Légion blindée : les tanks réduisent les dégâts reçus.','Convois blindés aux vagues 3, 6 et 9. Ralentis-les dans le passage. Les unités terrestres hors boss se régénèrent.','Spectres : boucliers rechargeables et blindage d’impact.','Cendrés : accélération quand les PV baissent.','Gardiens runiques : boss accélérés à faibles PV.','Légion du Néant : armure, régénération et boucliers renforcés.'];
  return traits[index]+(index>=3?' Blindage '+IMPACT_ARMOR[index]+'/impact : marquage −60 %, gel −20 %. Le feu continu ignore ce blindage, mais pas les boucliers ni l’armure en %.':'');
 }
 function impactGateText(){return 'Terrain 4 : blindage '+IMPACT_ARMOR[3]+'/impact. Des pouvoirs permanents adaptés sont nécessaires. Exemples : Marquage de Raphaël I ou Sol brûlant d’Ylvine I. Le gel aide, mais ne suffit pas seul.';}
@@ -804,32 +804,46 @@ function relocate(g,from,to){
  g.relocated=true;
  return true;
 }
-function begin(g){if(g.active||g.ended||g.bonus)return false;for(let t of Object.values(g.towers)){t.fresh=false;t.charge=0;t.recoil=0}g.wave++;if(level===1)g.activeAirKind=airKind(g.wave);g.active=true;g.spawned=0;g.killed=0;g.escaped=0;g.bossDefeated=false;g.bossEscaped=false;g.bossKills=0;g.bossLeaks=0;g.total=waveSize(g.wave);g.clock=.1;return true}
+function begin(g){if(g.active||g.ended||g.bonus)return false;for(let t of Object.values(g.towers)){t.fresh=false;t.charge=0;t.recoil=0}g.wave++;if(level===1||level===2)g.activeAirKind=airKind(g.wave);g.active=true;g.spawned=0;g.killed=0;g.escaped=0;g.bossDefeated=false;g.bossEscaped=false;g.bossKills=0;g.bossLeaks=0;g.total=waveSize(g.wave);g.clock=.1;return true}
 // Air units follow the fixed straight line, independently of the ground maze.
 const AIR_WAVES={4:'mixed',6:'mixed',7:'air',8:'mixed',9:'air',10:'mixed'};
 const AIR_SPEED=70,AIR_RANGE=.68;
 function airRange(g){return has(g,'airBeacon')?.76:AIR_RANGE}
 function airHP(w){return w<=4?.72:w<=6?.78:w<=7?.88:w<=8?.98:1.06}
 const MARE_AIR_WAVES={2:'mixed',4:'air',5:'mixed',7:'mixed',8:'air',10:'mixed'};
+const FORTRESS_CONVOY_WAVES=[3,6,9];
+function fortressConvoy(w,g){
+ // A wave without a saved plan already began under the historical rules.
+ return level===2&&FORTRESS_CONVOY_WAVES.includes(w)&&
+  !(g?.active&&g.wave===w&&g.activeAirKind===undefined);
+}
 function airKind(w,g){
- if(level!==1)return AIR_WAVES[w]||'';
+ if(level!==1&&level!==2)return AIR_WAVES[w]||'';
  // Mid-wave legacy saves keep the old pattern until this wave ends.
  if(g?.active&&g.wave===w)return g.activeAirKind??AIR_WAVES[w]??'';
- return MARE_AIR_WAVES[w]||'';
+ if(level===1)return MARE_AIR_WAVES[w]||'';
+ return fortressConvoy(w,g)?'':AIR_WAVES[w]||'';
 }
 function isAirSpawn(w,i,kind){return kind==='air'||(kind==='mixed'&&i%(w>=9?3:4)===2)}
 function waveSize(w){return 12+w*2+Math.max(0,level-1)*2+bossCount(w)}
-function spawnKind(w,index,total,kind){
+function spawnKind(w,index,total,kind,convoy=false){
  if(index>=total-bossCount(w))return 'boss';
  if(isAirSpawn(w,index,kind))return 'air';
+ if(convoy){
+  // Put the normal quota of armour in one block, screened by two runners.
+  const tanks=Math.floor((total+1)/7),first=Math.floor((total-tanks)/2);
+  if(index>=first&&index<first+tanks)return 'tank';
+  if(index===first-1||index===first+tanks)return 'fast';
+  return 'ground';
+ }
  if(index%7===5)return 'tank';
  if(index%5===3)return 'fast';
  return 'ground';
 }
 function waveThreats(g,w){
  const counts={air:0,tank:0,fast:0,boss:0,ground:0},size=g.active&&g.wave===w?g.total:waveSize(w);
- const kind=airKind(w,g);
- for(let i=0;i<size;i++)counts[spawnKind(w,i,size,kind)]++;
+ const kind=airKind(w,g),convoy=fortressConvoy(w,g);
+ for(let i=0;i<size;i++)counts[spawnKind(w,i,size,kind,convoy)]++;
  return counts;
 }
 function airPrime(w,kind){
@@ -842,9 +856,10 @@ function airCoverage(g,i,range){let a=pos(ENTRY),b=pos(EXIT),p=pos(i),dx=b.x-a.x
 function airPower(g){let all=0,covered=0;for(let [i,t] of Object.entries(g.towers)){let st=stats(g,t),d=st.damage/st.rate;all+=d;if(airCoverage(g,+i,st.range))covered+=d}return all?Math.round(100*covered/all):0}
 function bossCount(w){return w%5===0?(hardcore&&w===10?2:1):0}
 function spawn(g){
- let boss=g.spawned>=g.total-bossCount(g.wave),second=hardcore&&g.wave===10&&g.spawned===g.total-1;
- let fast=!boss&&g.spawned%5===3,tank=!boss&&g.spawned%7===5;
- const air=spawnKind(g.wave,g.spawned,g.total,airKind(g.wave,g))==='air';
+ const convoy=fortressConvoy(g.wave,g),role=spawnKind(g.wave,g.spawned,g.total,airKind(g.wave,g),convoy);
+ const boss=role==='boss',air=role==='air',second=hardcore&&g.wave===10&&g.spawned===g.total-1;
+ const fast=convoy?role==='fast':!boss&&g.spawned%5===3;
+ const tank=convoy?role==='tank':!boss&&g.spawned%7===5;
  const base=34*Math.pow(1.30,g.wave-1),stageScale=STAGE_SCALE[level],late=Math.max(0,(g.wave-4)/6);
  const elite=level>=2&&!boss&&!air&&g.spawned%9===6;
  const hp=base*(air?airHP(g.wave):boss?13:tank?2.5:fast?.8:1)*(elite?1.5:1)
@@ -1071,14 +1086,15 @@ function previewAt(i){
 function updateThreatPreview(w){
  const hint=$('airHint');
  if(g.ended){hint.textContent='';return}
- const counts=waveThreats(g,w),items=[];
+ const counts=waveThreats(g,w),convoy=fortressConvoy(w,g),items=[];
+ if(convoy)items.push('Convoi');
  if(counts.air)items.push(counts.air+' volant'+(counts.air===1?'':'s'));
  if(counts.tank)items.push(counts.tank+' blindé'+(counts.tank===1?'':'s'));
  if(counts.fast)items.push(counts.fast+' rapide'+(counts.fast===1?'':'s'));
  if(counts.boss)items.push(counts.boss+' boss');
  hint.textContent='V'+w+' · '+(items.length?items.join(' · '):'Terrestre');
- hint.title=counts.air?'La ligne pointillée indique le couloir aérien. Couverture : '+airPower(g)+' % de la puissance.':'Trajet terrestre';
- hint.classList.toggle('urgent',!!counts.air||!!counts.boss);
+ hint.title=counts.air?'La ligne pointillée indique le couloir aérien. Couverture : '+airPower(g)+' % de la puissance.':convoy?'Blindés groupés : ralentis-les dans le passage, puis frappe en zone.':'Trajet terrestre';
+ hint.classList.toggle('urgent',convoy||!!counts.air||!!counts.boss);
 }
 function updateMeters(){
  const total=10,completed=g.active?Math.max(0,g.wave-1):Math.max(0,Math.min(total,g.wave)),current=g.ended?0:(g.active?g.wave:Math.min(total,g.wave+1));
