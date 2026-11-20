@@ -47,7 +47,10 @@ function bonus(api,composition,seed,perkPolicy,doctrinePolicy,budgetPolicy){
  if(list.some(b=>b.id==='supplies'))return budgetPolicy==='auto'?(composition==='air'?'supplies':'contract'):budgetPolicy;
  if(list.some(b=>b.id==='rangePlan')){
   if(composition==='air'&&list.some(b=>b.id==='airBeacon'))return 'airBeacon';
-  if(composition==='zone'&&list.some(b=>b.id==='longWinter'))return 'longWinter';
+  if(composition==='zone'){
+   if(list.some(b=>b.id==='ylvine'))return 'ylvine';
+   if(list.some(b=>b.id==='longWinter'))return 'longWinter';
+  }
   return 'rangePlan';
  }
  if(list.some(b=>b.id==='assaultPlan'))return api.view().life<=5&&list.some(b=>b.id==='repairPlan')?'repairPlan':'assaultPlan';
