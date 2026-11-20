@@ -60,8 +60,8 @@ function bonus(api,composition,seed,perkPolicy,doctrinePolicy,budgetPolicy){
  }
  return list.sort((a,b)=>{const ai=preferred.indexOf(a.id),bi=preferred.indexOf(b.id);return (ai<0?99:ai)-(bi<0?99:bi)||hash(seed,a.id)-hash(seed,b.id)})[0]?.id;
 }
-function runCampaign({ref=null,html=null,profile=[0,0,0,0,0],composition='mixed',policy='balanced',seed=1,dt=1/30,trace=true,hardcore=false,variation=0,perkPolicy='classic',doctrinePolicy='auto',budgetPolicy='auto'}={}){
- const {api,source}=createModel({ref,html});api.start(profile,hardcore,variation);
+function runCampaign({ref=null,html=null,profile=[0,0,0,0,0],composition='mixed',policy='balanced',seed=1,dt=1/30,trace=true,hardcore=false,variation=0,perkPolicy='classic',doctrinePolicy='auto',budgetPolicy='auto',prototypeSession=false,startAt=0}={}){
+ const {api,source}=createModel({ref,html,prototypeSession});api.start(profile,hardcore,variation,startAt);
  const actions=[],waves=[],transitions=[];let totalSeconds=0,retriesUsed=0,attempt=0;
  for(let guard=0;guard<250;guard++){
   let state=api.view();

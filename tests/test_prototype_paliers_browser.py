@@ -1,0 +1,84 @@
+"""Exercise both prototype layouts, save isolation and the Bastion checkpoint."""
+import copy
+import unittest
+
+import test_browser as progression
+
+
+PROTOTYPE = "friends-defense-proto-paliers-save-v38"
+
+
+class PrototypePaliersBrowserTests(unittest.TestCase):
+    setUpClass = classmethod(progression.ProgressionBrowserTests.setUpClass.__func__)
+    tearDownClass = classmethod(progression.ProgressionBrowserTests.tearDownClass.__func__)
+    setUp = progression.ProgressionBrowserTests.setUp
+    tearDown = progression.ProgressionBrowserTests.tearDown
+    page = progression.ProgressionBrowserTests.page
+    saved = progression.ProgressionBrowserTests.saved
+    continue_game = progression.ProgressionBrowserTests.continue_game
+    reload_and_continue = progression.ProgressionBrowserTests.reload_and_continue
+
+    def assert_on_screen(self, page, selector, width=568, height=320):
+        box = page.locator(selector).bounding_box()
+        self.assertIsNotNone(box, selector)
+        self.assertGreaterEqual(box["x"],0,box)
+        self.assertGreaterEqual(box["y"],0,box)
+        self.assertLessEqual(box["x"]+box["width"],width,box)
+        self.assertLessEqual(box["y"]+box["height"],height,box)
+
+    def test_independent_lab_profiles_and_playable_maps(self):
+        for name,selector,level,route in [("Mare","#board",1,16),("Bastion","#board",3,22)]:
+            with self.subTest(name=name):
+                page = self.page({progression.NORMAL:progression.FIXTURE},
+                                 query="?prototype=1",viewport={"width":568,"height":320})
+                link = page.get_by_role("link",name="Essai · "+name)
+                link.tap()
+                page.wait_for_url("**&lab="+name.lower())
+                self.assertIn(name.lower(), page.locator("#menuNew").inner_text().lower())
+                page.locator("#menuNew").tap()
+                self.assert_on_screen(page,"#metaPlay")
+                page.locator("#metaPlay").tap()
+                self.assert_on_screen(page,selector)
+                self.assertIn(str(route)+" cases",page.locator("#route").inner_text())
+                key = f"friends-defense-proto-paliers-lab-{level}-save-v38"
+                before = self.saved(page,key)
+                self.assertEqual((before["level"],before["g"]["wave"]),(level,0))
+                self.assertGreater(max(before["metaLevels"]),0)
+                self.assertEqual(self.saved(page),progression.FIXTURE)
+                page.locator("#start").tap()
+                page.locator("#pause").tap()
+                self.reload_and_continue(page)
+                self.assertEqual(self.saved(page,key)["g"]["wave"],1)
+                self.assertEqual(self.saved(page),progression.FIXTURE)
+
+    def test_checkpoint_unlocks_on_terrain_three_win_and_restarts_without_rewards(self):
+        seed = copy.deepcopy(progression.FIXTURE)
+        seed.update(level=2,bestWave=27,buildCheckpoint=None)
+        seed["g"].update(wave=10,active=False,ended=True,life=4,bonus=False,bossDefeated=True)
+        page = self.page({PROTOTYPE:seed},query="?prototype=1",viewport={"width":568,"height":320})
+        self.continue_game(page)
+        self.assertTrue(page.locator(".unlockBastion").is_visible())
+        self.assertTrue(self.saved(page,PROTOTYPE)["bastionUnlocked"])
+        page.locator("#nextMap").tap()
+        page.locator("#mapsButton").tap()
+        page.locator("#rrImprove").tap()
+        self.assert_on_screen(page,"#metaPlay")
+        self.assert_on_screen(page,"#metaPlain")
+        page.locator("#metaPlay").tap()
+        start = self.saved(page,PROTOTYPE)
+        self.assertEqual((start["level"],start["g"]["wave"],start["g"]["money"]),(3,0,215))
+        self.assertEqual(start["metaLevels"],seed["metaLevels"])
+        self.assertEqual(start["runHearts"],0)
+        self.assertNotIn("doctrine",start["g"])
+        self.reload_and_continue(page)
+        self.assertEqual(self.saved(page,PROTOTYPE)["g"]["runStart"],3)
+        page.locator("#start").tap()
+        page.locator("#mapsButton").tap()
+        end = self.saved(page,PROTOTYPE)
+        self.assertEqual((end["stars"],end["bestWave"]),(start["stars"],start["bestWave"]))
+        self.assertEqual(end["metaLastEarned"]["earned"],0)
+        self.assertEqual(page.locator(".rrStage.done").count(),0)
+        page.locator("#rrImprove").tap()
+        page.locator("#metaPlain").tap()
+        self.assertEqual(self.saved(page,PROTOTYPE)["level"],0)
+        self.assertTrue(self.saved(page,PROTOTYPE)["bastionUnlocked"])

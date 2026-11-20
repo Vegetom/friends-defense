@@ -24,8 +24,8 @@ function oneLineFunction(name) {
   return matches[0];
 }
 
-function createModel() {
-  const context = vm.createContext({});
+function createModel({ prototypeSession = false } = {}) {
+  const context = vm.createContext({ prototypeSession });
   const core = uniqueSlice('const D=[', '\nconst GRAPHICS=');
   const functions = ['globalWaveCleared', 'rewardStars', 'finishRun', 'resetGame', 'startLevel', 'nextLevel'].map(oneLineFunction).join('\n');
   vm.runInContext(`${core}
@@ -96,6 +96,7 @@ function createStorageModel(snapshot, raw=JSON.stringify(snapshot)) {
   const storage=uniqueSlice('let saveProblem=','function hideMenu()');
   vm.runInContext(`${core}\n${validation}
     const seed=JSON.parse(seedJson),SAVE_KEY='friends-defense-save-v38';
+    let bastionUnlocked=seed.bastionUnlocked??false;
     let menuOpen=false,g=seed.g,metaLevels=seed.metaLevels,stars=seed.stars,bestWave=seed.bestWave;
     let completed=seed.completed,runHearts=seed.runHearts,runVariation=seed.runVariation,runEnded=seed.runEnded;
     let metaLastEarned=seed.metaLastEarned,rewardOpen=seed.rewardOpen,buildCheckpoint=seed.buildCheckpoint;

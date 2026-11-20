@@ -6,7 +6,7 @@
 const fs=require('node:fs'),{createModel}=require('./model.cjs');
 const args=process.argv.slice(2),get=(k,d)=>{const i=args.indexOf(k);return i<0?d:args[i+1]};
 const sourcePath=get('--source',null),out=get('--out',null);
-const {api,source}=createModel({html:sourcePath?fs.readFileSync(sourcePath,'utf8'):null});
+const {api,source}=createModel({prototypeSession:args.includes('--prototype'),html:sourcePath?fs.readFileSync(sourcePath,'utf8'):null});
 const {heroes}=api.data(),wave=api.waveProbe(1)[3],budget=wave.initial,choices=[];
 for(let type=0;type<heroes.length;type++)for(let level=1;level<=3;level++){
  const h=heroes[type],cost=h.c+h.up.slice(0,level-1).reduce((s,c)=>s+c,0);
