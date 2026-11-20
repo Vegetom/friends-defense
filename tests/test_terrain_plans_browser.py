@@ -47,6 +47,7 @@ class TerrainPlansBrowserTests(unittest.TestCase):
         page=self.offer(6,2,towers=towers)
         bonus=page.locator("#bonus")
         self.assertEqual(bonus.locator("h2").inner_text(),"Tactique")
+        self.assertIn("Actif de V7 à V10",bonus.inner_text())
         self.assertIn("Convoi blindé en V9",bonus.inner_text())
         self.assertNotIn("Brèche",bonus.inner_text())
         cards=bonus.locator(".perk")
