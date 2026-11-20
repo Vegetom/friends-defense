@@ -225,7 +225,7 @@ class ProgressionBrowserTests(unittest.TestCase):
         self.assertEqual(self.saved(page)["stars"], 73)
         page.locator("#mapsButton").click()
         self.assertEqual(self.saved(page)["metaLastEarned"]["n"], 10)
-        self.assertEqual(self.saved(page)["stars"], 80)  # Existing record: +7 at level 1.
+        self.assertEqual(self.saved(page)["stars"], 83)  # Existing record: +7 base and +3 distance.
         self.assertEqual(page.locator(".rrStage.done").count(), 1)
 
     def test_carried_hearts_survive_transition_reload_and_two_checkpoint_retries(self):
@@ -267,11 +267,11 @@ class ProgressionBrowserTests(unittest.TestCase):
         page = self.page({NORMAL: seed})
         self.continue_game(page)
         save = self.saved(page)
-        self.assertEqual((save["stars"], save["bestWave"]), (36, 70))
+        self.assertEqual((save["stars"], save["bestWave"]), (46, 70))
         self.assertTrue(save["completed"])
         self.assertEqual(page.locator(".rrStage.done").count(), 7)
         self.reload_and_continue(page)
-        self.assertEqual(self.saved(page)["stars"], 36)
+        self.assertEqual(self.saved(page)["stars"], 46)
 
     def test_normal_dev_handler_is_hidden_and_guarded_even_programmatically(self):
         for query in ("", "?dev=0", "?dev=true", "?dev=01"):
@@ -305,11 +305,11 @@ class ProgressionBrowserTests(unittest.TestCase):
             page.locator("#nextMap").click()
             page.locator("#devSkip").click()
         test_save = self.saved(page, DEV)
-        self.assertEqual((test_save["stars"], test_save["bestWave"]), (36, 70))
+        self.assertEqual((test_save["stars"], test_save["bestWave"]), (46, 70))
         self.assertTrue(test_save["completed"])
         reads_before_reload = page.evaluate("window.__storageReads")
         self.reload_and_continue(page)
-        self.assertEqual(self.saved(page, DEV)["stars"], 36)
+        self.assertEqual(self.saved(page, DEV)["stars"], 46)
         reads = reads_before_reload + page.evaluate("window.__storageReads")
         self.assertNotIn(NORMAL, reads)
         self.assertNotIn(SETTINGS, reads)
