@@ -55,7 +55,7 @@ function createModel() {
       catalogue:()=>({heroes:D,maps:MAPS,meta:META,bonuses:B}),
       stats:cell=>stats(g,g.towers[cell]),
       buy:(cell,type)=>buy(g,cell,type),upgrade:cell=>upgrade(g,cell),remove:cell=>remove(g,cell),
-      bonusOptions:()=>bonusOptions(g),choose:id=>choose(g,B.find(b=>b.id===id)),
+      bonusOptions:()=>bonusOptions(g),choose:id=>choose(g,bonusOptions(g).find(b=>b.id===id)),
       relocate:(from,to)=>relocate(g,from,to), threats:wave=>waveThreats(g,wave),
       begin:()=>begin(g),step:dt=>{clock+=dt;step(g,dt)},
       spawn:()=>spawn(g),attack:(cell,dt)=>attack(g,cell,g.towers[cell],dt),hurt,
