@@ -6,14 +6,14 @@ const {execFileSync}=require('node:child_process');
 const path=require('node:path');
 const ROOT=path.resolve(__dirname,'../..');
 function readSource(ref){if(!ref)return fs.readFileSync(path.join(ROOT,'index.html'),'utf8');try{return execFileSync('git',['show',`${ref}:index.html`],{cwd:ROOT,maxBuffer:32*1024*1024,encoding:'utf8'})}catch(error){throw Error('Cannot read Git snapshot: '+(error.code||error.status)+'. Export it with git show and pass --source instead.')}}
-function createModel({ref=null,html=null}={}){
+function createModel({ref=null,html=null,prototypeSession=false}={}){
  const source=html??readSource(ref),script=[...source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
  if(!script)throw Error('Game script missing');
  const start=script.indexOf('const D=['),end=script.indexOf('\nconst GRAPHICS=');
  if(start<0||end<start)throw Error('Game core markers changed');
  const core=script.slice(start,end),one=name=>{const lines=script.split('\n').filter(l=>l.startsWith(`function ${name}(`));if(lines.length!==1)throw Error(`Expected actual ${name}`);return lines[0]};
  const functions=['resetGame','startLevel','nextLevel','globalWaveCleared','rewardStars','finishRun'].map(one).join('\n');
- const context=vm.createContext({});
+ const context=vm.createContext({prototypeSession});
  vm.runInContext(`${core}
  let g=initial(),metaLevels=[0,0,0,0,0],stars=0,bestWave=0,completed=false,runHearts=0,runEnded=false,buildCheckpoint=null;
  let runVariation=0,clock=0,selected=-1,focus=-1,paused=false,speed=1,choices=[],notice='',banner=null,shake=0;
@@ -26,7 +26,8 @@ function createModel({ref=null,html=null}={}){
  ${functions}
  function cover(cell,st,route){
   const p=pos(cell),r=st.range*S;let ground=0;
-  for(const i of route){const q=pos(i);if(Math.hypot(q.x-p.x,q.y-p.y)<=r)ground++;}
+  const lanes=typeof alternateRoute!=='undefined'&&alternateRoute?[route,alternateRoute]:[route];
+  for(const lane of lanes)for(const i of lane){const q=pos(i);if(Math.hypot(q.x-p.x,q.y-p.y)<=r)ground+=1/lanes.length;}
   const a=pos(ENTRY),b=pos(EXIT),dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),u=((p.x-a.x)*dx+(p.y-a.y)*dy)/len;
   const d=Math.abs((p.x-a.x)*dy-(p.y-a.y)*dx)/len,ar=r*(typeof airRange==='function'?airRange(g):AIR_RANGE);
   const half=d<ar?Math.sqrt(ar*ar-d*d):0;
@@ -71,7 +72,7 @@ function createModel({ref=null,html=null}={}){
   return result;
  }
  globalThis.api={
-  start(profile,hard=false,variation=0){runVariation=variation;metaLevels=[...profile];hardcore=hard;stars=0;bestWave=0;completed=hard;runHearts=0;runEnded=false;finalReward=null;startLevel(0)},
+  start(profile,hard=false,variation=0,startAt=0){runVariation=variation;metaLevels=[...profile];hardcore=hard;stars=0;bestWave=0;completed=hard;runHearts=0;runEnded=false;finalReward=null;startLevel(startAt,undefined,startAt)},
   data(){return {heroes:D,maps:MAPS,meta:META,bonuses:B}},
   view(){return {level,W,H,entry:ENTRY,exit:EXIT,wave:g.wave,money:g.money,life:g.life,active:g.active,ended:g.ended,bonus:g.bonus,retries:g.retries,runHearts,killed:g.killed,escaped:g.escaped,totalKills:g.totalKills,totalLeaks:g.totalLeaks,routeLength:g.route.length-1,towers:JSON.parse(JSON.stringify(g.towers)),perks:[...g.perks],doctrine:g.doctrine,n:globalWaveCleared(),clock}},
   options,

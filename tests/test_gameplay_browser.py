@@ -11,18 +11,18 @@ import test_browser as progression
 class GameplayBrowserTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        progression.ProgressionBrowserTests.setUpClass.__func__(cls)
         built = subprocess.run(["node", "-e", """
           const {createModel}=require('./tests/model.cjs');
           const fixture=require('./tests/fixtures/save-v38.json');
           const model=createModel();model.set();model.startLevel(3);
-          if(!model.buy(1,0)||!model.begin())throw Error('Legal preparation failed');
+          if(!model.buy(11,0)||!model.begin())throw Error('Legal preparation failed');
           model.spawn();model.setGame({clock:999});const state=model.state();
           console.log(JSON.stringify({...fixture,level:3,metaLevels:[0,0,0,0,0],
             runHearts:0,runEnded:false,completed:false,rewardOpen:false,metaLastEarned:null,
             workshopOpen:false,paused:false,speed:1,g:state.g,buildCheckpoint:state.buildCheckpoint}));
         """], cwd=progression.ROOT, text=True, capture_output=True, check=True)
         cls.active = json.loads(built.stdout)
+        progression.ProgressionBrowserTests.setUpClass.__func__(cls)
 
     @classmethod
     def tearDownClass(cls):

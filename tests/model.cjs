@@ -24,8 +24,8 @@ function oneLineFunction(name) {
   return matches[0];
 }
 
-function createModel() {
-  const context = vm.createContext({});
+function createModel({ prototypeSession = false } = {}) {
+  const context = vm.createContext({ prototypeSession });
   const core = uniqueSlice('const D=[', '\nconst GRAPHICS=');
   const functions = ['globalWaveCleared', 'rewardStars', 'finishRun', 'resetGame', 'startLevel', 'nextLevel'].map(oneLineFunction).join('\n');
   vm.runInContext(`${core}
@@ -43,7 +43,7 @@ function createModel() {
     ${functions}
     globalThis.api={
       set(input={}){
-        configureMap(input.level??0);g=initial();Object.assign(g,input.g||{});
+        configureMap(input.level??0,prototypeSession?2:0);g=initial();Object.assign(g,input.g||{});
         stars=input.stars??0;bestWave=input.bestWave??0;completed=input.completed??false;
         metaLevels=input.metaLevels??[0,0,0,0,0];runHearts=input.runHearts??0;
         hardcore=input.hardcore??false;clock=0;shake=0;
@@ -68,8 +68,8 @@ function createModel() {
   };
 }
 
-function createValidationModel() {
-  const context = vm.createContext({});
+function createValidationModel({ prototypeSession = false } = {}) {
+  const context = vm.createContext({ prototypeSession });
   const core = uniqueSlice('const D=[', '\nconst GRAPHICS=');
   const validation = uniqueSlice('// Save validation is pure:', '// End pure save validation.');
   vm.runInContext(`${core}\n${validation}\nglobalThis.validate=validateSaveData;globalThis.recover=getRecoverableProfile;`, context,
@@ -96,6 +96,7 @@ function createStorageModel(snapshot, raw=JSON.stringify(snapshot)) {
   const storage=uniqueSlice('let saveProblem=','function hideMenu()');
   vm.runInContext(`${core}\n${validation}
     const seed=JSON.parse(seedJson),SAVE_KEY='friends-defense-save-v38';
+    let bastionUnlocked=seed.bastionUnlocked??false,finaleUnlocked=seed.finaleUnlocked??false;
     let menuOpen=false,g=seed.g,metaLevels=seed.metaLevels,stars=seed.stars,bestWave=seed.bestWave;
     let completed=seed.completed,runHearts=seed.runHearts,runVariation=seed.runVariation,runEnded=seed.runEnded;
     let metaLastEarned=seed.metaLastEarned,rewardOpen=seed.rewardOpen,buildCheckpoint=seed.buildCheckpoint;
