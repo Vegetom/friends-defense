@@ -26,7 +26,8 @@ function createModel({ref=null,html=null,prototypeSession=false}={}){
  ${functions}
  function cover(cell,st,route){
   const p=pos(cell),r=st.range*S;let ground=0;
-  for(const i of route){const q=pos(i);if(Math.hypot(q.x-p.x,q.y-p.y)<=r)ground++;}
+  const lanes=typeof alternateRoute!=='undefined'&&alternateRoute?[route,alternateRoute]:[route];
+  for(const lane of lanes)for(const i of lane){const q=pos(i);if(Math.hypot(q.x-p.x,q.y-p.y)<=r)ground+=1/lanes.length;}
   const a=pos(ENTRY),b=pos(EXIT),dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),u=((p.x-a.x)*dx+(p.y-a.y)*dy)/len;
   const d=Math.abs((p.x-a.x)*dy-(p.y-a.y)*dx)/len,ar=r*(typeof airRange==='function'?airRange(g):AIR_RANGE);
   const half=d<ar?Math.sqrt(ar*ar-d*d):0;

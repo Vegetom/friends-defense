@@ -1,41 +1,46 @@
-# Prototype des paliers et des terrains
+# Campagne prototype et paliers
 
-Ouvrir `index.html?prototype=1` depuis un serveur local pour essayer la campagne. Le menu de départ propose aussi **Essai · Mare** et **Essai · Bastion**. Ces essais commencent au terrain choisi avec quelques évolutions permanentes déjà équipées. La campagne pilote, les deux essais et le mode développeur utilisent chacun leur propre sauvegarde. L’URL standard conserve les cartes et sauvegardes actuelles.
+Ouvrir `index.html?prototype=1`. Le menu **Terrain d’essai** lance l’un des sept terrains dans un profil séparé. Les essais offrent des évolutions permanentes déjà équipées. La campagne pilote, chaque terrain d’essai et le mode développeur ont leurs propres sauvegardes. Une tentative enregistrée dans le premier prototype achève son terrain sur la carte d’origine. La transition suivante ouvre la nouvelle carte.
 
 ```sh
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Ouvrir ensuite <http://127.0.0.1:8000/index.html?prototype=1>.
+Ouvrir <http://127.0.0.1:8000/index.html?prototype=1>.
 
-## Terrains
+## Sept terrains
 
-| Terrain | Partie à observer |
+| Terrain | Décision de placement |
 | --- | --- |
-| La Mare | Sur la grille 11 × 8, l’îlot central peut recevoir une tour qui vise le couloir des volants. Les tours de rive peuvent dévier le chemin de 16 à 18 cases. Le fond de l’eau ferme le passage terrestre. |
-| Le Bastion | Les terrasses bordent un zigzag de 22 cases. Le chemin est réservé aux ennemis. Les positions près de l’entrée, du coude et de la sortie permettent de concentrer les tirs à des moments différents. |
+| La Plaine | La clairière laisse assez d’espace pour créer un détour et resserrer la défense. |
+| La Mare | L’îlot couvre le couloir aérien. Des tours de rive peuvent rallonger le chemin terrestre de 16 à 18 cases. |
+| Les Deux Forteresses | Un pont relie deux cours. On peut concentrer ses tirs au pont ou garder une seconde ligne dans la cour arrière. |
+| Le Bastion | Un zigzag de 22 cases, avec des terrasses à l’entrée, au coude et près de la sortie. |
+| Le Défilé | Un anneau autour du massif central. Bloquer le passage nord envoie les ennemis au sud. |
+| L’Archipel | Deux entrées au sol et une jonction avec une sortie commune. Les ennemis terrestres utilisent les deux branches et les boss arrivent par l’entrée haute. |
+| La Couronne | Une diagonale brisée délimite trois poches de construction. Le placement détermine à quel moment attaquer le boss et son escorte. |
 
-Le prototype reprend les sprites, les vagues, les coûts, les boosts et les valeurs de combat existants. Il garde le verrou du Bastion sans évolution permanente. Les cinq autres terrains suivent leurs règles actuelles.
+## Paliers
 
-## Palier du Bastion
+Terminer le terrain 3 débloque le départ au Bastion. Terminer le terrain 6 débloque la finale à la Couronne. L’atelier propose les départs acquis et le bilan privilégie le plus avancé. Chaque départ crée une nouvelle tentative au budget de la carte, avec les évolutions du profil et zéro cœur. Les bonus et la doctrine de la tentative précédente repartent à zéro. Les vagues sautées ne donnent ni étoiles ni nouveau record. Les cœurs permettent toujours de reprendre depuis la préparation de la dernière vague.
 
-Dans la campagne pilote, vaincre le boss final et terminer le terrain 3 déverrouille le départ au Bastion. Après une fin de tentative, l’atelier propose les deux départs. Au Bastion, le joueur commence à la vague 1 avec 215 Z, ses évolutions permanentes et zéro cœur. Les bonus et la doctrine d’une tentative précédente repartent à zéro. Un départ avancé ne crédite aucune vague sautée, même si la tentative est abandonnée pendant la première vague. La sauvegarde conserve le départ choisi et les cœurs gardent leur logique de reprise par vague.
+## Résultats des simulations
 
-Le départ de la finale après le terrain 6 reste à prototyper.
+Huit comparaisons de campagnes entre les deux versions du prototype, avec quatre profils, les compositions air et zone, la politique équilibrée et une graine fixe. Les nombres de vagues terminées sont identiques dans toutes les paires.
 
-## Premiers résultats
+| Profil | Air | Zone |
+| --- | ---: | ---: |
+| Sans évolution | 8 | 7 |
+| Premières évolutions | 9 | 17 |
+| Intermédiaire | 31 | 31 |
+| Maximum | 70 | 70 |
 
-Les comparaisons utilisent le moteur réel, un départ au terrain étudié, les compositions air et zone, la politique d’achat équilibrée et la graine 1. Il s’agit de douze paires de simulations, avec trois profils par terrain.
-
-- À la Mare, la composition air avec les premiers pouvoirs termine huit vagues dans les deux versions. La composition zone passe de neuf à sept vagues terminées. Les profils intermédiaire et maximum franchissent les dix vagues avec les deux compositions.
-- Au Bastion, les deux compositions avec les premiers pouvoirs perdent en vague 1 sur les deux tracés. Les deux compositions intermédiaires terminent la vague 1 et les deux profils maximum franchissent les dix vagues sur les deux tracés. Au profil maximum, le premier achat air se déplace de la grille compacte à la terrasse centrale. Le profil maximum orienté zone privilégie une terrasse près de l’entrée.
-- Les résultats montrent des placements différents. La viabilité de la zone à faible progression sur la Mare et le confort du départ intermédiaire au Bastion restent à vérifier en jouant.
+Dans huit essais supplémentaires au départ de l’Archipel ou de la Couronne, les deux compositions au maximum terminent la campagne. Les profils intermédiaires testés perdent dès la première vague de ces deux départs directs. Le verrou du Bastion à zéro évolution tient. Une comparaison antérieure à la première version du prototype a aussi montré un recul de deux vagues à la Mare pour une composition zone avec peu d’évolutions. Ces résultats dépendent de la politique de placement automatisée.
 
 ```sh
-git show eeabe13:index.html >/tmp/paliers-reference.html
-node tools/simulations/run.cjs --source /tmp/paliers-reference.html --profiles few,intermediate,max --compositions air,zone --start-terrain 2
-node tools/simulations/run.cjs --prototype --profiles few,intermediate,max --compositions air,zone --start-terrain 2
-node tools/simulations/run.cjs --source /tmp/paliers-reference.html --profiles few,intermediate,max --compositions air,zone --start-terrain 4
-node tools/simulations/run.cjs --prototype --profiles few,intermediate,max --compositions air,zone --start-terrain 4
+node tools/simulations/run.cjs --ref b59246b --prototype --compositions air,zone
+node tools/simulations/run.cjs --prototype --compositions air,zone
+node tools/simulations/run.cjs --prototype --profiles intermediate,max --compositions air,zone --start-terrain 6
+node tools/simulations/run.cjs --prototype --profiles intermediate,max --compositions air,zone --start-terrain 7
 node tools/simulations/prove-bastion.cjs --prototype
 ```

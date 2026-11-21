@@ -7,7 +7,7 @@ const sourcePath=arg('--source',null),html=sourcePath?fs.readFileSync(sourcePath
 const ref=arg('--ref',null),out=arg('--out',null),dt=+arg('--dt','0.03333333333333333');
 const hardcore=args.includes('--hardcore');
 const prototypeSession=args.includes('--prototype'),startAt=Number(arg('--start-terrain','1'))-1;
-if(![0,1,3].includes(startAt))throw Error('Supported starts are terrains 1, 2 and 4');
+if(!Number.isInteger(startAt)||startAt<0||startAt>6)throw Error('Supported starts are terrains 1 to 7');
 const budgetPolicy=arg('--budget','auto');
 if(!['auto','supplies','contract'].includes(budgetPolicy))throw Error('Invalid budget policy');
 const doctrinePolicy=arg('--doctrine','auto');

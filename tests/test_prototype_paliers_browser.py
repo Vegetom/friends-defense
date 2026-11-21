@@ -27,18 +27,22 @@ class PrototypePaliersBrowserTests(unittest.TestCase):
         self.assertLessEqual(box["y"]+box["height"],height,box)
 
     def test_independent_lab_profiles_and_playable_maps(self):
-        for name,selector,level,route in [("Mare","#board",1,16),("Bastion","#board",3,22)]:
+        for level,(slug,name,route) in enumerate([
+            ("plaine","Plaine",9),("mare","Mare",16),("forteresses","Forteresses",10),
+            ("bastion","Bastion",22),("defile","Défilé",14),("archipel","Archipel",13),
+            ("couronne","Couronne",16),
+        ]):
             with self.subTest(name=name):
                 page = self.page({progression.NORMAL:progression.FIXTURE},
                                  query="?prototype=1",viewport={"width":568,"height":320})
-                link = page.get_by_role("link",name="Essai · "+name)
-                link.tap()
-                page.wait_for_url("**&lab="+name.lower())
+                page.locator("#labChoice").select_option(slug)
+                page.locator("#openLab").tap()
+                page.wait_for_url("**&lab="+slug)
                 self.assertIn(name.lower(), page.locator("#menuNew").inner_text().lower())
                 page.locator("#menuNew").tap()
                 self.assert_on_screen(page,"#metaPlay")
                 page.locator("#metaPlay").tap()
-                self.assert_on_screen(page,selector)
+                self.assert_on_screen(page,"#board")
                 self.assertIn(str(route)+" cases",page.locator("#route").inner_text())
                 key = f"friends-defense-proto-paliers-lab-{level}-save-v38"
                 before = self.saved(page,key)
@@ -82,3 +86,28 @@ class PrototypePaliersBrowserTests(unittest.TestCase):
         page.locator("#metaPlain").tap()
         self.assertEqual(self.saved(page,PROTOTYPE)["level"],0)
         self.assertTrue(self.saved(page,PROTOTYPE)["bastionUnlocked"])
+
+    def test_new_finale_checkpoint_and_old_archipelago_save(self):
+        seed = copy.deepcopy(progression.FIXTURE)
+        seed.update(level=5,bestWave=57,bastionUnlocked=True,buildCheckpoint=None)
+        seed["g"].update(wave=10,active=False,ended=True,life=5,bonus=False,bossDefeated=True)
+        page = self.page({PROTOTYPE:seed},query="?prototype=1",viewport={"width":568,"height":320})
+        self.continue_game(page)
+        self.assertEqual(page.locator("#board").evaluate("el=>el.width"),780)
+        self.assertTrue(self.saved(page,PROTOTYPE)["finaleUnlocked"])
+        self.assertIn("Couronne",page.locator(".unlockBastion").inner_text())
+        page.locator("#nextMap").tap()
+        page.locator("#mapsButton").tap()
+        page.locator("#rrImprove").tap()
+        for action in ["#metaPlain","#metaBastion","#metaPlay"]:
+            self.assert_on_screen(page,action)
+        page.locator("#metaPlay").tap()
+        start = self.saved(page,PROTOTYPE)
+        self.assertEqual((start["level"],start["g"]["layout"],start["g"]["runStart"]),(6,2,6))
+        self.assertEqual(start["runHearts"],0)
+        self.reload_and_continue(page)
+        page.locator("#mapsButton").tap()
+        end=self.saved(page,PROTOTYPE)
+        self.assertEqual(end["metaLastEarned"]["earned"],0)
+        self.assertEqual(end["bestWave"],start["bestWave"])
+        self.assertEqual(page.locator(".rrStage.done").count(),0)
