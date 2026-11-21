@@ -43,7 +43,7 @@ function createModel({ prototypeSession = false } = {}) {
     ${functions}
     globalThis.api={
       set(input={}){
-        configureMap(input.level??0);g=initial();Object.assign(g,input.g||{});
+        configureMap(input.level??0,prototypeSession?2:0);g=initial();Object.assign(g,input.g||{});
         stars=input.stars??0;bestWave=input.bestWave??0;completed=input.completed??false;
         metaLevels=input.metaLevels??[0,0,0,0,0];runHearts=input.runHearts??0;
         hardcore=input.hardcore??false;clock=0;shake=0;

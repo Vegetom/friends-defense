@@ -1,12 +1,8 @@
-# Campagne prototype et paliers
+# Campagne et paliers
 
-Ouvrir `index.html?prototype=1`. Le menu **Terrain d’essai** lance l’un des sept terrains dans un profil séparé. Les essais offrent des évolutions permanentes déjà équipées. La campagne pilote, chaque terrain d’essai et le mode développeur ont leurs propres sauvegardes. Une tentative enregistrée dans le premier prototype achève son terrain sur la carte d’origine. La transition suivante ouvre la nouvelle carte.
+Les nouveaux tracés sont actifs pour chaque nouveau terrain de la campagne en ligne. Le jeu lit la sauvegarde habituelle. Un terrain déjà enregistré poursuit son tracé historique jusqu’à sa prochaine transition ou au lancement d’une nouvelle tentative. Les paliers précédemment atteints sont retrouvés à partir des records et de la campagne en cours.
 
-```sh
-python -m http.server 8000 --bind 127.0.0.1
-```
-
-Ouvrir <http://127.0.0.1:8000/index.html?prototype=1>.
+Le menu d’essai reste disponible avec `?prototype=1`. Sa campagne et ses sept essais utilisent des sauvegardes distinctes. Pour un essai local, lancer `python -m http.server 8000 --bind 127.0.0.1`, puis ouvrir <http://127.0.0.1:8000/>.
 
 ## Sept terrains
 
