@@ -230,7 +230,7 @@ html:has(#menuHome:not([hidden])),body:has(#menuHome:not([hidden])){overflow:hid
 #fd15 .stathead{font-size:12px;font-weight:800;line-height:1.25;min-height:20px;margin:1px 24px 2px 0;color:#f5f7f9;overflow-wrap:anywhere}
 #fd15 .stathead .stars{color:#ffcf6c;white-space:nowrap;font-size:10px}#fd15 .statlist{display:grid;gap:2px;clear:both}
 #fd15 .stat{display:flex;justify-content:space-between;align-items:baseline;gap:5px;min-height:14px;font-size:11px;line-height:1.25;font-variant-numeric:tabular-nums}#fd15 .stat .label{color:#bed4e0;white-space:nowrap}#fd15 .stat .values{white-space:nowrap;font-weight:600;color:#edf5fa}#fd15 .stat .arrow{color:#8aa6b7;margin:0 3px}#fd15 .stat .gain{color:#a7ffaf}#fd15 .stat .unit{font-size:10px;color:#9fbac9;margin-left:2px}
-#fd15 .acts{gap:4px;margin-top:6px}#fd15 .acts button{min-height:32px;padding:5px 4px;font-size:11px;line-height:1.15;white-space:nowrap}#fd15 .acts:has(button[hidden]+button[hidden]){display:none}
+#fd15 .acts{gap:4px;margin-top:6px}#fd15 .acts button{min-height:32px;padding:5px 4px;font-size:11px;line-height:1.15;white-space:nowrap}#fd15 .acts:not(:has(> button:not([hidden]))){display:none}
 #fd15 .arena{justify-content:center;align-items:flex-start}
 #fd15 #panel.side{top:182px;bottom:auto}#fd15 .arena.side{right:250px}
 #fd15 .freshhint{color:#a7e8d3}
@@ -276,7 +276,7 @@ html:has(#menuHome:not([hidden])),body:has(#menuHome:not([hidden])){overflow:hid
 #fd15 #panel .stat .arrow{margin:0 2px}#fd15 #panel .stat .unit{font-size:9px;margin-left:1px}
 #fd15 #panel .stat .label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #fd15 #panel .acts{display:flex;gap:3px;margin-top:5px}#fd15 #panel .acts button{font-size:10px;min-width:0;min-height:30px;padding:3px 4px;line-height:1.12;border-radius:6px;white-space:normal}
-#fd15 #panel .acts button small{display:block;font-size:9px;font-weight:600}#fd15 #panel .acts:has(button[hidden]+button[hidden]){display:none}
+#fd15 #panel .acts button small{display:block;font-size:9px;font-weight:600}#fd15 #panel .acts:not(:has(> button:not([hidden]))){display:none}
 #fd15 .arena,#fd15 .arena.side{left:0;right:0}
 #fd15 #bonus{top:50%;transform:translateY(-50%);max-height:80%;overflow:auto;max-width:420px;margin:auto;padding:13px}#fd15 .bonusTitle{font-size:11px;font-weight:800;color:#ffdb83;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}#fd15 .bonusSub{display:block;color:#b5d0df;font-size:11px;margin:4px 0 8px}#fd15 #bonus .perk{display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;padding:10px 12px;background:linear-gradient(115deg,#21485c,#16364d);border-color:#80b1c7}#fd15 #bonus .perk small{color:#a2dce6;font-size:10px;font-weight:700}#fd15 #bonus .perk b{font-size:14px;color:#ffda81}#fd15 #bonus .perk span{font-size:11px;font-weight:500;line-height:1.35;color:#e3f2f8}#fd15 #economyInfo{border-top:1px solid #4c677b;padding-top:9px;margin-top:9px}#fd15 #economyInfo b{display:block;font-size:12px;color:#ffdd8f;margin-top:6px}#fd15 #economyInfo small{margin-top:3px}#fd15 #settings{max-height:85%;overflow:auto}
 

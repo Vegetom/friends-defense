@@ -58,6 +58,40 @@ class GameplayBrowserTests(unittest.TestCase):
         self.assertIn("gel −20 %", details)
         self.assertIn("pas les boucliers", details)
 
+    def test_tower_can_evolve_even_when_it_is_the_only_visible_action(self):
+        for wave, fresh, budget in [(0, True, 150), (1, False, 150), (1, False, 49)]:
+            with self.subTest(wave=wave, budget=budget):
+                seed = copy.deepcopy(progression.FIXTURE)
+                seed["buildCheckpoint"] = None
+                seed["g"].update(wave=wave, money=budget, towers={
+                    "31": {"type": 0, "lvl": 1, "fresh": fresh, "invested": 35, "cd": 0}
+                })
+                page = self.page({progression.NORMAL: seed}, viewport={"width": 844, "height": 390})
+                self.continue_game(page)
+                board = page.locator("#board").bounding_box()
+                page.touchscreen.tap(board["x"] + board["width"] * .15,
+                                     board["y"] + board["height"] * 3.5 / 8)
+                evolve = page.locator("#upgrade")
+                self.assertTrue(evolve.is_visible())
+                self.assertEqual(page.locator("#remove").is_visible(), fresh)
+                self.assertFalse(page.locator("#relocate").is_visible())
+                if budget < 50:
+                    self.assertTrue(evolve.is_disabled())
+                    continue
+                evolve.tap()
+                state = self.saved(page)["g"]
+                self.assertEqual((state["towers"]["31"]["lvl"], state["money"]), (2, 100))
+                if fresh:
+                    continue
+                evolve.tap()
+                state = self.saved(page)["g"]
+                self.assertEqual((state["towers"]["31"]["lvl"], state["money"]), (3, 30))
+                self.assertTrue(page.locator("#panel").is_visible())
+                self.assertFalse(page.locator("#panel .acts").is_visible())
+                page.locator("#start").tap()
+                page.locator("#pause").tap()
+                self.assertFalse(page.locator("#panel").is_visible())
+
     def test_legacy_and_new_enemy_snapshots_survive_a_paused_reload(self):
         old = json.loads((Path(progression.ROOT) / "tests/fixtures/save-v38-air-boss.json").read_text())
         for seed in (old, self.active):
